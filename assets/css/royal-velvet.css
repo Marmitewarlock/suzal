@@ -1410,7 +1410,10 @@ html, body, * {
   font-family: "Inter", system-ui, sans-serif !important;
 }
 
+:root.theme-dark,
 body.theme-dark {
-  background: purple !important;
+  --background-primary: #111 !important;
+  --background-secondary: #222 !important;
 }
+
 
