@@ -1,6 +1,11 @@
-# ssssssuuuuuzzzzzaaaalllll
-aaaaaaaahhh
-? 
-## eep
-### oh no
-#### bibble
+# Hi, I’m Suzy
+
+I do not know how to code.
+
+---
+
+## Find me elsewhere
+
+- **Bluesky:** https://bsky.app/profile/suz.al
+- **Blog** blog.suz.al
+- **Email:** hello@suz.al
