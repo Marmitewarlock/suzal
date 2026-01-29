@@ -40,6 +40,7 @@ body.theme-dark h6 {
   margin-top: 1.6em;
   margin-bottom: 0.6em;
   line-height: 1.3;
+  color: var(--text-normal); /* ← restored heading colour */
 }
 
 /*──────────────────────────────────────────────
