@@ -40,7 +40,7 @@ body.theme-dark h6 {
   margin-top: 1.6em;
   margin-bottom: 0.6em;
   line-height: 1.3;
-  color: var(--text-normal); /* ← restored heading colour */
+  color: var(--text-normal);
 }
 
 /*──────────────────────────────────────────────
@@ -65,7 +65,7 @@ body.theme-dark h6 {
   font-weight: 600;
 }
 
-/* Optional: reusable gradient class (no animation) */
+/* Optional reusable gradient class */
 .gradient-text {
   background: linear-gradient(
     90deg,
@@ -216,27 +216,16 @@ html, body {
   font-family: "Inter", system-ui, sans-serif !important;
 }
 
-/* Force Royal Velvet colours over GitHub's defaults */
-body.theme-dark,
-body.theme-dark .markdown-body {
+/*──────────────────────────────────────────────
+  FINAL HARD OVERRIDE
+──────────────────────────────────────────────*/
+
+/* Force all content text to use theme colours */
+.markdown-preview-view,
+.markdown-preview-view * {
   color: var(--text-normal) !important;
 }
 
-body.theme-dark .markdown-body p,
-body.theme-dark .markdown-body li,
-body.theme-dark .markdown-body span {
-  color: var(--text-normal) !important;
-}
-
-body.theme-dark .markdown-body h2,
-body.theme-dark .markdown-body h3,
-body.theme-dark .markdown-body h4,
-body.theme-dark .markdown-body h5,
-body.theme-dark .markdown-body h6 {
-  color: var(--text-normal) !important;
-}
-
-body.theme-dark .markdown-body a {
+.markdown-preview-view a {
   color: var(--text-accent) !important;
 }
-
