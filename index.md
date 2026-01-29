@@ -1,3 +1,8 @@
+---
+layout: default
+---
+
+
 # Hi, I'm Suzy
 
 I do not know how to code.
