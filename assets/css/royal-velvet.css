@@ -67,7 +67,6 @@ body.theme-dark h6 {
   color: transparent;
   -webkit-text-fill-color: transparent;
   font-weight: 600;
-  animation: rainbowShift 5s linear infinite;
 }
 
 /* Optional: reusable gradient class */
