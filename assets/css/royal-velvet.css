@@ -92,13 +92,27 @@ p {
   margin: 1em 0;
 }
 
-/* Links */
+/* Normal text links — reversed gradient */
 a {
-  color: var(--text-accent);
-  text-decoration: none;
+  background: linear-gradient(
+    90deg,
+    #c86eff,
+    #6ebaff,
+    #6effa3,
+    #fff56e,
+    #ffa95f,
+    #ff6ec7
+  );
+  background-size: 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  transition: background-position 0.4s ease;
 }
+
 a:hover {
-  text-decoration: underline;
+  background-position: 100% 0;
 }
 
 /* Code blocks */
@@ -176,40 +190,9 @@ ol {
 }
 
 /*──────────────────────────────────────────────
-  Social Icons
-──────────────────────────────────────────────*/
-
-.social-row {
-  display: flex;
-  justify-content: center;
-  gap: 1.6rem;
-  margin: 2rem 0;
-}
-
-.social-row a {
-  display: inline-flex;
-  width: 32px;
-  height: 32px;
-  color: var(--text-normal);
-  opacity: 0.8;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.social-row a:hover {
-  opacity: 1;
-  transform: translateY(-2px);
-}
-
-.social-row svg {
-  width: 100%;
-  height: 100%;
-  fill: currentColor;
-}
-
-/*──────────────────────────────────────────────
   Global Hard Override
 ──────────────────────────────────────────────*/
 
 body.theme-dark * {
   color: inherit;
-} 
+}
