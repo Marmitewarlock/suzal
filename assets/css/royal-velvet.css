@@ -1463,7 +1463,57 @@ what causes this? - .CodeMirror.cm-spell-error setting red a squiggly line as ba
   -webkit-text-fill-color: transparent;
 }
 
+/*──────────────────────────────────────────────
+  Callouts — Royal Velvet style for GitHub Pages
+──────────────────────────────────────────────*/
 
+.callout {
+  border-left: 4px solid var(--text-accent);
+  background: var(--background-secondary);
+  padding: 1rem 1.2rem;
+  margin: 1.4rem 0;
+  border-radius: 6px;
+}
+
+.callout-title {
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  color: var(--text-accent);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.callout-title::before {
+  content: attr(data-icon);
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.callout-content {
+  color: var(--text-normal);
+  line-height: 1.6;
+}
+
+/* Callout types */
+.callout[data-callout="note"] {
+  --text-accent: #89b4fa;
+}
+.callout[data-callout="warning"] {
+  --text-accent: #f9e2af;
+}
+.callout[data-callout="danger"] {
+  --text-accent: #f38ba8;
+}
+.callout[data-callout="tip"] {
+  --text-accent: #a6e3a1;
+}
+.callout[data-callout="info"] {
+  --text-accent: #94e2d5;
+}
+
+
+/* font override */
 html, body {
   font-family: "Inter", system-ui, sans-serif !important;
 }
