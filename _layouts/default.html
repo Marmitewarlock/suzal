@@ -1,23 +1,67 @@
 <!DOCTYPE html>
 <html lang="en" class="theme-dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ page.title }}</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Royal Velvet stylesheet -->
-    <link rel="stylesheet" href="{{ '/suzal/assets/css/royal-velvet.css' | relative_url }}">
+  <title>{{ page.title }} — {{ site.title }}</title>
 
-    <!-- Optional: SEO and feed plugins -->
-    {% seo %}
-    {% feed_meta %}
-  </head>
+  <link rel="stylesheet" href="{{ '/assets/css/royal-velvet.css' | relative_url }}">
+</head>
+  
 
-  <body class="theme-dark">
-    <div class="markdown-preview-view">
-      <div class="markdown-preview-sizer markdown-preview-section">
-        {{ content }}
+<body class="theme-dark">
+  <div class="app-container">
+    <div class="workspace">
+      <div class="mod-root">
+        <div class="workspace-leaf">
+          <div class="workspace-leaf-content">
+            <div class="view-content">
+              <div class="markdown-preview-view">
+                <div class="markdown-preview-sizer markdown-preview-section">
+                  {{ content }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </body>
+  </div>
+<script>
+document.querySelectorAll("blockquote").forEach(b => {
+  const first = b.firstElementChild;
+  if (!first) return;
+
+  const match = first.textContent.match(/^
+
+\[!(\w+)\]
+
+\s*(.*)/);
+  if (!match) return;
+
+  const type = match[1].toLowerCase();
+  const title = match[2] || type;
+
+  const wrapper = document.createElement("div");
+  wrapper.className = "callout";
+  wrapper.dataset.callout = type;
+
+  const titleEl = document.createElement("div");
+  titleEl.className = "callout-title";
+  titleEl.dataset.icon = type[0].toUpperCase();
+  titleEl.textContent = title;
+
+  const contentEl = document.createElement("div");
+  contentEl.className = "callout-content";
+  contentEl.innerHTML = b.innerHTML.replace(first.outerHTML, "");
+
+  wrapper.appendChild(titleEl);
+  wrapper.appendChild(contentEl);
+
+  b.replaceWith(wrapper);
+});
+</script>
+
+</body>
 </html>
