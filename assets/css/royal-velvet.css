@@ -1,3 +1,77 @@
+/* Royal Velvet — GitHub Pages Core */
+
+:root.theme-dark {
+  /* Core palette */
+  --background-primary: #111;
+  --background-secondary: #1a1a1a;
+  --background-tertiary: #222;
+
+  --text-normal: #e6e6e6;
+  --text-muted: #b3b3b3;
+  --text-accent: #cba6f7;
+
+  --border-color: #2a2a2a;
+}
+
+/* Apply background + text */
+body.theme-dark {
+  background-color: var(--background-primary);
+  color: var(--text-normal);
+}
+
+/* Headings */
+body.theme-dark h1,
+body.theme-dark h2,
+body.theme-dark h3,
+body.theme-dark h4,
+body.theme-dark h5,
+body.theme-dark h6 {
+  color: var(--text-normal);
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+}
+
+/* Paragraphs */
+body.theme-dark p {
+  color: var(--text-normal);
+  line-height: 1.6;
+  margin: 1em 0;
+}
+
+/* Links */
+body.theme-dark a {
+  color: var(--text-accent);
+  text-decoration: none;
+}
+body.theme-dark a:hover {
+  text-decoration: underline;
+}
+
+/* Code blocks */
+body.theme-dark pre,
+body.theme-dark code {
+  background: var(--background-secondary);
+  color: var(--text-normal);
+  padding: 0.4em 0.6em;
+  border-radius: 6px;
+}
+
+/* Blockquotes */
+body.theme-dark blockquote {
+  border-left: 3px solid var(--text-accent);
+  padding-left: 1em;
+  color: var(--text-muted);
+  margin: 1.2em 0;
+}
+
+/* Lists */
+body.theme-dark ul,
+body.theme-dark ol {
+  margin-left: 1.4em;
+  line-height: 1.6;
+}
+
+
 /*───────────────────────────────────────────────────────
 Royal Velvet
 Version 0.11.8
@@ -1390,34 +1464,7 @@ what causes this? - .CodeMirror.cm-spell-error setting red a squiggly line as ba
 }
 
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
-
-body {
+html, body {
   font-family: "Inter", system-ui, sans-serif !important;
-}
-
-.markdown-preview-view {
-  font-family: "Inter", system-ui, sans-serif !important;
-}
-
-.markdown-preview-view,
-
-.markdown-preview-view * {
-  font-family: "Inter", system-ui, sans-serif !important;
-}
-
-html, body, * {
-  font-family: "Inter", system-ui, sans-serif !important;
-}
-
-:root.theme-dark,
-body.theme-dark {
-  --background-primary: #111 !important;
-  --background-secondary: #222 !important;
-}
-
-body.theme-dark {
-  background: #111 !important;
-  color: #eee !important;
 }
 
