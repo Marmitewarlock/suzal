@@ -44,7 +44,7 @@ body.theme-dark {
 ──────────────────────────────────────────────*/
 
 /* H1 — gradient */
-body.theme-dark h1 {
+h1 {
   background: linear-gradient(
     90deg,
     #ff6ec7,
@@ -65,45 +65,45 @@ body.theme-dark h1 {
 }
 
 /* Jewel‑tone headings (H2/H4 swapped) */
-body.theme-dark h2 {
-  color: var(--teal) !important;      /* was lavender */
+h2 {
+  color: var(--teal) !important;      /* teal */
 }
 
-body.theme-dark h3 {
-  color: var(--sapphire) !important;
+h3 {
+  color: var(--sapphire) !important;  /* sapphire */
 }
 
-body.theme-dark h4 {
-  color: var(--lavender) !important;  /* was teal */
+h4 {
+  color: var(--lavender) !important;  /* lavender */
 }
 
-body.theme-dark h5 {
-  color: var(--gold) !important;
+h5 {
+  color: var(--gold) !important;      /* gold */
 }
 
-body.theme-dark h6 {
-  color: var(--rose) !important;
+h6 {
+  color: var(--rose) !important;      /* rose */
 }
 
 /* Paragraphs */
-body.theme-dark p {
+p {
   color: var(--text-normal);
   line-height: 1.6;
   margin: 1em 0;
 }
 
 /* Links */
-body.theme-dark a {
+a {
   color: var(--text-accent);
   text-decoration: none;
 }
-body.theme-dark a:hover {
+a:hover {
   text-decoration: underline;
 }
 
 /* Code blocks */
-body.theme-dark pre,
-body.theme-dark code {
+pre,
+code {
   background: var(--background-secondary);
   color: var(--text-normal);
   padding: 0.4em 0.6em;
@@ -112,7 +112,7 @@ body.theme-dark code {
 }
 
 /* Blockquotes */
-body.theme-dark blockquote {
+blockquote {
   border-left: 3px solid var(--text-accent);
   padding-left: 1em;
   color: var(--text-muted);
@@ -120,8 +120,8 @@ body.theme-dark blockquote {
 }
 
 /* Lists */
-body.theme-dark ul,
-body.theme-dark ol {
+ul,
+ol {
   margin-left: 1.4em;
   line-height: 1.6;
 }
@@ -212,4 +212,4 @@ body.theme-dark ol {
 
 body.theme-dark * {
   color: inherit;
-}
+} 
