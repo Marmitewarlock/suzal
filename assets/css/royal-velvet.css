@@ -1416,4 +1416,8 @@ body.theme-dark {
   --background-secondary: #222 !important;
 }
 
+body.theme-dark {
+  background: #111 !important;
+  color: #eee !important;
+}
 
