@@ -15,6 +15,15 @@ I do not know how to code.
 - **Blog** [blog.suz.al](https://blog.suz.al)
 - **Email:** hello@suz.al
 
+<div class="social-row">
+
+  <a href="https://bsky.app/profile/suz.al">
+    <svg>…</svg>
+  </a>
+  <a href="mailto:hello@suz.al">
+    <svg>…</svg>
+  </a>
+</div>
 ---
 
 
