@@ -17,68 +17,39 @@ I do not know how to code.
 
 ---
 
-# Text Formatting Options
+
+# Royal Velvet Demo
+
+This page helps confirm that your dark theme, colours, spacing, and callouts are all working correctly.
 
 ## Headings
 
-# Heading 1
-## Heading 2
-### Heading 3
-#### Heading 4
-##### Heading 5
-###### Heading 6
+### H3 Heading
+Regular text should appear in **light grey**, not white.
+
+#### H4 Heading
+This helps confirm the heading colour rule is active.
 
 ---
 
 ## Paragraphs
 
-This is a regular paragraph of text demonstrating line length, wrapping, and spacing.
+This is a normal paragraph. It should be light grey (`--text-normal`) on a dark background.  
+Links should appear in your accent colour: [example link](https://example.com).
+
+Muted text example:
+
+*This line should appear in muted grey (`--text-muted`).*
 
 ---
 
-## Emphasis
+## Code Blocks
 
-- *Italic*
-- **Bold**
-- ***Bold Italic***
-- ~~Strikethrough~~
+Inline code looks like this: `console.log("hello")`.
 
----
+A fenced code block:
 
-## Links
-
-[Inline link](https://example.com)
-
----
-
-## Lists
-
-### Unordered
-- Item one
-- Item two
-  - Nested item
-
-### Ordered
-1. First
-2. Second
-3. Third
-
----
-
-## Blockquotes
-
-> This is a blockquote.  
-> It supports multiple lines.
-
----
-
-## Code
-
-### Inline code
-`inline code example`
-
-### Code block
 ```js
-function hello() {
-  console.log("Hello world");
+function greet() {
+  return "Hello, Royal Velvet!";
 }
