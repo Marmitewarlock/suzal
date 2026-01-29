@@ -1409,3 +1409,8 @@ body {
 html, body, * {
   font-family: "Inter", system-ui, sans-serif !important;
 }
+
+body.theme-dark {
+  background: purple !important;
+}
+
