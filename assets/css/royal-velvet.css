@@ -1389,6 +1389,8 @@ what causes this? - .CodeMirror.cm-spell-error setting red a squiggly line as ba
 
 
 body.theme-dark {
-  background: red !important;
+  background: #111 !important;
+  color: #eee !important;
 }
+
 
