@@ -11,9 +11,12 @@ I do not know how to code.
 
 ## Find me elsewhere
 
-[bluesky](https://bsky.app/profile/suz.al) 
-[blogging about my cancer hole](https://bloh.suz.al)
+[bluesky](https://bsky.app/profile/suz.al)
+
+[blogging about my cancer hole](https://blog.suz.al)
+
 [email](mailto:hello@suz.al)
+
 ---
 
 
