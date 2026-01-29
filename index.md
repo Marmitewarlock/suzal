@@ -16,12 +16,10 @@ I do not know how to code.
 - **Email:** hello@suz.al
 
 <div class="social-row">
-
-  <a href="https://bsky.app/profile/suz.al">
-    <svg>…</svg>
-  </a>
-  <a href="mailto:hello@suz.al">
-    <svg>…</svg>
+  <a href="#">
+    <svg viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" />
+    </svg>
   </a>
 </div>
 ---
