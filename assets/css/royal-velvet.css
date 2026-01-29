@@ -1386,3 +1386,9 @@ what causes this? - .CodeMirror.cm-spell-error setting red a squiggly line as ba
 .view-header-title::spelling-error{
   -webkit-text-fill-color: transparent;
 }
+
+
+body.theme-dark {
+  background: red !important;
+}
+
