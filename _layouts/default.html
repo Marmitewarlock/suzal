@@ -28,5 +28,40 @@
       </div>
     </div>
   </div>
+<script>
+document.querySelectorAll("blockquote").forEach(b => {
+  const first = b.firstElementChild;
+  if (!first) return;
+
+  const match = first.textContent.match(/^
+
+\[!(\w+)\]
+
+\s*(.*)/);
+  if (!match) return;
+
+  const type = match[1].toLowerCase();
+  const title = match[2] || type;
+
+  const wrapper = document.createElement("div");
+  wrapper.className = "callout";
+  wrapper.dataset.callout = type;
+
+  const titleEl = document.createElement("div");
+  titleEl.className = "callout-title";
+  titleEl.dataset.icon = type[0].toUpperCase();
+  titleEl.textContent = title;
+
+  const contentEl = document.createElement("div");
+  contentEl.className = "callout-content";
+  contentEl.innerHTML = b.innerHTML.replace(first.outerHTML, "");
+
+  wrapper.appendChild(titleEl);
+  wrapper.appendChild(contentEl);
+
+  b.replaceWith(wrapper);
+});
+</script>
+
 </body>
 </html>
