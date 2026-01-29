@@ -43,13 +43,8 @@ body.theme-dark h6 {
 }
 
 /*──────────────────────────────────────────────
-  Gradient Titles (H1 default)
+  Gradient Titles (H1 default, no animation)
 ──────────────────────────────────────────────*/
-
-@keyframes rainbowShift {
-  0% { background-position: 0% }
-  100% { background-position: 100% }
-}
 
 .markdown-preview-view h1 {
   background: linear-gradient(
@@ -69,7 +64,7 @@ body.theme-dark h6 {
   font-weight: 600;
 }
 
-/* Optional: reusable gradient class */
+/* Optional: reusable gradient class (no animation) */
 .gradient-text {
   background: linear-gradient(
     90deg,
