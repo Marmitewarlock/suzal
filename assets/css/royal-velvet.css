@@ -89,7 +89,6 @@ body.theme-dark h6 {
   font-size: 2.5rem;
   line-height: 1.2;
   text-align: center;
-  animation: rainbowShift 5s linear infinite;
 }
 
 /* Paragraphs */
