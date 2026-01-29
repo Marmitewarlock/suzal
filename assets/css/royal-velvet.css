@@ -147,6 +147,25 @@ this hides most of the Base64 encoded font data below */
 
 /* Fira Sans */
 
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    #ff6ec7,
+    #ffa95f,
+    #fff56e,
+    #6effa3,
+    #6ebaff,
+    #c86eff
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-weight: 600;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  text-align: center;
+}
 
 
 @font-face {
