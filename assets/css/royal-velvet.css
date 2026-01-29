@@ -64,9 +64,9 @@ body.theme-dark h1 {
   margin-bottom: 0.6em;
 }
 
-/* Jewel‑tone headings */
+/* Jewel‑tone headings (H2/H4 swapped) */
 body.theme-dark h2 {
-  color: var(--teal) !important;
+  color: var(--teal) !important;      /* was lavender */
 }
 
 body.theme-dark h3 {
@@ -74,7 +74,7 @@ body.theme-dark h3 {
 }
 
 body.theme-dark h4 {
-  color: var(--lavender) !important;
+  color: var(--lavender) !important;  /* was teal */
 }
 
 body.theme-dark h5 {
@@ -207,7 +207,7 @@ body.theme-dark ol {
 }
 
 /*──────────────────────────────────────────────
-  Global Hard Override (ensures colours apply)
+  Global Hard Override
 ──────────────────────────────────────────────*/
 
 body.theme-dark * {
