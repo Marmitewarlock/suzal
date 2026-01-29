@@ -2,8 +2,8 @@
   Royal Velvet — GitHub Pages Core
 ──────────────────────────────────────────────*/
 
-/* Dark theme palette */
-:root.theme-dark {
+/* Dark theme palette — moved to body.theme-dark */
+body.theme-dark {
   --background-primary: #111;
   --background-secondary: #1a1a1a;
   --background-tertiary: #222;
@@ -220,14 +220,12 @@ html, body {
   FINAL HARD OVERRIDE
 ──────────────────────────────────────────────*/
 
-/* Override GitHub's markdown-body defaults */
-body.theme-dark .markdown-body,
-body.theme-dark .markdown-body * {
+/* Force all content text to use theme colours */
+.markdown-preview-view,
+.markdown-preview-view * {
   color: var(--text-normal) !important;
 }
 
-body.theme-dark .markdown-body a {
+.markdown-preview-view a {
   color: var(--text-accent) !important;
-}
-
 }
