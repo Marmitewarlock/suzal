@@ -6,9 +6,9 @@
 
   <title>{{ page.title }} — {{ site.title }}</title>
 
+  <!-- Correct CSS path -->
   <link rel="stylesheet" href="{{ '/assets/css/royal-velvet.css' | relative_url }}">
 </head>
-  
 
 <body class="theme-dark">
   <div class="app-container">
@@ -17,18 +17,29 @@
         <div class="workspace-leaf">
           <div class="workspace-leaf-content">
             <div class="view-content">
+
+              <!-- Guaranteed fix: remove GitHub's markdown-body wrapper -->
+              {% capture raw %}{{ content }}{% endcapture %}
+              {% assign cleaned = raw 
+                | replace: 'class="markdown-body"', '' 
+                | replace: "markdown-body", "" 
+              %}
+
               <div class="markdown-preview-view">
                 <div class="markdown-preview-sizer markdown-preview-section">
-                  {{ content }}
+                  {{ cleaned }}
                 </div>
               </div>
+
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
 <script>
+/* Callout conversion */
 document.querySelectorAll("blockquote").forEach(b => {
   const first = b.firstElementChild;
   if (!first) return;
