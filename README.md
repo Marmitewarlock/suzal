@@ -1,4 +1,4 @@
-<div class="gradient-text">Hi, I'm Suzy</div>
+# Hi, I'm Suzy
 
 I do not know how to code.
 
