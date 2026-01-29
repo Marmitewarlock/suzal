@@ -215,3 +215,28 @@ body.theme-dark ol {
 html, body {
   font-family: "Inter", system-ui, sans-serif !important;
 }
+
+/* Force Royal Velvet colours over GitHub's defaults */
+body.theme-dark,
+body.theme-dark .markdown-body {
+  color: var(--text-normal) !important;
+}
+
+body.theme-dark .markdown-body p,
+body.theme-dark .markdown-body li,
+body.theme-dark .markdown-body span {
+  color: var(--text-normal) !important;
+}
+
+body.theme-dark .markdown-body h2,
+body.theme-dark .markdown-body h3,
+body.theme-dark .markdown-body h4,
+body.theme-dark .markdown-body h5,
+body.theme-dark .markdown-body h6 {
+  color: var(--text-normal) !important;
+}
+
+body.theme-dark .markdown-body a {
+  color: var(--text-accent) !important;
+}
+
