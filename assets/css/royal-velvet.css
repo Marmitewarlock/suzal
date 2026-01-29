@@ -1,8 +1,7 @@
 /*──────────────────────────────────────────────
-  Royal Velvet — GitHub Pages Core
+  Royal Velvet — Theme Variables
 ──────────────────────────────────────────────*/
 
-/* Dark theme palette — moved to body.theme-dark */
 body.theme-dark {
   --background-primary: #111;
   --background-secondary: #1a1a1a;
@@ -10,44 +9,42 @@ body.theme-dark {
 
   --text-normal: #e6e6e6;
   --text-muted: #b3b3b3;
-  --text-accent: #cba6f7;
 
+  /* Accent colours */
+  --lavender: #cba6f7;
+  --sapphire: #89b4fa;
+  --teal: #94e2d5;
+  --gold: #f9e2af;
+  --rose: #f38ba8;
+
+  --text-accent: var(--lavender);
   --border-color: #2a2a2a;
 }
 
-/* Base layout */
+/*──────────────────────────────────────────────
+  Base Layout
+──────────────────────────────────────────────*/
+
 body.theme-dark {
   background-color: var(--background-primary);
   color: var(--text-normal);
   margin: 0;
   padding: 0;
+  font-family: "Inter", system-ui, sans-serif !important;
 }
 
-/* Centered reading column */
 .markdown-preview-view {
   max-width: 720px;
   margin: 0 auto;
   padding: 2rem;
 }
 
-/* Typography */
-body.theme-dark h1,
-body.theme-dark h2,
-body.theme-dark h3,
-body.theme-dark h4,
-body.theme-dark h5,
-body.theme-dark h6 {
-  margin-top: 1.6em;
-  margin-bottom: 0.6em;
-  line-height: 1.3;
-  color: var(--text-normal);
-}
-
 /*──────────────────────────────────────────────
-  Gradient Titles (H1 default, no animation)
+  Typography
 ──────────────────────────────────────────────*/
 
-.markdown-preview-view h1 {
+/* H1 — gradient */
+body.theme-dark h1 {
   background: linear-gradient(
     90deg,
     #ff6ec7,
@@ -60,31 +57,32 @@ body.theme-dark h6 {
   background-size: 300%;
   background-clip: text;
   -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
   font-weight: 600;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
 }
 
-/* Optional reusable gradient class */
-.gradient-text {
-  background: linear-gradient(
-    90deg,
-    #ff6ec7,
-    #ffa95f,
-    #fff56e,
-    #6effa3,
-    #6ebaff,
-    #c86eff
-  );
-  background-size: 300%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  font-weight: 600;
-  font-size: 2.5rem;
-  line-height: 1.2;
-  text-align: center;
+/* Jewel‑tone headings */
+body.theme-dark h2 {
+  color: var(--lavender) !important;
+}
+
+body.theme-dark h3 {
+  color: var(--sapphire) !important;
+}
+
+body.theme-dark h4 {
+  color: var(--teal) !important;
+}
+
+body.theme-dark h5 {
+  color: var(--gold) !important;
+}
+
+body.theme-dark h6 {
+  color: var(--rose) !important;
 }
 
 /* Paragraphs */
@@ -129,7 +127,7 @@ body.theme-dark ol {
 }
 
 /*──────────────────────────────────────────────
-  Callouts — Royal Velvet style
+  Callouts
 ──────────────────────────────────────────────*/
 
 .callout {
@@ -162,23 +160,23 @@ body.theme-dark ol {
 
 /* Callout types */
 .callout[data-callout="note"] {
-  --text-accent: #89b4fa;
+  --text-accent: var(--sapphire);
 }
 .callout[data-callout="warning"] {
-  --text-accent: #f9e2af;
+  --text-accent: var(--gold);
 }
 .callout[data-callout="danger"] {
-  --text-accent: #f38ba8;
+  --text-accent: var(--rose);
 }
 .callout[data-callout="tip"] {
-  --text-accent: #a6e3a1;
+  --text-accent: var(--teal);
 }
 .callout[data-callout="info"] {
-  --text-accent: #94e2d5;
+  --text-accent: var(--teal);
 }
 
 /*──────────────────────────────────────────────
-  Social icon row
+  Social Icons
 ──────────────────────────────────────────────*/
 
 .social-row {
@@ -209,23 +207,9 @@ body.theme-dark ol {
 }
 
 /*──────────────────────────────────────────────
-  Font override
+  Global Hard Override (ensures colours apply)
 ──────────────────────────────────────────────*/
 
-html, body {
-  font-family: "Inter", system-ui, sans-serif !important;
-}
-
-/*──────────────────────────────────────────────
-  FINAL HARD OVERRIDE
-──────────────────────────────────────────────*/
-
-/* Force all content text to use theme colours */
-.markdown-preview-view,
-.markdown-preview-view * {
-  color: var(--text-normal) !important;
-}
-
-.markdown-preview-view a {
-  color: var(--text-accent) !important;
+body.theme-dark * {
+  color: inherit;
 }
