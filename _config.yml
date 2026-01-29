@@ -1,1 +1,9 @@
+title: Suzy’s Site
+description: Styled with Royal Velvet
+markdown: kramdown
+highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
 
