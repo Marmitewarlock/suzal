@@ -364,13 +364,17 @@ ol {
 }
 
 /* Fix: remove gradient from post-card links without breaking colours */
-.post-card-link,
-.post-card-link * {
+.post-card-link {
   background: none !important;
   background-clip: initial !important;
   -webkit-background-clip: initial !important;
   -webkit-text-fill-color: initial !important;
-  /* 🔥 remove the color: inherit line */
   text-decoration: none !important;
+}
+
+.post-card-title,
+.post-card-excerpt,
+.post-card-meta {
+  color: unset !important;
 }
 
