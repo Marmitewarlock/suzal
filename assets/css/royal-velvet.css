@@ -66,7 +66,6 @@ body {
   Typography
 ──────────────────────────────────────────────*/
 
-/* Gradient H1 */
 h1 {
   background: linear-gradient(
     90deg,
@@ -87,7 +86,6 @@ h1 {
   margin-bottom: 0.6em;
 }
 
-/* Jewel-tone headings */
 h2 { color: var(--teal) !important; }
 h3 { color: var(--sapphire) !important; }
 h4 { color: var(--lavender) !important; }
@@ -103,6 +101,8 @@ p {
 /*──────────────────────────────────────────────
   Gradient Links — ONLY inside post content
 ──────────────────────────────────────────────*/
+
+/* IMPORTANT: make sure you have NO other global `a { ... }` rule elsewhere */
 
 .markdown-preview-view a {
   background: linear-gradient(
@@ -127,10 +127,11 @@ p {
 }
 
 /*──────────────────────────────────────────────
-  REMOVE gradient from post-card links
+  HARD RESET gradient from post-card links
 ──────────────────────────────────────────────*/
 
-.post-card-link {
+.post-card-link,
+.post-card-link * {
   background: none !important;
   background-clip: initial !important;
   -webkit-background-clip: initial !important;
@@ -199,7 +200,6 @@ ol {
   line-height: 1.6;
 }
 
-/* Callout types */
 .callout[data-callout="note"]    { --text-accent: var(--sapphire); }
 .callout[data-callout="warning"] { --text-accent: var(--gold); }
 .callout[data-callout="danger"]  { --text-accent: var(--rose); }
