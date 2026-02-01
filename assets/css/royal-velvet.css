@@ -99,10 +99,10 @@ p {
 }
 
 /*──────────────────────────────────────────────
-  Gradient Links (global at this stage)
+  Gradient Links — ONLY inside post content
 ──────────────────────────────────────────────*/
 
-a {
+.markdown-preview-view a {
   background: linear-gradient(
     90deg,
     #c86eff,
@@ -120,7 +120,7 @@ a {
   transition: background-position 0.4s ease;
 }
 
-a:hover {
+.markdown-preview-view a:hover {
   background-position: 100% 0;
 }
 
@@ -346,3 +346,4 @@ ol {
 .rv-toggle-icon {
   pointer-events: none;
 }
+
