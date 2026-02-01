@@ -1,29 +1,25 @@
 /*──────────────────────────────────────────────
-  Royal Velvet — Light Theme (Default)
+  Royal Velvet — Light Theme (Warm Velvet Daylight)
 ──────────────────────────────────────────────*/
 
 :root {
-  /* Warm daylight backgrounds */
   --background-primary: #f8f3ea;   /* warm cream */
   --background-secondary: #f2e9dd; /* soft beige */
   --background-tertiary: #e9dfd2;  /* warm stone */
 
-  /* Text */
-  --text-normal: #3a2f28;  /* espresso brown */
+  --text-normal: #3a2f28;  /* espresso */
   --text-muted: #6b5c52;   /* warm taupe */
 
-  /* Jewel-tone accents (warm daylight versions) */
-  --lavender: #a78bd9;  /* softened lavender */
-  --sapphire: #4a7be0;  /* slightly muted sapphire */
-  --teal: #4fbfa8;      /* warm daylight teal */
-  --gold: #d6a85a;      /* warm brushed gold */
-  --rose: #d97a8c;      /* warm rose quartz */
+  /* Jewel-tone accents (daylight versions) */
+  --lavender: #a78bd9;
+  --sapphire: #4a7be0;
+  --teal: #4fbfa8;
+  --gold: #d6a85a;
+  --rose: #d97a8c;
 
-  /* Accent + borders */
   --text-accent: var(--lavender);
-  --border-color: #d8c9b8; /* warm parchment edge */
+  --border-color: #d8c9b8;
 }
-
 
 /*──────────────────────────────────────────────
   Royal Velvet — Dark Theme
@@ -104,8 +100,11 @@ p {
   margin: 1em 0;
 }
 
-/* Gradient links */
-a {
+/*──────────────────────────────────────────────
+  Gradient Links — ONLY inside post content
+──────────────────────────────────────────────*/
+
+.markdown-preview-view a {
   background: linear-gradient(
     90deg,
     #c86eff,
@@ -123,11 +122,27 @@ a {
   transition: background-position 0.4s ease;
 }
 
-a:hover {
+.markdown-preview-view a:hover {
   background-position: 100% 0;
 }
 
-/* Code */
+/*──────────────────────────────────────────────
+  REMOVE gradient from post-card links
+──────────────────────────────────────────────*/
+
+.post-card-link {
+  background: none !important;
+  background-clip: initial !important;
+  -webkit-background-clip: initial !important;
+  color: inherit !important;
+  -webkit-text-fill-color: inherit !important;
+  text-decoration: none !important;
+}
+
+/*──────────────────────────────────────────────
+  Code
+──────────────────────────────────────────────*/
+
 pre,
 code {
   background: var(--background-secondary);
@@ -203,160 +218,3 @@ ol {
 }
 
 .post-card {
-  background: var(--background-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  overflow: hidden;
-  backdrop-filter: blur(6px);
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.post-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--text-accent);
-}
-
-.post-card-thumb {
-  height: 180px;
-  background-size: cover;
-  background-position: center;
-}
-
-.post-card-thumb.placeholder {
-  background: linear-gradient(
-    135deg,
-    var(--lavender),
-    var(--background-tertiary)
-  );
-}
-
-.post-card-link {
-  display: block;
-  padding: 1.4rem 1.6rem 1.6rem;
-  color: inherit;
-  text-decoration: none;
-}
-
-.post-card-title {
-  font-size: 1.4rem;
-  margin: 0 0 0.6rem;
-  font-weight: 700;
-  color: var(--text-accent);
-}
-
-.post-card-meta {
-  display: flex;
-  gap: 1rem;
-  font-size: 0.9rem;
-  opacity: 0.75;
-  margin-bottom: 0.8rem;
-}
-
-.reading-time {
-  font-style: italic;
-}
-.post-card-excerpt a {
-  background: none !important;
-  -webkit-background-clip: initial !important;
-  background-clip: initial !important;
-  color: var(--text-accent) !important;
-  -webkit-text-fill-color: var(--text-accent) !important;
-  text-decoration: underline;
-  transition: color 0.2s ease;
-}
-
-.post-card-excerpt a:hover {
-  color: var(--sapphire) !important; /* or any accent you prefer */
-}
-
-
-/*──────────────────────────────────────────────
-  Royal Velvet — Blog Header
-──────────────────────────────────────────────*/
-
-.rv-blog-header.royal-crest {
-  text-align: center;
-  padding: 3rem 1rem 2.5rem;
-  margin-bottom: 3rem;
-}
-
-.crest-line {
-  width: 90px;
-  height: 2px;
-  margin: 0.8rem auto;
-  background: linear-gradient(90deg, transparent, var(--lavender), transparent);
-  opacity: 0.7;
-}
-
-.rv-blog-header h1.rv-blog-title {
-  font-size: 1.8rem !important;
-  margin: 0.2rem 0 0.4rem !important;
-  line-height: 1.25 !important;
-  font-weight: 600;
-}
-
-.rv-blog-header h2.rv-blog-subtitle {
-  font-size: 1.3rem;
-  font-weight: 500;
-  color: var(--lavender);
-  opacity: 0.95;
-  letter-spacing: 0.3px;
-  margin-top: 0.4rem;
-  margin-bottom: 0.2rem;
-  text-shadow: 0 0 10px rgba(203, 166, 247, 0.25);
-}
-
-.rv-blog-header h4.rv-blog-description {
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.6;
-  max-width: 60ch;
-  margin: 0.8rem auto 0;
-  color: var(--text-muted);
-  opacity: 0.75;
-}
-
-.rv-blog-favicon {
-  width: 20px !important;
-  height: 20px !important;
-  margin: 0.6rem auto;
-  display: block;
-  opacity: 0.85;
-  filter: drop-shadow(0 0 6px rgba(203, 166, 247, 0.25));
-}
-
-/*──────────────────────────────────────────────
-  Theme Toggle Button
-──────────────────────────────────────────────*/
-
-.rv-theme-toggle {
-  position: fixed;
-  bottom: 1.6rem;
-  right: 1.6rem;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1px solid var(--border-color);
-  background: var(--background-secondary);
-  backdrop-filter: blur(6px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition:
-    background 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.2s ease;
-  font-size: 1.2rem;
-  color: var(--text-accent);
-  z-index: 999;
-}
-
-.rv-theme-toggle:hover {
-  border-color: var(--text-accent);
-  transform: translateY(-2px);
-}
-
-.rv-toggle-icon {
-  pointer-events: none;
-}
