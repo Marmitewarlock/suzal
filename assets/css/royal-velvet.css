@@ -345,6 +345,15 @@ ol {
   opacity: 0.8;
 }
 
+.rv-blog-description {
+  margin-top: 0.6rem;
+  font-size: 1.25rem;
+  font-weight: 300;
+  opacity: 0.85;
+  color: #e8d9ff;
+  text-shadow: 0 0 8px rgba(232, 217, 255, 0.15);
+}
+
 
 /*──────────────────────────────────────────────
   Global Hard Override
