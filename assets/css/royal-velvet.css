@@ -99,10 +99,10 @@ p {
 }
 
 /*──────────────────────────────────────────────
-  Gradient Links — ONLY inside post content
+  Gradient Links (global at this stage)
 ──────────────────────────────────────────────*/
 
-.markdown-preview-view a {
+a {
   background: linear-gradient(
     90deg,
     #c86eff,
@@ -120,6 +120,229 @@ p {
   transition: background-position 0.4s ease;
 }
 
-.markdown-preview-view a:hover {
+a:hover {
   background-position: 100% 0;
+}
+
+/*──────────────────────────────────────────────
+  Code
+──────────────────────────────────────────────*/
+
+pre,
+code {
+  background: var(--background-secondary);
+  color: var(--text-normal);
+  padding: 0.4em 0.6em;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 3px solid var(--text-accent);
+  padding-left: 1em;
+  color: var(--text-muted);
+  margin: 1.2em 0;
+}
+
+/* Lists */
+ul,
+ol {
+  margin-left: 1.4em;
+  line-height: 1.6;
+}
+
+/*──────────────────────────────────────────────
+  Callouts
+──────────────────────────────────────────────*/
+
+.callout {
+  border-left: 4px solid var(--text-accent);
+  background: var(--background-secondary);
+  padding: 1rem 1.2rem;
+  margin: 1.4rem 0;
+  border-radius: 6px;
+}
+
+.callout-title {
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  color: var(--text-accent);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.callout-title::before {
+  content: attr(data-icon);
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.callout-content {
+  color: var(--text-normal);
+  line-height: 1.6;
+}
+
+.callout[data-callout="note"]    { --text-accent: var(--sapphire); }
+.callout[data-callout="warning"] { --text-accent: var(--gold); }
+.callout[data-callout="danger"]  { --text-accent: var(--rose); }
+.callout[data-callout="tip"]     { --text-accent: var(--teal); }
+.callout[data-callout="info"]    { --text-accent: var(--teal); }
+
+/*──────────────────────────────────────────────
+  Post Grid + Cards
+──────────────────────────────────────────────*/
+
+.post-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  margin-top: 2rem;
+}
+
+.post-card {
+  background: var(--background-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--text-accent);
+}
+
+.post-card-thumb {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+}
+
+.post-card-thumb.placeholder {
+  background: linear-gradient(
+    135deg,
+    var(--lavender),
+    var(--background-tertiary)
+  );
+}
+
+.post-card-title {
+  font-size: 1.4rem;
+  margin: 0 0 0.6rem;
+  font-weight: 700;
+  color: var(--text-accent);
+}
+
+.post-card-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.75;
+  margin-bottom: 0.8rem;
+}
+
+.reading-time {
+  font-style: italic;
+}
+
+.post-card-excerpt {
+  font-size: 1rem;
+  line-height: 1.55;
+  opacity: 0.85;
+  font-weight: 400;
+  color: var(--text-normal);
+}
+
+/*──────────────────────────────────────────────
+  Royal Velvet — Blog Header
+──────────────────────────────────────────────*/
+
+.rv-blog-header.royal-crest {
+  text-align: center;
+  padding: 3rem 1rem 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.crest-line {
+  width: 90px;
+  height: 2px;
+  margin: 0.8rem auto;
+  background: linear-gradient(90deg, transparent, var(--lavender), transparent);
+  opacity: 0.7;
+}
+
+.rv-blog-header h1.rv-blog-title {
+  font-size: 1.8rem !important;
+  margin: 0.2rem 0 0.4rem !important;
+  line-height: 1.25 !important;
+  font-weight: 600;
+}
+
+.rv-blog-header h2.rv-blog-subtitle {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--lavender);
+  opacity: 0.95;
+  letter-spacing: 0.3px;
+  margin-top: 0.4rem;
+  margin-bottom: 0.2rem;
+  text-shadow: 0 0 10px rgba(203, 166, 247, 0.25);
+}
+
+.rv-blog-header h4.rv-blog-description {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 60ch;
+  margin: 0.8rem auto 0;
+  color: var(--text-muted);
+  opacity: 0.75;
+}
+
+.rv-blog-favicon {
+  width: 20px !important;
+  height: 20px !important;
+  margin: 0.6rem auto;
+  display: block;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 6px rgba(203, 166, 247, 0.25));
+}
+
+/*──────────────────────────────────────────────
+  Theme Toggle Button
+──────────────────────────────────────────────*/
+
+.rv-theme-toggle {
+  position: fixed;
+  bottom: 1.6rem;
+  right: 1.6rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: var(--background-secondary);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.2s ease;
+  font-size: 1.2rem;
+  color: var(--text-accent);
+  z-index: 999;
+}
+
+.rv-theme-toggle:hover {
+  border-color: var(--text-accent);
+  transform: translateY(-2px);
+}
+
+.rv-toggle-icon {
+  pointer-events: none;
 }
