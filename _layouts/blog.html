@@ -1,23 +1,33 @@
 ---
 layout: default
 ---
-<header class="rv-blog-header royal-crest">
-  <div class="crest-line"></div>
 
-  <h1 class="rv-blog-title">{{ page.title }}</h1>
+<div class="markdown-preview-view">
+  <div class="markdown-preview-sizer markdown-preview-section">
 
-  {% if page.subtitle %}
-    <h2 class="rv-blog-subtitle">{{ page.subtitle }}</h2>
-  {% endif %}
+    <header class="rv-blog-header royal-crest">
+      <div class="crest-line"></div>
 
-   <img class="rv-blog-favicon" src="/favicon.png" alt="icon">
+      <h1 class="rv-blog-title">{{ page.title }}</h1>
 
-  {% if page.description %}
-    <h4 class="rv-blog-description"><i>{{ page.description }}</i></h4>
-  {% endif %}
+      {% if page.subtitle %}
+        <h2 class="rv-blog-subtitle">{{ page.subtitle }}</h2>
+      {% endif %}
 
-  <div class="crest-line"></div>
-</header>
+      <img class="rv-blog-favicon" src="/favicon.png" alt="icon">
+
+      {% if page.description %}
+        <h4 class="rv-blog-description"><i>{{ page.description }}</i></h4>
+      {% endif %}
+
+      <div class="crest-line"></div>
+    </header>
+
+    {{ content }}
+
+  </div>
+</div>
+
 
 
 
