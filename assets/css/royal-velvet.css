@@ -22,6 +22,43 @@
   /* Accent + borders */
   --text-accent: var(--lavender);
   --border-color: #d8c9b8; /* warm parchment edge */
+
+  /* Light‑mode readability improvements */
+:root .post-card {
+  padding: 1.2rem 1.4rem;
+}
+
+:root .post-card-title {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  margin-bottom: 0.4rem;
+}
+
+:root .post-card-meta {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  margin-bottom: 0.8rem;
+}
+
+:root .post-card-excerpt {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  opacity: 0.95;
+  letter-spacing: 0.1px;
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+  color: var(--text-normal);
+}
+
+/* Ensure no gradient appears on cards in light mode */
+:root .post-card-link,
+:root .post-card-link * {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
 }
 
 
