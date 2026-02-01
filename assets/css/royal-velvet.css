@@ -1,5 +1,28 @@
 /*──────────────────────────────────────────────
-  Royal Velvet — Theme Variables
+  Royal Velvet — Light Theme (Default)
+──────────────────────────────────────────────*/
+
+:root {
+  --background-primary: #faf7ff;
+  --background-secondary: #f2ecff;
+  --background-tertiary: #e8e0f5;
+
+  --text-normal: #2a2a2a;
+  --text-muted: #555;
+
+  /* Jewel-tone accents */
+  --lavender: #8b5fcf;
+  --sapphire: #3b6eea;
+  --teal: #3bbfa8;
+  --gold: #c89b3c;
+  --rose: #d45a78;
+
+  --text-accent: var(--lavender);
+  --border-color: #d8d0e8;
+}
+
+/*──────────────────────────────────────────────
+  Royal Velvet — Dark Theme
 ──────────────────────────────────────────────*/
 
 body.theme-dark {
@@ -10,7 +33,6 @@ body.theme-dark {
   --text-normal: #e6e6e6;
   --text-muted: #b3b3b3;
 
-  /* Jewel-tone accents */
   --lavender: #cba6f7;
   --sapphire: #89b4fa;
   --teal: #94e2d5;
@@ -25,12 +47,13 @@ body.theme-dark {
   Base Layout
 ──────────────────────────────────────────────*/
 
-body.theme-dark {
+body {
   background-color: var(--background-primary);
   color: var(--text-normal);
   margin: 0;
   padding: 0;
   font-family: "Inter", system-ui, sans-serif !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .markdown-preview-view {
@@ -176,8 +199,8 @@ ol {
 }
 
 .post-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--background-secondary);
+  border: 1px solid var(--border-color);
   border-radius: 16px;
   overflow: hidden;
   backdrop-filter: blur(6px);
@@ -186,7 +209,7 @@ ol {
 
 .post-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.18);
+  border-color: var(--text-accent);
 }
 
 .post-card-thumb {
@@ -196,7 +219,11 @@ ol {
 }
 
 .post-card-thumb.placeholder {
-  background: linear-gradient(135deg, #3a1f4a, #1a0f24);
+  background: linear-gradient(
+    135deg,
+    var(--lavender),
+    var(--background-tertiary)
+  );
 }
 
 .post-card-link {
@@ -210,7 +237,7 @@ ol {
   font-size: 1.4rem;
   margin: 0 0 0.6rem;
   font-weight: 700;
-  color: #f3eaff;
+  color: var(--text-accent);
 }
 
 .post-card-meta {
@@ -230,11 +257,11 @@ ol {
   line-height: 1.55;
   opacity: 0.85;
   font-weight: 400;
-  font-family: var(--font-body, Inter), sans-serif;
+  color: var(--text-normal);
 }
 
 /*──────────────────────────────────────────────
-  Royal Velvet — Blog Header (H1 / H2 / H4)
+  Royal Velvet — Blog Header
 ──────────────────────────────────────────────*/
 
 .rv-blog-header.royal-crest {
@@ -251,7 +278,6 @@ ol {
   opacity: 0.7;
 }
 
-/* H1 — Blog Title */
 .rv-blog-header h1.rv-blog-title {
   font-size: 1.8rem !important;
   margin: 0.2rem 0 0.4rem !important;
@@ -259,7 +285,6 @@ ol {
   font-weight: 600;
 }
 
-/* H2 — Subtitle */
 .rv-blog-header h2.rv-blog-subtitle {
   font-size: 1.3rem;
   font-weight: 500;
@@ -271,7 +296,6 @@ ol {
   text-shadow: 0 0 10px rgba(203, 166, 247, 0.25);
 }
 
-/* H4 — Description */
 .rv-blog-header h4.rv-blog-description {
   font-size: 1rem;
   font-weight: 400;
@@ -289,4 +313,40 @@ ol {
   display: block;
   opacity: 0.85;
   filter: drop-shadow(0 0 6px rgba(203, 166, 247, 0.25));
+}
+
+/*──────────────────────────────────────────────
+  Theme Toggle Button
+──────────────────────────────────────────────*/
+
+.rv-theme-toggle {
+  position: fixed;
+  bottom: 1.6rem;
+  right: 1.6rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: var(--background-secondary);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.2s ease;
+  font-size: 1.2rem;
+  color: var(--text-accent);
+  z-index: 999;
+}
+
+.rv-theme-toggle:hover {
+  border-color: var(--text-accent);
+  transform: translateY(-2px);
+}
+
+.rv-toggle-icon {
+  pointer-events: none;
 }
