@@ -1,13 +1,22 @@
 ---
 layout: default
 ---
+<header class="rv-blog-header royal-crest">
+  <div class="crest-line"></div>
 
-<header class="rv-blog-header velvet-banner">
   <h1 class="rv-blog-title">{{ page.title }}</h1>
+
+  {% if page.subtitle %}
+    <p class="rv-blog-subtitle">{{ page.subtitle }}</p>
+  {% endif %}
+
   {% if page.description %}
     <p class="rv-blog-description">{{ page.description }}</p>
   {% endif %}
+
+  <div class="crest-line"></div>
 </header>
+
 
 
   <div class="post-grid">
