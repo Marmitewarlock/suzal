@@ -228,16 +228,22 @@ ol {
 .post-card-excerpt {
   font-size: 1rem;
   line-height: 1.55;
-  opacity: 0.85;
+  opacity: 1;
   font-weight: 400;
   font-family: var(--font-body, Inter), sans-serif;
 
+  /* Reset gradient text */
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  color: var(--text-normal) !important;
+
   /* Make the excerpt shorter */
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* change this number to control height */
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
 
 
 /*──────────────────────────────────────────────
