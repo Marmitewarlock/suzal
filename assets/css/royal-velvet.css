@@ -301,3 +301,35 @@ ol {
 
 .rv-blog-header h4.rv-blog-description {
   font-size: 1rem;
+
+.rv-theme-toggle {
+  position: fixed;
+  bottom: 1.6rem;
+  right: 1.6rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: var(--background-secondary);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.2s ease;
+  font-size: 1.2rem;
+  color: var(--text-accent);
+  z-index: 999;
+}
+
+.rv-theme-toggle:hover {
+  border-color: var(--text-accent);
+  transform: translateY(-2px);
+}
+
+.rv-toggle-icon {
+  pointer-events: none;
+}
