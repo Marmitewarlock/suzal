@@ -234,7 +234,6 @@ ol {
   font-family: var(--font-body, Inter), sans-serif;
   color: #f3eaff !important; 
   -webkit-text-fill-color: #f3eaff !important; 
-  background: none !important; 
   -webkit-background-clip: initial !important;
 
   
