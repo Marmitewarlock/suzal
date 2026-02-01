@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<div class="rv-blog">
+  <header class="rv-blog-header">
+    <h1 class="rv-blog-title">{{ page.title }}</h1>
+    {% if page.description %}
+      <p class="rv-blog-description">{{ page.description }}</p>
+    {% endif %}
+  </header>
+
+  <ul class="rv-post-list">
+    {% for post in site.posts %}
+      <li class="rv-post-item">
+        <a class="rv-post-link" href="{{ post.url | relative_url }}">
+          <h2 class="rv-post-title">{{ post.title }}</h2>
+          <time class="rv-post-date" datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: "%B %d, %Y" }}
+          </time>
+
+          {% if post.excerpt %}
+            <p class="rv-post-excerpt">{{ post.excerpt | strip_html | truncate: 180 }}</p>
+          {% endif %}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
