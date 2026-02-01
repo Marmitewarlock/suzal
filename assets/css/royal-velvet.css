@@ -229,7 +229,16 @@ ol {
   font-size: 1rem;
   line-height: 1.55;
   opacity: 0.85;
+  font-weight: 400;
+  font-family: var(--font-body, Inter), sans-serif;
+
+  /* Make the excerpt shorter */
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* change this number to control height */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
+
 
 /*──────────────────────────────────────────────
   Royal Velvet — Blog Header (H1 / H2 / H4)
