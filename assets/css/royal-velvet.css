@@ -280,6 +280,16 @@ ol {
   opacity: 0.75;
 }
 
+.rv-blog-favicon {
+  width: 32px;
+  height: 32px;
+  margin: 0.6rem auto;
+  display: block;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 6px rgba(203, 166, 247, 0.25));
+}
+
+
 /*──────────────────────────────────────────────
   Global Override
 ──────────────────────────────────────────────*/
