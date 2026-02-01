@@ -370,6 +370,7 @@ ol {
   background-clip: initial !important;
   -webkit-background-clip: initial !important;
   -webkit-text-fill-color: initial !important;
-  color: inherit !important; /* keeps your card colours */
+  /* 🔥 remove the color: inherit line */
+  text-decoration: none !important;
 }
 
