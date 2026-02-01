@@ -362,3 +362,14 @@ ol {
 .rv-toggle-icon {
   pointer-events: none;
 }
+
+/* Fix: remove gradient from post-card links without breaking colours */
+.post-card-link,
+.post-card-link * {
+  background: none !important;
+  background-clip: initial !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: initial !important;
+  color: inherit !important; /* keeps your card colours */
+}
+
