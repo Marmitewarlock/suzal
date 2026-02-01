@@ -10,20 +10,35 @@ layout: default
     {% endif %}
   </header>
 
-  <ul class="rv-post-list">
+  <div class="post-grid">
     {% for post in site.posts %}
-      <li class="rv-post-item">
-        <a class="rv-post-link" href="{{ post.url | relative_url }}">
-          <h2 class="rv-post-title">{{ post.title }}</h2>
-          <time class="rv-post-date" datetime="{{ post.date | date_to_xmlschema }}">
-            {{ post.date | date: "%B %d, %Y" }}
-          </time>
 
-          {% if post.excerpt %}
-            <p class="rv-post-excerpt">{{ post.excerpt | strip_html | truncate: 180 }}</p>
-          {% endif %}
+      {% assign words = post.content | number_of_words %}
+      {% assign reading_time = words | divided_by: 200 | ceil %}
+
+      <article class="post-card">
+
+        {% if post.thumbnail %}
+          <div class="post-card-thumb" style="background-image: url('{{ post.thumbnail | relative_url }}');"></div>
+        {% else %}
+          <div class="post-card-thumb placeholder"></div>
+        {% endif %}
+
+        <a href="{{ post.url | relative_url }}" class="post-card-link">
+          <h2 class="post-card-title">{{ post.title }}</h2>
+
+          <div class="post-card-meta">
+            <time>{{ post.date | date: "%B %d, %Y" }}</time>
+            <span class="reading-time">{{ reading_time }} min read</span>
+          </div>
+
+          <p class="post-card-excerpt">
+            {{ post.excerpt | strip_html | truncate: 160 }}
+          </p>
         </a>
-      </li>
+
+      </article>
+
     {% endfor %}
-  </ul>
+  </div>
 </div>
