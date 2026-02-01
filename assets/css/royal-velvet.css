@@ -22,8 +22,12 @@
   /* Accent + borders */
   --text-accent: var(--lavender);
   --border-color: #d8c9b8; /* warm parchment edge */
+}
 
-  /* Light‑mode readability improvements */
+/*──────────────────────────────────────────────
+  Light‑mode readability improvements
+──────────────────────────────────────────────*/
+
 :root .post-card {
   padding: 1.2rem 1.4rem;
 }
@@ -59,7 +63,6 @@
   -webkit-text-fill-color: currentColor !important;
 }
 
-}
 
 
 /*──────────────────────────────────────────────
