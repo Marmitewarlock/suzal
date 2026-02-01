@@ -2,13 +2,13 @@
 layout: default
 ---
 
-<div class="rv-blog">
-  <header class="rv-blog-header">
-    <h1 class="rv-blog-title">{{ page.title }}</h1>
-    {% if page.description %}
-      <p class="rv-blog-description">{{ page.description }}</p>
-    {% endif %}
-  </header>
+<header class="rv-blog-header velvet-banner">
+  <h1 class="rv-blog-title">{{ page.title }}</h1>
+  {% if page.description %}
+    <p class="rv-blog-description">{{ page.description }}</p>
+  {% endif %}
+</header>
+
 
   <div class="post-grid">
     {% for post in site.posts %}
