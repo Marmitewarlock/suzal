@@ -10,7 +10,7 @@ body.theme-dark {
   --text-normal: #e6e6e6;
   --text-muted: #b3b3b3;
 
-  /* Accent colours */
+  /* Jewel-tone accents */
   --lavender: #cba6f7;
   --sapphire: #89b4fa;
   --teal: #94e2d5;
@@ -43,7 +43,7 @@ body.theme-dark {
   Typography
 ──────────────────────────────────────────────*/
 
-/* H1 — gradient */
+/* Gradient H1 */
 h1 {
   background: linear-gradient(
     90deg,
@@ -64,35 +64,20 @@ h1 {
   margin-bottom: 0.6em;
 }
 
-/* Jewel‑tone headings (H2/H4 swapped) */
-h2 {
-  color: var(--teal) !important;      /* teal */
-}
+/* Jewel-tone headings */
+h2 { color: var(--teal) !important; }
+h3 { color: var(--sapphire) !important; }
+h4 { color: var(--lavender) !important; }
+h5 { color: var(--gold) !important; }
+h6 { color: var(--rose) !important; }
 
-h3 {
-  color: var(--sapphire) !important;  /* sapphire */
-}
-
-h4 {
-  color: var(--lavender) !important;  /* lavender */
-}
-
-h5 {
-  color: var(--gold) !important;      /* gold */
-}
-
-h6 {
-  color: var(--rose) !important;      /* rose */
-}
-
-/* Paragraphs */
 p {
   color: var(--text-normal);
   line-height: 1.6;
   margin: 1em 0;
 }
 
-/* Normal text links — reversed gradient */
+/* Gradient links */
 a {
   background: linear-gradient(
     90deg,
@@ -115,7 +100,7 @@ a:hover {
   background-position: 100% 0;
 }
 
-/* Code blocks */
+/* Code */
 pre,
 code {
   background: var(--background-secondary);
@@ -173,89 +158,64 @@ ol {
 }
 
 /* Callout types */
-.callout[data-callout="note"] {
-  --text-accent: var(--sapphire);
-}
-.callout[data-callout="warning"] {
-  --text-accent: var(--gold);
-}
-.callout[data-callout="danger"] {
-  --text-accent: var(--rose);
-}
-.callout[data-callout="tip"] {
-  --text-accent: var(--teal);
-}
-.callout[data-callout="info"] {
-  --text-accent: var(--teal);
-}
+.callout[data-callout="note"]    { --text-accent: var(--sapphire); }
+.callout[data-callout="warning"] { --text-accent: var(--gold); }
+.callout[data-callout="danger"]  { --text-accent: var(--rose); }
+.callout[data-callout="tip"]     { --text-accent: var(--teal); }
+.callout[data-callout="info"]    { --text-accent: var(--teal); }
 
-/* Royal Velvet Blog Layout */
+/*──────────────────────────────────────────────
+  BLOG HEADER — Title + Subtitle + Description
+──────────────────────────────────────────────*/
 
-.rv-blog {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: var(--space-4) var(--space-3);
-}
-
-.rv-blog-header {
-  margin-bottom: var(--space-5);
+.rv-blog-header.royal-crest {
   text-align: center;
+  padding: 3rem 1rem 2.5rem;
+  margin-bottom: 3rem;
 }
 
+.crest-line {
+  width: 90px;
+  height: 2px;
+  margin: 0.8rem auto;
+  background: linear-gradient(90deg, transparent, var(--lavender), transparent);
+  opacity: 0.7;
+}
+
+/* Title (uses gradient H1 styles) */
 .rv-blog-title {
-  font-size: var(--font-xxl);
-  color: var(--velvet);
-  margin-bottom: var(--space-2);
+  font-size: 2.8rem;
+  margin: 0.4rem 0 0.2rem;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
+/* Subtitle */
+.rv-blog-subtitle {
+  margin-top: 0.4rem;
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--lavender);
+  opacity: 0.9;
+  text-shadow: 0 0 8px rgba(203, 166, 247, 0.15);
+}
+
+/* Description */
 .rv-blog-description {
-  font-size: var(--font-md);
-  color: var(--ink-soft);
+  margin-top: 0.8rem;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--text-muted);
+  opacity: 0.85;
 }
 
-.rv-post-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+/*──────────────────────────────────────────────
+  POST GRID + CARDS
+──────────────────────────────────────────────*/
 
-.rv-post-item {
-  margin-bottom: var(--space-5);
-  padding-bottom: var(--space-4);
-  border-bottom: 1px solid var(--border-soft);
-}
-
-.rv-post-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-.rv-post-title {
-  font-size: var(--font-xl);
-  color: var(--velvet-dark);
-  margin-bottom: var(--space-1);
-  transition: color 0.2s ease;
-}
-
-.rv-post-link:hover .rv-post-title {
-  color: var(--gold);
-}
-
-.rv-post-date {
-  font-size: var(--font-sm);
-  color: var(--ink-soft);
-  display: block;
-  margin-bottom: var(--space-2);
-}
-
-.rv-post-excerpt {
-  font-size: var(--font-md);
-  color: var(--ink);
-  line-height: 1.6;
-}
-
-/* --- Grid --- */
 .post-grid {
   display: grid;
   gap: 2rem;
@@ -263,7 +223,6 @@ ol {
   margin-top: 2rem;
 }
 
-/* --- Card --- */
 .post-card {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -278,7 +237,7 @@ ol {
   border-color: rgba(255, 255, 255, 0.18);
 }
 
-/* --- Thumbnail --- */
+/* Thumbnail */
 .post-card-thumb {
   height: 180px;
   background-size: cover;
@@ -289,7 +248,7 @@ ol {
   background: linear-gradient(135deg, #3a1f4a, #1a0f24);
 }
 
-/* --- Link wrapper --- */
+/* Link wrapper */
 .post-card-link {
   display: block;
   padding: 1.4rem 1.6rem 1.6rem;
@@ -297,7 +256,7 @@ ol {
   text-decoration: none;
 }
 
-/* --- Title --- */
+/* Title */
 .post-card-title {
   font-size: 1.4rem;
   margin: 0 0 0.6rem;
@@ -305,7 +264,7 @@ ol {
   color: #f3eaff;
 }
 
-/* --- Meta (date + reading time) --- */
+/* Meta */
 .post-card-meta {
   display: flex;
   gap: 1rem;
@@ -318,42 +277,12 @@ ol {
   font-style: italic;
 }
 
-/* --- Excerpt --- */
+/* Excerpt */
 .post-card-excerpt {
   font-size: 1rem;
   line-height: 1.55;
   opacity: 0.85;
 }
-
-.velvet-banner {
-  padding: 3rem 1rem 2rem;
-  background: linear-gradient(135deg, #2a1438, #1a0f24 60%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  text-align: center;
-}
-
-.rv-blog-title {
-  font-size: 2.6rem;
-  margin: 0;
-  color: #f3eaff;
-  text-shadow: 0 0 12px rgba(243, 234, 255, 0.25);
-}
-
-.rv-blog-description {
-  margin-top: 0.6rem;
-  font-size: 1.2rem;
-  opacity: 0.8;
-}
-
-.rv-blog-description {
-  margin-top: 0.6rem;
-  font-size: 1.25rem;
-  font-weight: 300;
-  opacity: 0.85;
-  color: #e8d9ff;
-  text-shadow: 0 0 8px rgba(232, 217, 255, 0.15);
-}
-
 
 /*──────────────────────────────────────────────
   Global Hard Override
