@@ -165,7 +165,7 @@ ol {
 .callout[data-callout="info"]    { --text-accent: var(--teal); }
 
 /*──────────────────────────────────────────────
-  Royal Velvet — Refined Header Hierarchy
+  Royal Velvet — Corrected Header Overrides
 ──────────────────────────────────────────────*/
 
 .rv-blog-header.royal-crest {
@@ -182,15 +182,15 @@ ol {
   opacity: 0.7;
 }
 
-/* Title — smaller, elegant, still using your gradient H1 */
-.rv-blog-title {
-  font-size: 2.1rem;   /* ↓ was 2.8rem */
-  margin: 0.2rem 0 0.2rem;
+/* Title — force override gradient H1 */
+.rv-blog-header .rv-blog-title {
+  font-size: 2.1rem !important;
+  margin: 0.2rem 0 0.2rem !important;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.2 !important;
 }
 
-/* Subtitle — more distinct, brighter, more “tagline” */
+/* Subtitle — distinct, brighter */
 .rv-blog-subtitle {
   margin-top: 0.4rem;
   font-size: 1.3rem;
@@ -201,7 +201,7 @@ ol {
   text-shadow: 0 0 10px rgba(203, 166, 247, 0.25);
 }
 
-/* Description — softer, smaller, more paragraph-like */
+/* Description — softer, smaller */
 .rv-blog-description {
   margin-top: 0.9rem;
   font-size: 1rem;
@@ -212,6 +212,7 @@ ol {
   color: var(--text-muted);
   opacity: 0.75;
 }
+
 
 
 /*──────────────────────────────────────────────
