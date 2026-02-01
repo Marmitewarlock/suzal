@@ -99,32 +99,6 @@ p {
 }
 
 /*──────────────────────────────────────────────
-  GLOBAL Gradient Links (Version 3)
-──────────────────────────────────────────────*/
-
-a {
-  background: linear-gradient(
-    90deg,
-    #c86eff,
-    #6ebaff,
-    #6effa3,
-    #fff56e,
-    #ffa95f,
-    #ff6ec7
-  );
-  background-size: 300%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent !important;
-  -webkit-text-fill-color: transparent !important;
-  transition: background-position 0.4s ease;
-}
-
-a:hover {
-  background-position: 100% 0;
-}
-
-/*──────────────────────────────────────────────
   Code
 ──────────────────────────────────────────────*/
 
