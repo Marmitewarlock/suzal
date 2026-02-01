@@ -3,23 +3,27 @@
 ──────────────────────────────────────────────*/
 
 :root {
-  --background-primary: #faf7ff;
-  --background-secondary: #f2ecff;
-  --background-tertiary: #e8e0f5;
+  /* Warm daylight backgrounds */
+  --background-primary: #f8f3ea;   /* warm cream */
+  --background-secondary: #f2e9dd; /* soft beige */
+  --background-tertiary: #e9dfd2;  /* warm stone */
 
-  --text-normal: #2a2a2a;
-  --text-muted: #555;
+  /* Text */
+  --text-normal: #3a2f28;  /* espresso brown */
+  --text-muted: #6b5c52;   /* warm taupe */
 
-  /* Jewel-tone accents */
-  --lavender: #8b5fcf;
-  --sapphire: #3b6eea;
-  --teal: #3bbfa8;
-  --gold: #c89b3c;
-  --rose: #d45a78;
+  /* Jewel-tone accents (warm daylight versions) */
+  --lavender: #a78bd9;  /* softened lavender */
+  --sapphire: #4a7be0;  /* slightly muted sapphire */
+  --teal: #4fbfa8;      /* warm daylight teal */
+  --gold: #d6a85a;      /* warm brushed gold */
+  --rose: #d97a8c;      /* warm rose quartz */
 
+  /* Accent + borders */
   --text-accent: var(--lavender);
-  --border-color: #d8d0e8;
+  --border-color: #d8c9b8; /* warm parchment edge */
 }
+
 
 /*──────────────────────────────────────────────
   Royal Velvet — Dark Theme
