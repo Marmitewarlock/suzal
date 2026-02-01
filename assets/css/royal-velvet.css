@@ -255,14 +255,20 @@ ol {
 .reading-time {
   font-style: italic;
 }
-
-.post-card-excerpt {
-  font-size: 1rem;
-  line-height: 1.55;
-  opacity: 0.85;
-  font-weight: 400;
-  color: var(--text-normal);
+.post-card-excerpt a {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  color: var(--text-accent) !important;
+  -webkit-text-fill-color: var(--text-accent) !important;
+  text-decoration: underline;
+  transition: color 0.2s ease;
 }
+
+.post-card-excerpt a:hover {
+  color: var(--sapphire) !important; /* or any accent you prefer */
+}
+
 
 /*──────────────────────────────────────────────
   Royal Velvet — Blog Header
