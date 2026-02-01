@@ -308,4 +308,19 @@ ol {
   object-fit: contain;
   display: block;
 }
+.rv-blog-favicon-between {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
+  margin: 0.4rem auto 0.6rem; /* centers it between subtitle + description */
+  opacity: 0.9;
+
+  /* Prevent gradient link styles from affecting it */
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: initial !important;
+  color: initial !important;
+}
 
