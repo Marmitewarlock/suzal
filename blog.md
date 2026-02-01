@@ -1,8 +1,9 @@
 ---
 layout: blog
-title: Blog
+title: Sarcoming Out Of My Cage
 permalink: /blog/
-description: "Thoughts, notes, and updates."
+subtitle: and I've been doing just fine
+description: blogging about my cancer hole
 ---
 <div class="post-grid">
   {% for post in site.posts %}
