@@ -1,4 +1,4 @@
-tha/*──────────────────────────────────────────────
+/*──────────────────────────────────────────────
   Royal Velvet — Theme Variables
 ──────────────────────────────────────────────*/
 
@@ -211,7 +211,6 @@ ol {
   margin: 0 0 0.6rem;
   font-weight: 700;
   color: #f3eaff;
-  
 }
 
 .post-card-meta {
@@ -226,27 +225,13 @@ ol {
   font-style: italic;
 }
 
-.post-card-excerpt * {
-  all: unset;
+.post-card-excerpt {
   font-size: 1rem;
   line-height: 1.55;
+  opacity: 0.85;
   font-weight: 400;
   font-family: var(--font-body, Inter), sans-serif;
-  color: #f3eaff !important; 
-  -webkit-text-fill-color: #f3eaff !important; 
-  -webkit-background-clip: initial !important;
-
-  
-  /* Clamp to 2 lines */
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
-
-
-
-
 
 /*──────────────────────────────────────────────
   Royal Velvet — Blog Header (H1 / H2 / H4)
