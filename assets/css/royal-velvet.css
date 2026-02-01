@@ -225,25 +225,23 @@ ol {
   font-style: italic;
 }
 
-.post-card-excerpt {
+.post-card-excerpt * {
+  all: unset;
   font-size: 1rem;
   line-height: 1.55;
   font-weight: 400;
   font-family: var(--font-body, Inter), sans-serif;
-  opacity: 1;
+  color: var(--text-normal);
 
+  
   /* Clamp to 2 lines */
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-
-  /* Fully reset gradient text */
-  background: none !important;
-  -webkit-background-clip: initial !important;
-  -webkit-text-fill-color: var(--text-normal) !important;
-  color: var(--text-normal) !important;
 }
+
+
 
 
 
