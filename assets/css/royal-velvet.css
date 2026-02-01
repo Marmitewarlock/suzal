@@ -281,8 +281,8 @@ ol {
 }
 
 .rv-blog-favicon {
-  width: 32px;
-  height: 32px;
+  width: 32px !important;
+  height: 32px !important;
   margin: 0.6rem auto;
   display: block;
   opacity: 0.85;
