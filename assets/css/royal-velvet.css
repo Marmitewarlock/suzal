@@ -325,6 +325,26 @@ ol {
   opacity: 0.85;
 }
 
+.velvet-banner {
+  padding: 3rem 1rem 2rem;
+  background: linear-gradient(135deg, #2a1438, #1a0f24 60%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+}
+
+.rv-blog-title {
+  font-size: 2.6rem;
+  margin: 0;
+  color: #f3eaff;
+  text-shadow: 0 0 12px rgba(243, 234, 255, 0.25);
+}
+
+.rv-blog-description {
+  margin-top: 0.6rem;
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
 
 /*──────────────────────────────────────────────
   Global Hard Override
