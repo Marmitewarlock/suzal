@@ -211,6 +211,7 @@ ol {
   margin: 0 0 0.6rem;
   font-weight: 700;
   color: #f3eaff;
+  
 }
 
 .post-card-meta {
@@ -231,7 +232,10 @@ ol {
   line-height: 1.55;
   font-weight: 400;
   font-family: var(--font-body, Inter), sans-serif;
-  color: var(--text-normal);
+  color: #f3eaff !important; 
+  -webkit-text-fill-color: #f3eaff !important; 
+  background: none !important; 
+  -webkit-background-clip: initial !important;
 
   
   /* Clamp to 2 lines */
