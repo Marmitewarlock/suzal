@@ -336,8 +336,8 @@ ol {
 }
 
 .rv-header-image {
-  width: 20px;
-  height: 20px;
+  width: 20px !important;
+  height: 20px !important;
   object-fit: contain;
   display: block;
   margin: 0.5rem auto 0.75rem;
