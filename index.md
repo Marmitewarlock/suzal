@@ -21,7 +21,7 @@ I do not know how to code.
 
 [blogging about my cancer hole](https://blog.suz.al)
 
-[youtube](https://youtube.com/suzetube)  
+[youtube](https://youtube.com/@suzetube?si=qHEqtgbSzvxM0edf) 
 
 [bad poets club - lincoln](https://linktr.ee/badpoetsclub)
 
