@@ -9,6 +9,8 @@ I do not know how to code.
 
 ---
 
+### Contact
+
 [bluesky](https://bsky.app/profile/suz.al)
 
 [email](mailto:hello@suz.al)
