@@ -22,7 +22,7 @@ description: it's magazeen not magazyne
   Uses: Section headings (H2)
 </p>
 
-<div style="font-family: var(--font-title); font-size: 1.6rem; font-weight: 600;">
+<div class="gradient-text" style="font-family: var(--font-title); font-size: 1.6rem; font-weight: 600;">
   Title Font — Sidebar / UI Titles
 </div>
 <p style="color: var(--text-muted); margin-bottom: 2rem;">
