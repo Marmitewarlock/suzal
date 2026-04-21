@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: royal-github
 title: Suzy makes zines
 permalink: /zines
 subtitle: again
