@@ -435,7 +435,15 @@ footer.rv-blog-footer .rv-crest-line {
 
 /* Larger, more readable body text */
 .markdown-preview-view p {
-  font-size: 2rem;
+  font-size: 1.6rem;
   line-height: 1.62;
+}
+
+/* Larger, more readable text inside cards */
+.rv-page-card p,
+.rv-page-card a,
+.rv-page-card li {
+  font-size: 1.12rem;
+  line-height: 1.64;
 }
 
