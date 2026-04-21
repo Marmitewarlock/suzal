@@ -104,3 +104,28 @@ document.querySelectorAll("blockquote").forEach(b => {
   <div class="rv-crest-line"></div>
 
   </footer>
+
+  <!-- ⭐ Theme Toggle Button -->
+<button id="theme-toggle" class="rv-theme-toggle" aria-label="Toggle theme">
+  <span class="rv-toggle-icon">🌙</span>
+</button>
+
+<script>
+const toggleBtn = document.querySelector("#theme-toggle");
+const icon = toggleBtn.querySelector(".rv-toggle-icon");
+
+function updateIcon() {
+  if (document.body.classList.contains("theme-dark")) {
+    icon.textContent = "🌙";
+  } else {
+    icon.textContent = "☀️";
+  }
+}
+
+toggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("theme-dark");
+  updateIcon();
+});
+
+updateIcon();
+</script>
