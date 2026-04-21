@@ -1,11 +1,13 @@
 /*──────────────────────────────────────────────
-  Royal Velvet CSS — v2.2
+  Royal Velvet CSS — v2.3
   Changes:
-  - Added tuned line-height system
-  - Mid-density spacing adjustments
-  - Headings set to 400
-  - Body text set to 100
-  - Unified rhythm across cards, callouts, blog header
+  - Header H1 increased by 6% for stronger presence
+  - Header H1 line-height tightened to 1.14
+  - Header H1 letter-spacing tuned to -0.35px
+  - Profile image increased from 20px → 26px
+  - Subtitle refined (size, spacing, letter-spacing)
+  - Header vertical spacing tightened for cohesion
+  - Mobile scaling added for H1 on small screens
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -83,7 +85,7 @@ body {
 }
 
 /*──────────────────────────────────────────────
-  Typography — Mid-Density Spacing + Tuned Line-Height
+  Typography — Mid-Density + Tuned Line-Height
 ──────────────────────────────────────────────*/
 
 h1 {
@@ -101,25 +103,20 @@ h1 {
   -webkit-background-clip: text;
   color: transparent !important;
   -webkit-text-fill-color: transparent !important;
+
   font-weight: 400 !important;
+  letter-spacing: -0.35px;
+  line-height: 1.14;
+
+  /* +6% size bump */
+  font-size: 1.906rem;
+
   margin: 0.5em 0 0.35em;
-  line-height: 1.18;
 }
 
-h2 {
-  margin: 0.45em 0 0.3em;
-  line-height: 1.22;
-}
-
-h3 {
-  margin: 0.4em 0 0.28em;
-  line-height: 1.24;
-}
-
-h4, h5, h6 {
-  margin: 0.35em 0 0.25em;
-  line-height: 1.26;
-}
+h2 { margin: 0.45em 0 0.3em; line-height: 1.22; }
+h3 { margin: 0.4em 0 0.28em; line-height: 1.24; }
+h4, h5, h6 { margin: 0.35em 0 0.25em; line-height: 1.26; }
 
 h2 { color: var(--teal) !important; }
 h3 { color: var(--sapphire) !important; }
@@ -134,16 +131,64 @@ p {
   font-weight: 100;
 }
 
-/* Markdown preview headings */
-.markdown-preview-view h1,
-.markdown-preview-view h2,
-.markdown-preview-view h3,
-.markdown-preview-view h4,
-.markdown-preview-view h5,
-.markdown-preview-view h6 {
+/*──────────────────────────────────────────────
+  Header Block (Bold & Prominent)
+──────────────────────────────────────────────*/
+
+.rv-blog-header.royal-crest {
+  text-align: center;
+  padding: 1.7rem 1rem 1.35rem;
+  margin-bottom: 1.25rem;
+}
+
+.rv-blog-header h1.rv-blog-title {
+  font-size: 2.12rem !important; /* +6% bump */
+  line-height: 1.14 !important;
+  letter-spacing: -0.35px !important;
+
+  margin: 0.12rem 0 0.22rem !important;
   font-weight: 400 !important;
-  margin-top: 0.45em;
-  margin-bottom: 0.3em;
+}
+
+.rv-header-image {
+  width: 26px !important;
+  height: 26px !important;
+  object-fit: contain;
+  display: block;
+  margin: 0.25rem auto 0.35rem;
+}
+
+.rv-blog-header h2.rv-blog-subtitle {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--lavender);
+  opacity: 0.95;
+
+  letter-spacing: -0.15px;
+  line-height: 1.18;
+
+  margin-top: 0.22rem;
+  margin-bottom: 0.1rem;
+}
+
+/*──────────────────────────────────────────────
+  Mobile Scaling (Option A)
+──────────────────────────────────────────────*/
+
+@media (max-width: 480px) {
+  .rv-blog-header h1.rv-blog-title {
+    font-size: 1.82rem !important; /* scaled down */
+    line-height: 1.16 !important;
+  }
+
+  .rv-header-image {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .rv-blog-header h2.rv-blog-subtitle {
+    font-size: 1rem;
+  }
 }
 
 /*──────────────────────────────────────────────
@@ -221,12 +266,6 @@ blockquote {
   gap: 0.4rem;
 }
 
-.callout-title::before {
-  content: attr(data-icon);
-  font-weight: 400;
-  opacity: 0.9;
-}
-
 .callout-content {
   color: var(--text-normal);
   line-height: 1.58;
@@ -299,57 +338,6 @@ blockquote {
 }
 
 /*──────────────────────────────────────────────
-  Blog Header
-──────────────────────────────────────────────*/
-
-.rv-blog-header.royal-crest {
-  text-align: center;
-  padding: 1.7rem 1rem 1.35rem;
-  margin-bottom: 1.25rem;
-}
-
-.crest-line {
-  width: 90px;
-  height: 2px;
-  margin: 0.6rem auto;
-  background: linear-gradient(90deg, transparent, var(--lavender), transparent);
-  opacity: 0.7;
-}
-
-.rv-blog-header h1.rv-blog-title {
-  font-size: 1.8rem !important;
-  margin: 0.18rem 0 0.32rem !important;
-  line-height: 1.18 !important;
-  font-weight: 400 !important;
-}
-
-.rv-blog-header h2.rv-blog-subtitle {
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: var(--lavender);
-  opacity: 0.95;
-  letter-spacing: 0.2px;
-  margin-top: 0.35rem;
-  margin-bottom: 0.18rem;
-  line-height: 1.22;
-}
-
-.rv-blog-header h4.rv-blog-description {
-  font-size: 0.95rem;
-  font-weight: 400;
-  margin-top: 0.25rem;
-  line-height: 1.32;
-}
-
-.rv-header-image {
-  width: 20px !important;
-  height: 20px !important;
-  object-fit: contain;
-  display: block;
-  margin: 0.4rem auto 0.6rem;
-}
-
-/*──────────────────────────────────────────────
   Gradient Border Card
 ──────────────────────────────────────────────*/
 
@@ -385,10 +373,6 @@ blockquote {
   z-index: -1;
 }
 
-.theme-dark .rv-page-card {
-  background: var(--background-secondary-alt);
-}
-
 /*──────────────────────────────────────────────
   Utility
 ──────────────────────────────────────────────*/
@@ -405,4 +389,4 @@ blockquote {
   -webkit-background-clip: text;
   color: transparent;
   font-weight: 400;
-} 
+}
