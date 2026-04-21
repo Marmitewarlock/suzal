@@ -1,8 +1,10 @@
 /*──────────────────────────────────────────────
-  Royal Velvet CSS — v2.4.1
+  Royal Velvet CSS — v2.6
   Changes:
-  - Header block moved to bottom of file so it overrides global H1 rules
-  - No other changes from v2.4
+  - Unified font sizing system
+  - Body text larger + readable
+  - Card text larger + readable
+  - All links set to weight 200
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -80,7 +82,7 @@ body {
 }
 
 /*──────────────────────────────────────────────
-  Typography — Mid-Density + Tuned Line-Height
+  Typography — Unified + Readable
 ──────────────────────────────────────────────*/
 
 h1 {
@@ -117,15 +119,17 @@ h4 { color: var(--lavender) !important; }
 h5 { color: var(--gold) !important; }
 h6 { color: var(--rose) !important; }
 
+/* BODY TEXT — readable */
 p {
   color: var(--text-normal);
-  line-height: 1.56;
+  font-size: 1.35rem;
+  line-height: 1.62;
   margin: 0.6em 0;
   font-weight: 100;
 }
 
 /*──────────────────────────────────────────────
-  Gradient Links
+  Gradient Links — now weight 200
 ──────────────────────────────────────────────*/
 
 a {
@@ -144,7 +148,7 @@ a {
   color: transparent !important;
   -webkit-text-fill-color: transparent !important;
   transition: background-position 0.4s ease;
-  font-weight: 100;
+  font-weight: 200 !important;
 }
 
 a:hover {
@@ -161,7 +165,7 @@ code {
   color: var(--text-normal);
   padding: 0.45em 0.65em;
   border-radius: 6px;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 100;
   margin: 0.8em 0;
 }
@@ -176,6 +180,8 @@ blockquote {
   color: var(--text-muted);
   margin: 1em 0;
   font-weight: 100;
+  font-size: 1.3rem;
+  line-height: 1.62;
 }
 
 /*──────────────────────────────────────────────
@@ -197,77 +203,14 @@ blockquote {
   display: flex;
   align-items: center;
   gap: 0.4rem;
+  font-size: 1.25rem;
 }
 
 .callout-content {
   color: var(--text-normal);
-  line-height: 1.58;
+  line-height: 1.62;
   font-weight: 100;
-}
-
-/*──────────────────────────────────────────────
-  Post Grid + Cards
-──────────────────────────────────────────────*/
-
-.post-grid {
-  display: grid;
-  gap: 1.8rem;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  margin-top: 1.6rem;
-}
-
-.post-card {
-  background: var(--background-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: 15px;
-  overflow: hidden;
-  backdrop-filter: blur(6px);
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.post-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--text-accent);
-}
-
-.post-card-thumb {
-  height: 160px;
-  background-size: cover;
-  background-position: center;
-}
-
-.post-card-link {
-  display: block;
-  padding: 1.1rem 1.3rem;
-  text-decoration: none;
-}
-
-.post-card-title {
-  font-size: 1.35rem;
-  line-height: 1.25;
-  margin-bottom: 0.5rem;
-  font-weight: 400;
-  color: var(--text-accent);
-}
-
-.post-card-meta {
-  display: flex;
-  gap: 0.8rem;
-  font-size: 0.9rem;
-  opacity: 0.75;
-  margin-bottom: 0.7rem;
-  color: var(--text-muted);
-  font-weight: 100;
-}
-
-.post-card-excerpt {
-  font-size: 1rem;
-  line-height: 1.56;
-  opacity: 0.85;
-  margin-top: 0.35rem;
-  margin-bottom: 0.15rem;
-  color: var(--text-normal);
-  font-weight: 100;
+  font-size: 1.3rem;
 }
 
 /*──────────────────────────────────────────────
@@ -306,117 +249,34 @@ blockquote {
   z-index: -1;
 }
 
-/*──────────────────────────────────────────────
-  Utility
-──────────────────────────────────────────────*/
-
-.gradient-text {
-  background: linear-gradient(
-    90deg,
-    #4ade80 0%,
-    #7ed957 25%,
-    #c8b53b 50%,
-    #f59e2a 75%,
-    #f97316 100%
-  );
-  -webkit-background-clip: text;
-  color: transparent;
-  font-weight: 400;
+/* CARD TEXT — readable */
+.rv-page-card p,
+.rv-page-card a,
+.rv-page-card li {
+  font-size: 1.35rem;
+  line-height: 1.62;
+  font-weight: 200;
 }
 
 /*──────────────────────────────────────────────
-  Royal Velvet Header — v2.5 (Loose Spacing)
-──────────────────────────────────────────────*/
-
-header.rv-blog-header.royal-crest {
-  text-align: center;
-  padding: 2.4rem 1rem 2.0rem !important; /* loose + airy */
-  margin-bottom: 0.6rem !important;
-}
-
-/* Crest lines */
-header.rv-blog-header.royal-crest .rv-crest-line {
-  height: 1px;
-  width: 100%;
-  background: linear-gradient(
-    90deg,
-    #ff6ec7,
-    #ffa95f,
-    #fff56e,
-    #6effa3,
-    #6ebaff,
-    #c86eff
-  );
-  opacity: 0.6;
-  margin: 1.2rem 0; /* loose */
-}
-
-/* Title — thin, large, airy */
-header.rv-blog-header.royal-crest h1.rv-blog-title {
-  font-weight: 100 !important;
-  letter-spacing: -0.32px;
-  font-size: 2.55rem !important; /* slightly larger for airy look */
-  line-height: 1.18 !important;  /* looser */
-  margin: 0.35rem 0 0.55rem !important; /* loose title → pfp */
-}
-
-/* PFP — loose spacing */
-header.rv-blog-header.royal-crest .rv-header-image {
-  width: 28px !important;
-  height: 28px !important;
-  margin: 0.45rem auto 0.55rem !important; /* loose pfp → subtitle */
-}
-
-/* Subtitle — loose spacing */
-header.rv-blog-header.royal-crest h2.rv-blog-subtitle {
-  font-size: 1.08rem !important;
-  font-weight: 400;
-  color: var(--lavender);
-  opacity: 0.95;
-  letter-spacing: -0.12px;
-  line-height: 1.28 !important;
-  margin-top: 0.45rem !important;
-  margin-bottom: 0.35rem !important;
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-  header.rv-blog-header.royal-crest h1.rv-blog-title {
-    font-size: 2.25rem !important;
-    line-height: 1.20 !important;
-  }
-
-  header.rv-blog-header.royal-crest .rv-header-image {
-    width: 26px !important;
-    height: 26px !important;
-  }
-
-  header.rv-blog-header.royal-crest h2.rv-blog-subtitle {
-    font-size: 1.0rem !important;
-  }
-}
-
-/*──────────────────────────────────────────────
-  Royal Velvet Footer — matches header aesthetic
+  Footer
 ──────────────────────────────────────────────*/
 
 footer.rv-blog-footer.royal-crest {
   text-align: center;
-  padding: 1.6rem 1rem 1.8rem; /* loose + airy */
-  margin-top: 2.2rem; /* space above footer */
+  padding: 1.6rem 1rem 1.8rem;
+  margin-top: 2.2rem;
   opacity: 0.95;
 }
 
-/* Footer text */
 footer.rv-blog-footer .rv-footer-text {
-  font-size: 1.05rem;
-  font-weight: 100;
+  font-size: 1.2rem;
+  font-weight: 200;
   letter-spacing: -0.15px;
   margin: 0.6rem 0;
   color: var(--text-muted);
 }
 
-/* Crest lines (reuse header style) */
 footer.rv-blog-footer .rv-crest-line {
   height: 1px;
   width: 100%;
@@ -432,18 +292,3 @@ footer.rv-blog-footer .rv-crest-line {
   opacity: 0.6;
   margin: 0.9rem 0;
 }
-
-/* Larger, more readable body text */
-.markdown-preview-view p {
-  font-size: 1.6rem;
-  line-height: 1.62;
-}
-
-/* Larger, more readable text inside cards */
-.rv-page-card p,
-.rv-page-card a,
-.rv-page-card li {
-  font-size: 1.12rem;
-  line-height: 1.64;
-}
-
