@@ -432,3 +432,10 @@ footer.rv-blog-footer .rv-crest-line {
   opacity: 0.6;
   margin: 0.9rem 0;
 }
+
+/* Larger, more readable body text */
+.markdown-preview-view p {
+  font-size: 1.08rem;
+  line-height: 1.62;
+}
+
