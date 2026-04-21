@@ -1,10 +1,12 @@
 /*──────────────────────────────────────────────
-  Royal Velvet CSS — v2.6
+  Royal Velvet CSS — v2.7
   Changes:
-  - Unified font sizing system
-  - Body text larger + readable
-  - Card text larger + readable
-  - All links set to weight 200
+  - Header restored + fixed
+  - Crest lines visible again
+  - Favicon sized correctly
+  - Unified typography
+  - Link weight 200
+  - Centered Markdown utility added
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -129,7 +131,7 @@ p {
 }
 
 /*──────────────────────────────────────────────
-  Gradient Links — now weight 200
+  Gradient Links — weight 200
 ──────────────────────────────────────────────*/
 
 a {
@@ -259,42 +261,31 @@ blockquote {
 }
 
 /*──────────────────────────────────────────────
-  Footer
+  Centered Markdown Utility
 ──────────────────────────────────────────────*/
 
-footer.rv-blog-footer.royal-crest {
+.center-md {
   text-align: center;
-  padding: 1.6rem 1rem 1.8rem;
-  margin-top: 2.2rem;
-  opacity: 0.95;
 }
 
-footer.rv-blog-footer .rv-footer-text {
-  font-size: 1.2rem;
-  font-weight: 200;
-  letter-spacing: -0.15px;
-  margin: 0.6rem 0;
-  color: var(--text-muted);
-}
-
-footer.rv-blog-footer .rv-crest-line {
-  height: 1px;
-  width: 100%;
-  background: linear-gradient(
-    90deg,
-    #ff6ec7,
-    #ffa95f,
-    #fff56e,
-    #6effa3,
-    #6ebaff,
-    #c86eff
-  );
-  opacity: 0.6;
-  margin: 0.9rem 0;
+.center-md p,
+.center-md h1,
+.center-md h2,
+.center-md h3,
+.center-md h4,
+.center-md h5,
+.center-md h6,
+.center-md ul,
+.center-md ol,
+.center-md li,
+.center-md a {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 /*──────────────────────────────────────────────
-  Royal Velvet Header — v2.6
+  Royal Velvet Header — restored + fixed
 ──────────────────────────────────────────────*/
 
 header.rv-blog-header.royal-crest {
@@ -333,7 +324,7 @@ header.rv-blog-header.royal-crest h1.rv-blog-title {
 header.rv-blog-header.royal-crest .rv-header-image {
   display: block;
   margin: 0.6rem auto 0.6rem;
-  width: 48px;      /* change this to 32px or 64px if you want */
+  width: 48px;
   height: 48px;
 }
 
@@ -347,4 +338,39 @@ header.rv-blog-header.royal-crest h2.rv-blog-subtitle {
   line-height: 1.28;
   margin-top: 0.45rem;
   margin-bottom: 0.35rem;
+}
+
+/*──────────────────────────────────────────────
+  Footer
+──────────────────────────────────────────────*/
+
+footer.rv-blog-footer.royal-crest {
+  text-align: center;
+  padding: 1.6rem 1rem 1.8rem;
+  margin-top: 2.2rem;
+  opacity: 0.95;
+}
+
+footer.rv-blog-footer .rv-footer-text {
+  font-size: 1.2rem;
+  font-weight: 200;
+  letter-spacing: -0.15px;
+  margin: 0.6rem 0;
+  color: var(--text-muted);
+}
+
+footer.rv-blog-footer .rv-crest-line {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    #ff6ec7,
+    #ffa95f,
+    #fff56e,
+    #6effa3,
+    #6ebaff,
+    #c86eff
+  );
+  opacity: 0.6;
+  margin: 0.9rem 0;
 }
