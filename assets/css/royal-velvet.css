@@ -374,3 +374,17 @@ footer.rv-blog-footer .rv-crest-line {
   opacity: 0.6;
   margin: 0.9rem 0;
 }
+
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  margin-top: 0.6rem;
+  color: var(--text-normal);
+  transition: opacity 0.2s ease;
+}
+
+.theme-toggle:hover {
+  opacity: 0.7;
+}
