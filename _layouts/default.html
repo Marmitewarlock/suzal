@@ -5,27 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>{{ page.title }} — {{ site.title }}</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@200&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
-  <!-- Correct CSS path -->
+
+  <!-- Roboto Thin (100) -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+  <!-- Royal Velvet CSS -->
   <link rel="stylesheet" href="{{ '/assets/css/royal-velvet.css' | relative_url }}">
 </head>
-<header class="rv-blog-header royal-crest">
-      <div class="crest-line"></div>
 
-      <h1 class="rv-blog-title">{{ page.title }}</h1>
-
-      {% if page.subtitle %}
-        <h2 class="rv-blog-subtitle">{{ page.subtitle }}</h2>
-      {% endif %}
-<img src="/favicon.png" class="rv-header-image" alt="">
-      {% if page.description %}
-        <h4 class="rv-blog-description"><i>{{ page.description }}</i></h4>
-      {% endif %}
-
-      <div class="crest-line"></div>
-    </header>
 <body class="theme-dark">
+
+  <!-- Royal Velvet Header -->
+  <header class="rv-blog-header royal-crest">
+    <div class="crest-line"></div>
+
+    <h1 class="rv-blog-title">{{ page.title }}</h1>
+
+    {% if page.subtitle %}
+      <h2 class="rv-blog-subtitle">{{ page.subtitle }}</h2>
+    {% endif %}
+
+    <img src="/favicon.png" class="rv-header-image" alt="">
+
+    {% if page.description %}
+      <h4 class="rv-blog-description"><i>{{ page.description }}</i></h4>
+    {% endif %}
+
+    <div class="crest-line"></div>
+  </header>
+
   <div class="app-container">
     <div class="workspace">
       <div class="mod-root">
@@ -33,7 +41,6 @@
           <div class="workspace-leaf-content">
             <div class="view-content">
 
-              <!-- Guaranteed fix: remove GitHub's markdown-body wrapper -->
               {% capture raw %}{{ content }}{% endcapture %}
               {% assign cleaned = raw 
                 | replace: 'class="markdown-body"', '' 
@@ -59,38 +66,8 @@ document.querySelectorAll("blockquote").forEach(b => {
   const first = b.firstElementChild;
   if (!first) return;
 
-  const match = first.textContent.match(/^
-
-\[!(\w+)\]
-
-\s*(.*)/);
+  const match = first.textContent.match(/^\[!(\w+)\]\s*(.*)/);
   if (!match) return;
 
   const type = match[1].toLowerCase();
-  const title = match[2] || type;
-
-  const wrapper = document.createElement("div");
-  wrapper.className = "callout";
-  wrapper.dataset.callout = type;
-
-  const titleEl = document.createElement("div");
-  titleEl.className = "callout-title";
-  titleEl.dataset.icon = type[0].toUpperCase();
-  titleEl.textContent = title;
-
-  const contentEl = document.createElement("div");
-  contentEl.className = "callout-content";
-  contentEl.innerHTML = b.innerHTML.replace(first.outerHTML, "");
-
-  wrapper.appendChild(titleEl);
-  wrapper.appendChild(contentEl);
-
-  b.replaceWith(wrapper);
-});
-</script>
-
-  
-</body>
-</html>
-
-
+  const title =  match[2] || type
