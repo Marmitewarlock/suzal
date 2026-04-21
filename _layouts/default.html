@@ -110,23 +110,25 @@ document.querySelectorAll("blockquote").forEach(b => {
 <button id="theme-toggle" class="rv-theme-toggle" aria-label="Toggle theme">
   <span class="rv-toggle-icon">🌙</span>
 </button>
-
 <script>
-const toggleBtn = document.querySelector("#theme-toggle");
-const icon = toggleBtn.querySelector(".rv-toggle-icon");
+const root = document.documentElement;
+const toggle = document.getElementById("theme-toggle");
 
-function updateIcon() {
-  if (document.body.classList.contains("theme-dark")) {
-    icon.textContent = "🌙";
+// Load saved theme
+const saved = localStorage.getItem("rv-theme");
+if (saved) root.classList.add(saved);
+
+// Toggle on click
+toggle.addEventListener("click", () => {
+  if (root.classList.contains("theme-dark")) {
+    root.classList.remove("theme-dark");
+    localStorage.setItem("rv-theme", "");
+    toggle.textContent = "🌙";
   } else {
-    icon.textContent = "☀️";
+    root.classList.add("theme-dark");
+    localStorage.setItem("rv-theme", "theme-dark");
+    toggle.textContent = "☀️";
   }
-}
-
-toggleBtn.addEventListener("click", () => {
-  document.body.classList.toggle("theme-dark");
-  updateIcon();
 });
-
-updateIcon();
 </script>
+
