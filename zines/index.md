@@ -18,5 +18,5 @@ description: again
 <div class="rv-page-card">
   <h2 class="gradient-text">Sarcoming Out Of My Cage</h2>
   I got diagnosed with a liposarcoma in November 2024 which really put a dampener on my mid thirties. I want to write about my experiences regularly both as a type of lyrical therapy for myself and so if anyone googles “sarcoma” they might find someone else.
-  <a href="http://blog.suz.al">blog.suz.al</a>
+<p><a href="http://blog.suz.al">blog.suz.al</a></p>
 </div>
