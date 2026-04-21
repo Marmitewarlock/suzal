@@ -1,48 +1,370 @@
 /*──────────────────────────────────────────────
-  HEADER BLOCK — v2.4.2 (matches screenshot)
+  Royal Velvet CSS — v2.4.1
+  Changes:
+  - Header block moved to bottom of file so it overrides global H1 rules
+  - No other changes from v2.4
+──────────────────────────────────────────────*/
+
+/*──────────────────────────────────────────────
+  Light Theme (Warm Velvet Daylight)
+──────────────────────────────────────────────*/
+
+:root {
+  --background-primary: #f8f3ea;
+  --background-secondary: #f2e9dd;
+  --background-tertiary: #e9dfd2;
+
+  --text-normal: #3a2f28;
+  --text-muted: #6b5c52;
+
+  --lavender: #a78bd9;
+  --sapphire: #4a7be0;
+  --teal: #4fbfa8;
+  --gold: #d6a85a;
+  --rose: #d97a8c;
+
+  --text-accent: var(--lavender);
+  --border-color: #d8c9b8;
+
+  --font-text: 'Roboto', sans-serif;
+  --font-header: 'Roboto', sans-serif;
+  --font-title: 'Roboto', sans-serif;
+  --font-interface: 'Roboto', sans-serif;
+
+  --h1-weight: 400;
+  --h2-weight: 400;
+  --h3-weight: 400;
+  --text-normal-weight: 100;
+}
+
+/*──────────────────────────────────────────────
+  Dark Theme
+──────────────────────────────────────────────*/
+
+body.theme-dark {
+  --background-primary: #111;
+  --background-secondary: #1a1a1a;
+  --background-tertiary: #222;
+
+  --text-normal: #e6e6e6;
+  --text-muted: #b3b3b3;
+
+  --lavender: #cba6f7;
+  --sapphire: #89b4fa;
+  --teal: #94e2d5;
+  --gold: #f9e2af;
+  --rose: #f38ba8;
+
+  --text-accent: var(--lavender);
+  --border-color: #2a2a2a;
+}
+
+/*──────────────────────────────────────────────
+  Base Layout
+──────────────────────────────────────────────*/
+
+body {
+  background-color: var(--background-primary);
+  color: var(--text-normal);
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", system-ui, sans-serif !important;
+  font-weight: 100;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.markdown-preview-view {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.3rem 1.6rem;
+}
+
+/*──────────────────────────────────────────────
+  Typography — Mid-Density + Tuned Line-Height
+──────────────────────────────────────────────*/
+
+h1 {
+  background: linear-gradient(
+    90deg,
+    #ff6ec7,
+    #ffa95f,
+    #fff56e,
+    #6effa3,
+    #6ebaff,
+    #c86eff
+  );
+  background-size: 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+
+  font-weight: 400 !important;
+  letter-spacing: -0.35px;
+  line-height: 1.14;
+
+  font-size: 1.906rem;
+  margin: 0.5em 0 0.35em;
+}
+
+h2 { margin: 0.45em 0 0.3em; line-height: 1.22; }
+h3 { margin: 0.4em 0 0.28em; line-height: 1.24; }
+h4, h5, h6 { margin: 0.35em 0 0.25em; line-height: 1.26; }
+
+h2 { color: var(--teal) !important; }
+h3 { color: var(--sapphire) !important; }
+h4 { color: var(--lavender) !important; }
+h5 { color: var(--gold) !important; }
+h6 { color: var(--rose) !important; }
+
+p {
+  color: var(--text-normal);
+  line-height: 1.56;
+  margin: 0.6em 0;
+  font-weight: 100;
+}
+
+/*──────────────────────────────────────────────
+  Gradient Links
+──────────────────────────────────────────────*/
+
+a {
+  background: linear-gradient(
+    90deg,
+    #c86eff,
+    #6ebaff,
+    #6effa3,
+    #fff56e,
+    #ffa95f,
+    #ff6ec7
+  );
+  background-size: 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  transition: background-position 0.4s ease;
+  font-weight: 100;
+}
+
+a:hover {
+  background-position: 100% 0;
+}
+
+/*──────────────────────────────────────────────
+  Code
+──────────────────────────────────────────────*/
+
+pre,
+code {
+  background: var(--background-secondary);
+  color: var(--text-normal);
+  padding: 0.45em 0.65em;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 100;
+  margin: 0.8em 0;
+}
+
+/*──────────────────────────────────────────────
+  Blockquotes
+──────────────────────────────────────────────*/
+
+blockquote {
+  border-left: 3px solid var(--text-accent);
+  padding-left: 0.9em;
+  color: var(--text-muted);
+  margin: 1em 0;
+  font-weight: 100;
+}
+
+/*──────────────────────────────────────────────
+  Callouts
+──────────────────────────────────────────────*/
+
+.callout {
+  border-left: 4px solid var(--text-accent);
+  background: var(--background-secondary);
+  padding: 1rem 1.1rem;
+  margin: 1.2rem 0;
+  border-radius: 6px;
+}
+
+.callout-title {
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  color: var(--text-accent);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.callout-content {
+  color: var(--text-normal);
+  line-height: 1.58;
+  font-weight: 100;
+}
+
+/*──────────────────────────────────────────────
+  Post Grid + Cards
+──────────────────────────────────────────────*/
+
+.post-grid {
+  display: grid;
+  gap: 1.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  margin-top: 1.6rem;
+}
+
+.post-card {
+  background: var(--background-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 15px;
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--text-accent);
+}
+
+.post-card-thumb {
+  height: 160px;
+  background-size: cover;
+  background-position: center;
+}
+
+.post-card-link {
+  display: block;
+  padding: 1.1rem 1.3rem;
+  text-decoration: none;
+}
+
+.post-card-title {
+  font-size: 1.35rem;
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+  color: var(--text-accent);
+}
+
+.post-card-meta {
+  display: flex;
+  gap: 0.8rem;
+  font-size: 0.9rem;
+  opacity: 0.75;
+  margin-bottom: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 100;
+}
+
+.post-card-excerpt {
+  font-size: 1rem;
+  line-height: 1.56;
+  opacity: 0.85;
+  margin-top: 0.35rem;
+  margin-bottom: 0.15rem;
+  color: var(--text-normal);
+  font-weight: 100;
+}
+
+/*──────────────────────────────────────────────
+  Gradient Border Card
+──────────────────────────────────────────────*/
+
+.rv-page-card {
+  position: relative;
+  padding: 1.35rem;
+  margin: 1.5rem 0;
+  border-radius: 14px;
+  background: var(--background-primary);
+  z-index: 1;
+}
+
+.rv-page-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    #4ade80 0%,
+    #7ed957 25%,
+    #c8b53b 50%,
+    #f59e2a 75%,
+    #f97316 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/*──────────────────────────────────────────────
+  Utility
+──────────────────────────────────────────────*/
+
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    #4ade80 0%,
+    #7ed957 25%,
+    #c8b53b 50%,
+    #f59e2a 75%,
+    #f97316 100%
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 400;
+}
+
+/*──────────────────────────────────────────────
+  HEADER BLOCK — moved to bottom (v2.4.1)
 ──────────────────────────────────────────────*/
 
 .rv-blog-header.royal-crest {
   text-align: center;
-  padding: 1.85rem 1rem 1.45rem; /* slightly less loose than v2.4 */
-  margin-bottom: 1.35rem;
+  padding: 2.05rem 1rem 1.62rem;
+  margin-bottom: 1.45rem;
 }
 
-/* Main hero title — thin, larger, tighter */
 .rv-blog-header h1.rv-blog-title {
   font-weight: 100 !important;
-  letter-spacing: -0.32px; /* tighter like screenshot */
-  font-size: 2.42rem !important; /* slightly larger */
-  line-height: 1.12 !important; /* tighter */
-  margin: 0.18rem 0 0.30rem !important; /* closer to pfp */
+  letter-spacing: -0.25px;
+  font-size: 2.33rem !important;
+  line-height: 1.16 !important;
+  margin: 0.22rem 0 0.38rem !important;
 }
 
-/* Profile image — slightly closer to title */
 .rv-header-image {
   width: 26px !important;
   height: 26px !important;
   object-fit: contain;
   display: block;
-  margin: 0.28rem auto 0.32rem; /* tighter */
+  margin: 0.35rem auto 0.45rem;
 }
 
-/* Subtitle — closer to pfp, slightly smaller */
 .rv-blog-header h2.rv-blog-subtitle {
-  font-size: 1.02rem;
+  font-size: 1.05rem;
   font-weight: 400;
   color: var(--lavender);
   opacity: 0.95;
-  letter-spacing: -0.12px;
-  line-height: 1.20;
-  margin-top: 0.28rem;
-  margin-bottom: 0.15rem;
+  letter-spacing: -0.15px;
+  line-height: 1.22;
+  margin-top: 0.35rem;
+  margin-bottom: 0.2rem;
 }
 
-/* Mobile scaling */
 @media (max-width: 480px) {
   .rv-blog-header h1.rv-blog-title {
-    font-size: 2.12rem !important;
-    line-height: 1.14 !important;
+    font-size: 2.05rem !important;
+    line-height: 1.18 !important;
   }
 
   .rv-header-image {
@@ -51,6 +373,6 @@
   }
 
   .rv-blog-header h2.rv-blog-subtitle {
-    font-size: 0.98rem;
+    font-size: 1rem;
   }
 }
