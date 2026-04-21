@@ -572,3 +572,20 @@ body.theme-dark header.rv-blog-header.royal-crest h2.rv-blog-subtitle {
   margin-top: 0.28rem !important;
   margin-bottom: 0.15rem !important;
 }
+
+/*──────────────────────────────────────────────
+  Precision spacing override for title → pfp
+──────────────────────────────────────────────*/
+
+header.rv-blog-header.royal-crest h1.rv-blog-title {
+  margin-bottom: 0.20rem !important; /* tighten title → pfp */
+}
+
+/*──────────────────────────────────────────────
+  Precision spacing override for pfp → subtitle
+──────────────────────────────────────────────*/
+
+header.rv-blog-header.royal-crest .rv-header-image {
+  margin-top: 0.20rem !important;
+  margin-bottom: 0.25rem !important; /* tighten pfp → subtitle */
+}
