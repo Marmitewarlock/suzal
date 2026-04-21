@@ -1,16 +1,17 @@
 ---
 layout: default
+title: Hi, I'm Suzy
+subtitle: I do not know how to code.
 ---
 
 
-I do not know how to code.
 
 <div class="rv-page-card">
-## Contact
+<h2>Contact</h2>
 
-[bluesky](https://bsky.app/profile/suz.al)
+<a href="https://bsky.app/profile/suz.al">blog</a>
 
-[email](mailto:hello@suz.al)
+<a href="mailto:hello@suz.al>email</a>
 
 </div>
 
