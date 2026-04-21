@@ -45,7 +45,7 @@
   Dark Theme
 ──────────────────────────────────────────────*/
 
-body.theme-dark {
+html.theme-dark {
   --background-primary: #111;
   --background-secondary: #1a1a1a;
   --background-tertiary: #222;
