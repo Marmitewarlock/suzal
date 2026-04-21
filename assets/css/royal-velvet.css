@@ -445,8 +445,30 @@ html.theme-dark .rv-theme-toggle {
   color: var(--text-normal);
 }
 
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/*──────────────────────────────────────────────
+  Royal Velvet — Centered Text Block
+──────────────────────────────────────────────*/
+
+.rv-center-block {
+  text-align: center;
+  margin: 1.8rem auto;
+  padding: 0.2rem 0;
+  max-width: 640px;
 }
+
+.rv-center-block p,
+.rv-center-block h1,
+.rv-center-block h2,
+.rv-center-block h3,
+.rv-center-block h4,
+.rv-center-block h5,
+.rv-center-block h6,
+.rv-center-block a,
+.rv-center-block ul,
+.rv-center-block ol,
+.rv-center-block li {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
