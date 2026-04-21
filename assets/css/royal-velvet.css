@@ -343,24 +343,39 @@ ol {
   margin: 0.5rem auto 0.75rem;
 }
 
-/* Royal Velvet Card */
-.rv-card {
-  background: var(--background-secondary);
+/* Page Card styled like Blog Cards */
+.rv-page-card {
+  background: var(--background-primary);
   border: 1px solid var(--background-modifier-border);
   border-radius: 12px;
   padding: 1.5rem;
   margin: 2rem 0;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.theme-dark .rv-card {
+.rv-page-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+/* Title + excerpt match blog cards */
+.rv-page-card .post-card-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.rv-page-card .post-card-excerpt {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Dark mode */
+.theme-dark .rv-page-card {
   background: var(--background-secondary-alt);
   border-color: var(--background-modifier-border-hover);
   box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-}
-
-/* Optional: subtle hover lift */
-.rv-card:hover {
-  transform: translateY(-2px);
 }
