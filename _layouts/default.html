@@ -15,24 +15,25 @@
 
 <body class="theme-dark">
 
-  <!-- Royal Velvet Header -->
   <header class="rv-blog-header royal-crest">
-    <div class="crest-line"></div>
 
-    <h1 class="rv-blog-title">{{ page.title }}</h1>
+  <div class="rv-crest-line"></div>
 
-    {% if page.subtitle %}
-      <h2 class="rv-blog-subtitle">{{ page.subtitle }}</h2>
-    {% endif %}
+  <h1 class="rv-blog-title">{{ page.title }}</h1>
 
-    <img src="/favicon.png" class="rv-header-image" alt="">
+  <img src="/favicon.png" class="rv-header-image" alt="">
 
-    {% if page.description %}
-      <h4 class="rv-blog-description"><i>{{ page.description }}</i></h4>
-    {% endif %}
+  {% if page.subtitle %}
+    <h2 class="rv-blog-subtitle">{{ page.subtitle }}</h2>
+  {% endif %}
 
-    <div class="crest-line"></div>
-  </header>
+  {% if page.description %}
+    <h4 class="rv-blog-description"><i>{{ page.description }}</i></h4>
+  {% endif %}
+
+  <div class="rv-crest-line"></div>
+
+</header>
 
   <div class="app-container">
     <div class="workspace">
