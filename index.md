@@ -3,19 +3,17 @@ layout: default
 ---
 
 
-# Hi, I'm Suzy
-
 I do not know how to code.
 
----
-
-### Contact
+<div class="rv-page-card">
+## Contact
 
 [bluesky](https://bsky.app/profile/suz.al)
 
 [email](mailto:hello@suz.al)
 
----
+</div>
+
 
 ## Ongoing Projects
 
