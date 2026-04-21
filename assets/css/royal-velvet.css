@@ -19,7 +19,6 @@
   --text-accent: var(--lavender);
   --border-color: #d8c9b8;
 
-  /* Typography — Roboto Thin + Regular */
   --font-text: 'Roboto', sans-serif;
   --font-header: 'Roboto', sans-serif;
   --font-title: 'Roboto', sans-serif;
@@ -70,11 +69,11 @@ body {
 .markdown-preview-view {
   max-width: 720px;
   margin: 0 auto;
-  padding: 1.5rem 2rem;
+  padding: 1.2rem 1.4rem;
 }
 
 /*──────────────────────────────────────────────
-  Typography
+  Compact Typography
 ──────────────────────────────────────────────*/
 
 h1 {
@@ -93,9 +92,12 @@ h1 {
   color: transparent !important;
   -webkit-text-fill-color: transparent !important;
   font-weight: 400 !important;
-  margin-top: 1.2em;
-  margin-bottom: 0.4em;
+  margin: 0.35em 0 0.25em;
 }
+
+h2 { margin: 0.32em 0 0.22em; }
+h3 { margin: 0.28em 0 0.18em; }
+h4, h5, h6 { margin: 0.24em 0 0.14em; }
 
 h2, h3, h4, h5, h6 {
   font-weight: 400 !important;
@@ -109,8 +111,8 @@ h6 { color: var(--rose) !important; }
 
 p {
   color: var(--text-normal);
-  line-height: 1.6;
-  margin: 1em 0;
+  line-height: 1.55;
+  margin: 0.45em 0;
   font-weight: 100;
 }
 
@@ -122,6 +124,8 @@ p {
 .markdown-preview-view h5,
 .markdown-preview-view h6 {
   font-weight: 400 !important;
+  margin-top: 0.3em;
+  margin-bottom: 0.2em;
 }
 
 /*──────────────────────────────────────────────
@@ -159,10 +163,11 @@ pre,
 code {
   background: var(--background-secondary);
   color: var(--text-normal);
-  padding: 0.4em 0.6em;
+  padding: 0.35em 0.55em;
   border-radius: 6px;
   font-size: 0.95rem;
   font-weight: 100;
+  margin: 0.6em 0;
 }
 
 /*──────────────────────────────────────────────
@@ -171,9 +176,9 @@ code {
 
 blockquote {
   border-left: 3px solid var(--text-accent);
-  padding-left: 1em;
+  padding-left: 0.8em;
   color: var(--text-muted);
-  margin: 1.2em 0;
+  margin: 0.8em 0;
   font-weight: 100;
 }
 
@@ -184,18 +189,18 @@ blockquote {
 .callout {
   border-left: 4px solid var(--text-accent);
   background: var(--background-secondary);
-  padding: 1rem 1.2rem;
-  margin: 1.4rem 0;
+  padding: 0.9rem 1rem;
+  margin: 1rem 0;
   border-radius: 6px;
 }
 
 .callout-title {
   font-weight: 400;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.4rem;
   color: var(--text-accent);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 .callout-title::before {
@@ -206,15 +211,9 @@ blockquote {
 
 .callout-content {
   color: var(--text-normal);
-  line-height: 1.6;
+  line-height: 1.55;
   font-weight: 100;
 }
-
-.callout[data-callout="note"]    { --text-accent: var(--sapphire); }
-.callout[data-callout="warning"] { --text-accent: var(--gold); }
-.callout[data-callout="danger"]  { --text-accent: var(--rose); }
-.callout[data-callout="tip"]     { --text-accent: var(--teal); }
-.callout[data-callout="info"]    { --text-accent: var(--teal); }
 
 /*──────────────────────────────────────────────
   Post Grid + Cards
@@ -222,69 +221,61 @@ blockquote {
 
 .post-grid {
   display: grid;
-  gap: 2rem;
+  gap: 1.6rem;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  margin-top: 2rem;
+  margin-top: 1.4rem;
 }
 
 .post-card {
   background: var(--background-secondary);
   border: 1px solid var(--border-color);
-  border-radius: 16px;
+  border-radius: 14px;
   overflow: hidden;
   backdrop-filter: blur(6px);
   transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .post-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   border-color: var(--text-accent);
 }
 
 .post-card-thumb {
-  height: 180px;
+  height: 160px;
   background-size: cover;
   background-position: center;
 }
 
-.post-card-thumb.placeholder {
-  background: linear-gradient(
-    135deg,
-    var(--lavender),
-    var(--background-tertiary)
-  );
-}
-
 .post-card-link {
   display: block;
-  padding: 1.2rem 1.4rem;
+  padding: 1rem 1.2rem;
   text-decoration: none;
 }
 
 .post-card-title {
-  font-size: 1.4rem;
-  line-height: 1.3;
-  margin-bottom: 0.6rem;
+  font-size: 1.35rem;
+  line-height: 1.25;
+  margin-bottom: 0.4rem;
   font-weight: 400;
   color: var(--text-accent);
 }
 
 .post-card-meta {
   display: flex;
-  gap: 1rem;
+  gap: 0.8rem;
   font-size: 0.9rem;
   opacity: 0.75;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
   color: var(--text-muted);
   font-weight: 100;
 }
 
 .post-card-excerpt {
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.55;
   opacity: 0.85;
-  margin-top: 0.4rem;
-  margin-bottom: 0.2rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.1rem;
   color: var(--text-normal);
   font-weight: 100;
 }
@@ -295,39 +286,39 @@ blockquote {
 
 .rv-blog-header.royal-crest {
   text-align: center;
-  padding: 2rem 1rem 1.5rem;
-  margin-bottom: 1.5rem;
+  padding: 1.4rem 1rem 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .crest-line {
   width: 90px;
   height: 2px;
-  margin: 0.8rem auto;
+  margin: 0.6rem auto;
   background: linear-gradient(90deg, transparent, var(--lavender), transparent);
   opacity: 0.7;
 }
 
 .rv-blog-header h1.rv-blog-title {
   font-size: 1.8rem !important;
-  margin: 0.2rem 0 0.4rem !important;
-  line-height: 1.25 !important;
+  margin: 0.15rem 0 0.3rem !important;
+  line-height: 1.2 !important;
   font-weight: 400 !important;
 }
 
 .rv-blog-header h2.rv-blog-subtitle {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 400;
   color: var(--lavender);
   opacity: 0.95;
-  letter-spacing: 0.3px;
-  margin-top: 0.4rem;
-  margin-bottom: 0.2rem;
-  text-shadow: 0 0 10px rgba(203, 166, 247, 0.25);
+  letter-spacing: 0.2px;
+  margin-top: 0.3rem;
+  margin-bottom: 0.15rem;
 }
 
 .rv-blog-header h4.rv-blog-description {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 400;
+  margin-top: 0.2rem;
 }
 
 .rv-header-image {
@@ -335,7 +326,7 @@ blockquote {
   height: 20px !important;
   object-fit: contain;
   display: block;
-  margin: 0.5rem auto 0.75rem;
+  margin: 0.4rem auto 0.6rem;
 }
 
 /*──────────────────────────────────────────────
@@ -344,8 +335,8 @@ blockquote {
 
 .rv-page-card {
   position: relative;
-  padding: 1.5rem;
-  margin: 2rem 0;
+  padding: 1.2rem;
+  margin: 1.2rem 0;
   border-radius: 14px;
   background: var(--background-primary);
   z-index: 1;
