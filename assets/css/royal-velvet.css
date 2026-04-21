@@ -343,39 +343,41 @@ ol {
   margin: 0.5rem auto 0.75rem;
 }
 
-/* Page Card styled like Blog Cards */
+/* Royal Velvet Gradient Border Card */
 .rv-page-card {
-  background: var(--background-primary);
-  border: 1px solid var(--background-modifier-border);
-  border-radius: 12px;
+  position: relative;
   padding: 1.5rem;
   margin: 2rem 0;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 14px;
+  background: var(--background-primary);
+  z-index: 1;
 }
 
-.rv-page-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+/* Gradient border using pseudo-element */
+.rv-page-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px; /* border thickness */
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    #4ade80 0%,
+    #7ed957 25%,
+    #c8b53b 50%,
+    #f59e2a 75%,
+    #f97316 100%
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
 }
 
-/* Title + excerpt match blog cards */
-.rv-page-card .post-card-title {
-  margin: 0 0 0.5rem;
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-
-.rv-page-card .post-card-excerpt {
-  margin: 0;
-  color: var(--text-muted);
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-/* Dark mode */
+/* Dark mode interior */
 .theme-dark .rv-page-card {
   background: var(--background-secondary-alt);
-  border-color: var(--background-modifier-border-hover);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
