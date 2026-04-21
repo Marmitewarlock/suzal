@@ -434,3 +434,78 @@ blockquote {
     font-size: 0.98rem !important;
   }
 }
+
+/*──────────────────────────────────────────────
+  CREST LINES — restored
+──────────────────────────────────────────────*/
+
+.rv-crest-line {
+  height: 1px !important;
+  width: 100% !important;
+  background: linear-gradient(
+    90deg,
+    #ff6ec7,
+    #ffa95f,
+    #fff56e,
+    #6effa3,
+    #6ebaff,
+    #c86eff
+  ) !important;
+  opacity: 0.6 !important;
+  margin: 0.9rem 0 !important;
+}
+
+/*──────────────────────────────────────────────
+  HEADER BLOCK — v2.4.4 (spacing override)
+──────────────────────────────────────────────*/
+
+.rv-blog-header.royal-crest {
+  text-align: center;
+  padding: 1.85rem 1rem 1.45rem !important;
+  margin-bottom: 1.35rem !important;
+}
+
+/* Main hero title — thin, larger, tighter */
+.rv-blog-header h1.rv-blog-title {
+  font-weight: 100 !important;
+  letter-spacing: -0.32px !important;
+  font-size: 2.42rem !important;
+  line-height: 1.12 !important;
+  margin: 0.18rem 0 0.30rem !important;
+}
+
+/* Profile image — slightly closer to title */
+.rv-header-image {
+  width: 26px !important;
+  height: 26px !important;
+  margin: 0.28rem auto 0.32rem !important;
+}
+
+/* Subtitle — closer to pfp */
+.rv-blog-header h2.rv-blog-subtitle {
+  font-size: 1.02rem !important;
+  font-weight: 400 !important;
+  color: var(--lavender) !important;
+  opacity: 0.95 !important;
+  letter-spacing: -0.12px !important;
+  line-height: 1.20 !important;
+  margin-top: 0.28rem !important;
+  margin-bottom: 0.15rem !important;
+}
+
+/* Mobile scaling */
+@media (max-width: 480px) {
+  .rv-blog-header h1.rv-blog-title {
+    font-size: 2.12rem !important;
+    line-height: 1.14 !important;
+  }
+
+  .rv-header-image {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .rv-blog-header h2.rv-blog-subtitle {
+    font-size: 0.98rem !important;
+  }
+}
