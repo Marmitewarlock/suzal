@@ -11,7 +11,7 @@ subtitle: but she does not know how to code
 
 <a href="https://bsky.app/profile/suz.al">blog</a>
 
-<a href="mailto:hello@suz.al>email</a>
+<a href="mailto:hello@suz.al">email</a>
 
 </div>
 
