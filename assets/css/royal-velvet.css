@@ -381,3 +381,16 @@ ol {
 .theme-dark .rv-page-card {
   background: var(--background-secondary-alt);
 }
+
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    #4ade80 0%,
+    #7ed957 25%,
+    #c8b53b 50%,
+    #f59e2a 75%,
+    #f97316 100%
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}
