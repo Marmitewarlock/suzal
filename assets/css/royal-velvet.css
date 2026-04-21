@@ -18,6 +18,11 @@
 
   --text-accent: var(--lavender);
   --border-color: #d8c9b8;
+
+  --font-text: 'Roboto', sans-serif;
+  --font-header: 'Roboto', sans-serif;
+  --font-title: 'Roboto', sans-serif;
+  --font-interface: 'Roboto', sans-serif;
 }
 
 /*──────────────────────────────────────────────
