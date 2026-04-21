@@ -125,7 +125,7 @@ h6 { color: var(--rose) !important; }
 p {
   color: var(--text-normal);
   font-size: 1.35rem;
-  line-height: 1.74;
+  line-height: 2;
   margin: 0.6em 0;
   font-weight: 100;
 }
