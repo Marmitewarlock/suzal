@@ -4,7 +4,7 @@ title: suzy collects hobbies
 subtitle: but she does not know how to code
 ---
 
-<div class="center-md">
+<div class="center-md" markdown="1">
 
 ## Ongoing Projects
 
