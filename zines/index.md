@@ -5,7 +5,7 @@ permalink: /zines
 description: again
 ---
 <div class="rv-page-card">
-  <h1 class="gradient-text">Home printer whisperer</h1>
+  <h2 class="gradient-text">Home printer whisperer</h2>
   From fannying about with QuarkExpress in uni to going mildly insane and baking a zine from salt dough in lockdown I've loved the idea of publishing on a tiny and inconsequential scale. I've shoved my poetry into zines and many pictures of pigeons and then 2020 fully took the wind out of my sails. Writing went again, zines went away and it wasn't until the last couple of years I've been writing again.
   My blog <a href="http://blog.suz.al">➔</a> was not only theraputic as fuck but a fabulous reentry into writing and now the zines... they're calling me back. And then I impulsively applied for a zine fest. So I'm taking off my big girl pants and I'm gonna go cozy up and do crafts again.
 </div>
