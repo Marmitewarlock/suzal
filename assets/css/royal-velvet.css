@@ -292,3 +292,13 @@ footer.rv-blog-footer .rv-crest-line {
   opacity: 0.6;
   margin: 0.9rem 0;
 }
+
+/* Center‑aligned card content */
+.rv-page-card.centered {
+  text-align: center;
+}
+
+.rv-page-card.centered a {
+  display: block;
+  margin: 0.35rem 0;
+}
