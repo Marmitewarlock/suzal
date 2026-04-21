@@ -1,5 +1,15 @@
 /*──────────────────────────────────────────────
-  Royal Velvet — Light Theme (Warm Velvet Daylight)
+  Royal Velvet CSS — v2.2
+  Changes:
+  - Added tuned line-height system
+  - Mid-density spacing adjustments
+  - Headings set to 400
+  - Body text set to 100
+  - Unified rhythm across cards, callouts, blog header
+──────────────────────────────────────────────*/
+
+/*──────────────────────────────────────────────
+  Light Theme (Warm Velvet Daylight)
 ──────────────────────────────────────────────*/
 
 :root {
@@ -31,7 +41,7 @@
 }
 
 /*──────────────────────────────────────────────
-  Royal Velvet — Dark Theme
+  Dark Theme
 ──────────────────────────────────────────────*/
 
 body.theme-dark {
@@ -69,11 +79,11 @@ body {
 .markdown-preview-view {
   max-width: 720px;
   margin: 0 auto;
-  padding: 1.2rem 1.4rem;
+  padding: 1.3rem 1.6rem;
 }
 
 /*──────────────────────────────────────────────
-  Compact Typography
+  Typography — Mid-Density Spacing + Tuned Line-Height
 ──────────────────────────────────────────────*/
 
 h1 {
@@ -92,15 +102,23 @@ h1 {
   color: transparent !important;
   -webkit-text-fill-color: transparent !important;
   font-weight: 400 !important;
-  margin: 0.35em 0 0.25em;
+  margin: 0.5em 0 0.35em;
+  line-height: 1.18;
 }
 
-h2 { margin: 0.32em 0 0.22em; }
-h3 { margin: 0.28em 0 0.18em; }
-h4, h5, h6 { margin: 0.24em 0 0.14em; }
+h2 {
+  margin: 0.45em 0 0.3em;
+  line-height: 1.22;
+}
 
-h2, h3, h4, h5, h6 {
-  font-weight: 400 !important;
+h3 {
+  margin: 0.4em 0 0.28em;
+  line-height: 1.24;
+}
+
+h4, h5, h6 {
+  margin: 0.35em 0 0.25em;
+  line-height: 1.26;
 }
 
 h2 { color: var(--teal) !important; }
@@ -111,12 +129,12 @@ h6 { color: var(--rose) !important; }
 
 p {
   color: var(--text-normal);
-  line-height: 1.55;
-  margin: 0.45em 0;
+  line-height: 1.56;
+  margin: 0.6em 0;
   font-weight: 100;
 }
 
-/* Markdown headings inside preview */
+/* Markdown preview headings */
 .markdown-preview-view h1,
 .markdown-preview-view h2,
 .markdown-preview-view h3,
@@ -124,12 +142,12 @@ p {
 .markdown-preview-view h5,
 .markdown-preview-view h6 {
   font-weight: 400 !important;
-  margin-top: 0.3em;
-  margin-bottom: 0.2em;
+  margin-top: 0.45em;
+  margin-bottom: 0.3em;
 }
 
 /*──────────────────────────────────────────────
-  GLOBAL Gradient Links
+  Gradient Links
 ──────────────────────────────────────────────*/
 
 a {
@@ -163,11 +181,11 @@ pre,
 code {
   background: var(--background-secondary);
   color: var(--text-normal);
-  padding: 0.35em 0.55em;
+  padding: 0.45em 0.65em;
   border-radius: 6px;
   font-size: 0.95rem;
   font-weight: 100;
-  margin: 0.6em 0;
+  margin: 0.8em 0;
 }
 
 /*──────────────────────────────────────────────
@@ -176,9 +194,9 @@ code {
 
 blockquote {
   border-left: 3px solid var(--text-accent);
-  padding-left: 0.8em;
+  padding-left: 0.9em;
   color: var(--text-muted);
-  margin: 0.8em 0;
+  margin: 1em 0;
   font-weight: 100;
 }
 
@@ -189,14 +207,14 @@ blockquote {
 .callout {
   border-left: 4px solid var(--text-accent);
   background: var(--background-secondary);
-  padding: 0.9rem 1rem;
-  margin: 1rem 0;
+  padding: 1rem 1.1rem;
+  margin: 1.2rem 0;
   border-radius: 6px;
 }
 
 .callout-title {
   font-weight: 400;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
   color: var(--text-accent);
   display: flex;
   align-items: center;
@@ -211,7 +229,7 @@ blockquote {
 
 .callout-content {
   color: var(--text-normal);
-  line-height: 1.55;
+  line-height: 1.58;
   font-weight: 100;
 }
 
@@ -221,15 +239,15 @@ blockquote {
 
 .post-grid {
   display: grid;
-  gap: 1.6rem;
+  gap: 1.8rem;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  margin-top: 1.4rem;
+  margin-top: 1.6rem;
 }
 
 .post-card {
   background: var(--background-secondary);
   border: 1px solid var(--border-color);
-  border-radius: 14px;
+  border-radius: 15px;
   overflow: hidden;
   backdrop-filter: blur(6px);
   transition: transform 0.2s ease, border-color 0.2s ease;
@@ -248,14 +266,14 @@ blockquote {
 
 .post-card-link {
   display: block;
-  padding: 1rem 1.2rem;
+  padding: 1.1rem 1.3rem;
   text-decoration: none;
 }
 
 .post-card-title {
   font-size: 1.35rem;
   line-height: 1.25;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
   font-weight: 400;
   color: var(--text-accent);
 }
@@ -265,29 +283,29 @@ blockquote {
   gap: 0.8rem;
   font-size: 0.9rem;
   opacity: 0.75;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.7rem;
   color: var(--text-muted);
   font-weight: 100;
 }
 
 .post-card-excerpt {
   font-size: 1rem;
-  line-height: 1.55;
+  line-height: 1.56;
   opacity: 0.85;
-  margin-top: 0.3rem;
-  margin-bottom: 0.1rem;
+  margin-top: 0.35rem;
+  margin-bottom: 0.15rem;
   color: var(--text-normal);
   font-weight: 100;
 }
 
 /*──────────────────────────────────────────────
-  Royal Velvet — Blog Header
+  Blog Header
 ──────────────────────────────────────────────*/
 
 .rv-blog-header.royal-crest {
   text-align: center;
-  padding: 1.4rem 1rem 1.2rem;
-  margin-bottom: 1rem;
+  padding: 1.7rem 1rem 1.35rem;
+  margin-bottom: 1.25rem;
 }
 
 .crest-line {
@@ -300,8 +318,8 @@ blockquote {
 
 .rv-blog-header h1.rv-blog-title {
   font-size: 1.8rem !important;
-  margin: 0.15rem 0 0.3rem !important;
-  line-height: 1.2 !important;
+  margin: 0.18rem 0 0.32rem !important;
+  line-height: 1.18 !important;
   font-weight: 400 !important;
 }
 
@@ -311,14 +329,16 @@ blockquote {
   color: var(--lavender);
   opacity: 0.95;
   letter-spacing: 0.2px;
-  margin-top: 0.3rem;
-  margin-bottom: 0.15rem;
+  margin-top: 0.35rem;
+  margin-bottom: 0.18rem;
+  line-height: 1.22;
 }
 
 .rv-blog-header h4.rv-blog-description {
   font-size: 0.95rem;
   font-weight: 400;
-  margin-top: 0.2rem;
+  margin-top: 0.25rem;
+  line-height: 1.32;
 }
 
 .rv-header-image {
@@ -335,8 +355,8 @@ blockquote {
 
 .rv-page-card {
   position: relative;
-  padding: 1.2rem;
-  margin: 1.2rem 0;
+  padding: 1.35rem;
+  margin: 1.5rem 0;
   border-radius: 14px;
   background: var(--background-primary);
   z-index: 1;
@@ -385,4 +405,4 @@ blockquote {
   -webkit-background-clip: text;
   color: transparent;
   font-weight: 400;
-}
+} 
