@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Hi, I'm Suzy
-subtitle: I do not know how to code.
+title: suzy collects hobbies
+subtitle: but she does not know how to code
 ---
 
 
