@@ -19,10 +19,14 @@
   --text-accent: var(--lavender);
   --border-color: #d8c9b8;
 
-  --font-text: 'Arial', sans-serif;
-  --font-header: 'Arial', sans-serif;
-  --font-title: 'Arial', sans-serif;
-  --font-interface: 'Arial', sans-serif;
+  --font-text: 'Roboto', sans-serif;
+  --font-header: 'Roboto Condensed', sans-serif;
+  --font-title: 'Roboto', sans-serif;
+  --font-interface: 'Roboto', sans-serif;
+
+  --h1-weight: 700;
+  --h2-weight: 700;
+  --h3-weight: 700;
 }
 
 /*──────────────────────────────────────────────
