@@ -6,7 +6,7 @@ description: again
 ---
 <div class="rv-page-card">
   <h1 class="gradient-text">This should be a pretty gradient</h1>
-  has this updated yet?
+  has this updated????
 <h1>heading 1</h1>
 <h2>heading 2</h2>
   <h3>heading 3</h3>
