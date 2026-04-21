@@ -62,7 +62,7 @@
   </div>
 
 <script>
-/* Callout conversion */
+<script>
 document.querySelectorAll("blockquote").forEach(b => {
   const first = b.firstElementChild;
   if (!first) return;
@@ -71,4 +71,27 @@ document.querySelectorAll("blockquote").forEach(b => {
   if (!match) return;
 
   const type = match[1].toLowerCase();
-  const title =  match[2] || type
+  const title = match[2] || type;
+
+  // Create callout wrapper
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("callout", `callout-${type}`);
+
+  // Title element
+  const titleEl = document.createElement("div");
+  titleEl.classList.add("callout-title");
+  titleEl.textContent = title;
+  wrapper.appendChild(titleEl);
+
+  // Content element
+  const contentEl = document.createElement("div");
+  contentEl.classList.add("callout-content");
+
+  // Move all blockquote children except the first line
+  [...b.children].slice(1).forEach(child => contentEl.appendChild(child));
+  wrapper.appendChild(contentEl);
+
+  // Replace blockquote with callout
+  b.replaceWith(wrapper);
+});
+</script>
