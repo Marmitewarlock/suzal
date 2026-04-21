@@ -14,8 +14,8 @@
   --background-secondary: #f2e9dd;
   --background-tertiary: #e9dfd2;
 
-  --text-normal: #ffffff;
-  --text-muted: #ffffff;
+  --text-normal: #000000;
+  --text-muted: #000000;
 
   --lavender: #a78bd9;
   --sapphire: #4a7be0;
@@ -46,8 +46,8 @@ body.theme-dark {
   --background-secondary: #1a1a1a;
   --background-tertiary: #222;
 
-  --text-normal: #e6e6e6;
-  --text-muted: #b3b3b3;
+  --text-normal: #ffffff;
+  --text-muted: #ffffff;
 
   --lavender: #cba6f7;
   --sapphire: #89b4fa;
