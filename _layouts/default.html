@@ -13,16 +13,22 @@
   <link rel="stylesheet" href="{{ '/assets/css/royal-velvet.css' | relative_url }}">
 </head>
 
-<body class="theme-dark">
-<button id="theme-toggle" class="theme-toggle">🌙</button>
+<body>
 
-  <header class="rv-blog-header royal-crest">
+<!-- ⭐ Theme Toggle Button -->
+<button id="theme-toggle" class="rv-theme-toggle" aria-label="Toggle theme">
+  <span class="rv-toggle-icon">🌙</span>
+</button>
+
+<header class="rv-blog-header royal-crest">
 
   <div class="rv-crest-line"></div>
 
   <h1 class="rv-blog-title">{{ page.title }}</h1>
 
- <a href="http://suz.al"><img src="/favicon.png" class="rv-header-image" alt=""></a>
+  <a href="http://suz.al">
+    <img src="/favicon.png" class="rv-header-image" alt="">
+  </a>
 
   {% if page.subtitle %}
     <h2 class="rv-blog-subtitle">{{ page.subtitle }}</h2>
@@ -36,99 +42,107 @@
 
 </header>
 
-  <div class="app-container">
-    <div class="workspace">
-      <div class="mod-root">
-        <div class="workspace-leaf">
-          <div class="workspace-leaf-content">
-            <div class="view-content">
+<div class="app-container">
+  <div class="workspace">
+    <div class="mod-root">
+      <div class="workspace-leaf">
+        <div class="workspace-leaf-content">
+          <div class="view-content">
 
-              {% capture raw %}{{ content }}{% endcapture %}
-              {% assign cleaned = raw 
-                | replace: 'class="markdown-body"', '' 
-                | replace: "markdown-body", "" 
-              %}
+            {% capture raw %}{{ content }}{% endcapture %}
+            {% assign cleaned = raw 
+              | replace: 'class="markdown-body"', '' 
+              | replace: "markdown-body", "" 
+            %}
 
-              <div class="markdown-preview-view">
-                <div class="markdown-preview-sizer markdown-preview-section">
-                  {{ cleaned }}
-                </div>
+            <div class="markdown-preview-view">
+              <div class="markdown-preview-sizer markdown-preview-section">
+                {{ cleaned }}
               </div>
-
             </div>
+
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
+<!-- ⭐ Callout Conversion Script -->
 <script>
 document.querySelectorAll("blockquote").forEach(b => {
   const first = b.firstElementChild;
   if (!first) return;
 
-  const match = first.textContent.match(/^\[!(\w+)\]\s*(.*)/);
+  const match = first.textContent.match(/^
+
+\[!(\w+)\]
+
+\s*(.*)/);
   if (!match) return;
 
   const type = match[1].toLowerCase();
   const title = match[2] || type;
 
-  // Create callout wrapper
   const wrapper = document.createElement("div");
   wrapper.classList.add("callout", `callout-${type}`);
 
-  // Title element
   const titleEl = document.createElement("div");
   titleEl.classList.add("callout-title");
   titleEl.textContent = title;
   wrapper.appendChild(titleEl);
 
-  // Content element
   const contentEl = document.createElement("div");
   contentEl.classList.add("callout-content");
 
-  // Move all blockquote children except the first line
   [...b.children].slice(1).forEach(child => contentEl.appendChild(child));
   wrapper.appendChild(contentEl);
 
-  // Replace blockquote with callout
   b.replaceWith(wrapper);
 });
 </script>
 
-  <footer class="rv-blog-footer royal-crest">
+<footer class="rv-blog-footer royal-crest">
 
   <div class="rv-crest-line"></div>
 
-  <p class="rv-footer-text"><a href="/">suz.al</a> — <a href="http://blog.suz.al">blog</a> — <a href="/zines">zines</p> <a href="email:hello@suz.al">hello@suz.al</p>
+  <p class="rv-footer-text">
+    <a href="/">suz.al</a> —
+    <a href="http://blog.suz.al">blog</a> —
+    <a href="/zines">zines</a> —
+    <a href="mailto:hello@suz.al">hello@suz.al</a>
+  </p>
 
   <div class="rv-crest-line"></div>
 
-  </footer>
+</footer>
 
-  <!-- ⭐ Theme Toggle Button -->
-<button id="theme-toggle" class="rv-theme-toggle" aria-label="Toggle theme">
-  <span class="rv-toggle-icon">🌙</span>
-</button>
+<!-- ⭐ Theme Toggle Script -->
 <script>
 const root = document.documentElement;
 const toggle = document.getElementById("theme-toggle");
+const icon = toggle.querySelector(".rv-toggle-icon");
 
 // Load saved theme
 const saved = localStorage.getItem("rv-theme");
-if (saved) root.classList.add(saved);
+if (saved) {
+  root.classList.add(saved);
+  icon.textContent = saved === "theme-dark" ? "☀️" : "🌙";
+}
 
 // Toggle on click
 toggle.addEventListener("click", () => {
   if (root.classList.contains("theme-dark")) {
     root.classList.remove("theme-dark");
     localStorage.setItem("rv-theme", "");
-    toggle.textContent = "🌙";
+    icon.textContent = "🌙";
   } else {
     root.classList.add("theme-dark");
     localStorage.setItem("rv-theme", "theme-dark");
-    toggle.textContent = "☀️";
+    icon.textContent = "☀️";
   }
 });
 </script>
 
+</body>
+</html>
