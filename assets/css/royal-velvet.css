@@ -395,3 +395,40 @@ header.rv-blog-header.royal-crest h2.rv-blog-subtitle {
     font-size: 1.0rem !important;
   }
 }
+
+/*──────────────────────────────────────────────
+  Royal Velvet Footer — matches header aesthetic
+──────────────────────────────────────────────*/
+
+footer.rv-blog-footer.royal-crest {
+  text-align: center;
+  padding: 1.6rem 1rem 1.8rem; /* loose + airy */
+  margin-top: 2.2rem; /* space above footer */
+  opacity: 0.95;
+}
+
+/* Footer text */
+footer.rv-blog-footer .rv-footer-text {
+  font-size: 0.95rem;
+  font-weight: 100;
+  letter-spacing: -0.15px;
+  margin: 0.6rem 0;
+  color: var(--text-muted);
+}
+
+/* Crest lines (reuse header style) */
+footer.rv-blog-footer .rv-crest-line {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    #ff6ec7,
+    #ffa95f,
+    #fff56e,
+    #6effa3,
+    #6ebaff,
+    #c86eff
+  );
+  opacity: 0.6;
+  margin: 0.9rem 0;
+}
