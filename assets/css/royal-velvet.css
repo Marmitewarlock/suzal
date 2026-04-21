@@ -388,3 +388,59 @@ footer.rv-blog-footer .rv-crest-line {
 .theme-toggle:hover {
   opacity: 0.7;
 }
+
+/*──────────────────────────────────────────────
+  Royal Velvet — Minimal Floating Theme Toggle
+──────────────────────────────────────────────*/
+
+.rv-theme-toggle {
+  position: fixed;
+  top: 1.2rem;
+  right: 1.2rem;
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--background-primary);
+  color: var(--text-normal);
+
+  box-shadow:
+    0 0 0 2px transparent,
+    0 4px 12px rgba(0,0,0,0.25);
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.15s ease;
+}
+
+/* Gradient ring */
+.rv-theme-toggle:hover {
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,0.25),
+    0 0 0 4px rgba(255,255,255,0.15),
+    0 4px 14px rgba(0,0,0,0.35);
+  transform: scale(1.06);
+}
+
+/* Icon */
+.rv-toggle-icon {
+  font-size: 1.25rem;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+/* Dark mode icon colour */
+html.theme-dark .rv-theme-toggle {
+  background: var(--background-secondary);
+  color: var(--text-normal);
+}
