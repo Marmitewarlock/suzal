@@ -1,12 +1,8 @@
 /*──────────────────────────────────────────────
-  Royal Velvet CSS — v2.4
+  Royal Velvet CSS — v2.4.1
   Changes:
-  - Main header switched to Roboto Thin (100)
-  - Main header increased in size (+10% from v2.3)
-  - Header block spacing loosened (+20% padding)
-  - Increased spacing around pfp and subtitle
-  - Subtitle kept at weight 400 for contrast
-  - All other v2.3 styles preserved exactly
+  - Header block moved to bottom of file so it overrides global H1 rules
+  - No other changes from v2.4
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -126,72 +122,6 @@ p {
   line-height: 1.56;
   margin: 0.6em 0;
   font-weight: 100;
-}
-
-/*──────────────────────────────────────────────
-  HEADER BLOCK — v2.4 CHANGES
-──────────────────────────────────────────────*/
-
-.rv-blog-header.royal-crest {
-  text-align: center;
-
-  /* +20% padding */
-  padding: 2.05rem 1rem 1.62rem;
-  margin-bottom: 1.45rem;
-}
-
-/* Main hero title — thin + larger */
-.rv-blog-header h1.rv-blog-title {
-  font-weight: 100 !important;
-  letter-spacing: -0.25px;
-
-  /* +10% from v2.3 */
-  font-size: 2.33rem !important;
-
-  line-height: 1.16 !important;
-
-  margin: 0.22rem 0 0.38rem !important;
-}
-
-/* Profile image — looser spacing */
-.rv-header-image {
-  width: 26px !important;
-  height: 26px !important;
-  object-fit: contain;
-  display: block;
-
-  margin: 0.35rem auto 0.45rem;
-}
-
-/* Subtitle — looser spacing, normal weight */
-.rv-blog-header h2.rv-blog-subtitle {
-  font-size: 1.05rem;
-  font-weight: 400;
-  color: var(--lavender);
-  opacity: 0.95;
-
-  letter-spacing: -0.15px;
-  line-height: 1.22;
-
-  margin-top: 0.35rem;
-  margin-bottom: 0.2rem;
-}
-
-/* Mobile scaling */
-@media (max-width: 480px) {
-  .rv-blog-header h1.rv-blog-title {
-    font-size: 2.05rem !important;
-    line-height: 1.18 !important;
-  }
-
-  .rv-header-image {
-    width: 24px !important;
-    height: 24px !important;
-  }
-
-  .rv-blog-header h2.rv-blog-subtitle {
-    font-size: 1rem;
-  }
 }
 
 /*──────────────────────────────────────────────
@@ -393,3 +323,56 @@ blockquote {
   color: transparent;
   font-weight: 400;
 }
+
+/*──────────────────────────────────────────────
+  HEADER BLOCK — moved to bottom (v2.4.1)
+──────────────────────────────────────────────*/
+
+.rv-blog-header.royal-crest {
+  text-align: center;
+  padding: 2.05rem 1rem 1.62rem;
+  margin-bottom: 1.45rem;
+}
+
+.rv-blog-header h1.rv-blog-title {
+  font-weight: 100 !important;
+  letter-spacing: -0.25px;
+  font-size: 2.33rem !important;
+  line-height: 1.16 !important;
+  margin: 0.22rem 0 0.38rem !important;
+}
+
+.rv-header-image {
+  width: 26px !important;
+  height: 26px !important;
+  object-fit: contain;
+  display: block;
+  margin: 0.35rem auto 0.45rem;
+}
+
+.rv-blog-header h2.rv-blog-subtitle {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--lavender);
+  opacity: 0.95;
+  letter-spacing: -0.15px;
+  line-height: 1.22;
+  margin-top: 0.35rem;
+  margin-bottom: 0.2rem;
+}
+
+@media (max-width: 480px) {
+  .rv-blog-header h1.rv-blog-title {
+    font-size: 2.05rem !important;
+    line-height: 1.18 !important;
+  }
+
+  .rv-header-image {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .rv-blog-header h2.rv-blog-subtitle {
+    font-size: 1rem;
+  }
+} 
