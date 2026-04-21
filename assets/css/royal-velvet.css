@@ -444,3 +444,9 @@ html.theme-dark .rv-theme-toggle {
   background: var(--background-secondary);
   color: var(--text-normal);
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
