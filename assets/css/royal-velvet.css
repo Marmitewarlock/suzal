@@ -1,13 +1,12 @@
 /*──────────────────────────────────────────────
-  Royal Velvet CSS — v2.3
+  Royal Velvet CSS — v2.4
   Changes:
-  - Header H1 increased by 6% for stronger presence
-  - Header H1 line-height tightened to 1.14
-  - Header H1 letter-spacing tuned to -0.35px
-  - Profile image increased from 20px → 26px
-  - Subtitle refined (size, spacing, letter-spacing)
-  - Header vertical spacing tightened for cohesion
-  - Mobile scaling added for H1 on small screens
+  - Main header switched to Roboto Thin (100)
+  - Main header increased in size (+10% from v2.3)
+  - Header block spacing loosened (+20% padding)
+  - Increased spacing around pfp and subtitle
+  - Subtitle kept at weight 400 for contrast
+  - All other v2.3 styles preserved exactly
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -108,9 +107,7 @@ h1 {
   letter-spacing: -0.35px;
   line-height: 1.14;
 
-  /* +6% size bump */
   font-size: 1.906rem;
-
   margin: 0.5em 0 0.35em;
 }
 
@@ -132,32 +129,41 @@ p {
 }
 
 /*──────────────────────────────────────────────
-  Header Block (Bold & Prominent)
+  HEADER BLOCK — v2.4 CHANGES
 ──────────────────────────────────────────────*/
 
 .rv-blog-header.royal-crest {
   text-align: center;
-  padding: 1.7rem 1rem 1.35rem;
-  margin-bottom: 1.25rem;
+
+  /* +20% padding */
+  padding: 2.05rem 1rem 1.62rem;
+  margin-bottom: 1.45rem;
 }
 
+/* Main hero title — thin + larger */
 .rv-blog-header h1.rv-blog-title {
-  font-size: 2.12rem !important; /* +6% bump */
-  line-height: 1.14 !important;
-  letter-spacing: -0.35px !important;
+  font-weight: 100 !important;
+  letter-spacing: -0.25px;
 
-  margin: 0.12rem 0 0.22rem !important;
-  font-weight: 400 !important;
+  /* +10% from v2.3 */
+  font-size: 2.33rem !important;
+
+  line-height: 1.16 !important;
+
+  margin: 0.22rem 0 0.38rem !important;
 }
 
+/* Profile image — looser spacing */
 .rv-header-image {
   width: 26px !important;
   height: 26px !important;
   object-fit: contain;
   display: block;
-  margin: 0.25rem auto 0.35rem;
+
+  margin: 0.35rem auto 0.45rem;
 }
 
+/* Subtitle — looser spacing, normal weight */
 .rv-blog-header h2.rv-blog-subtitle {
   font-size: 1.05rem;
   font-weight: 400;
@@ -165,20 +171,17 @@ p {
   opacity: 0.95;
 
   letter-spacing: -0.15px;
-  line-height: 1.18;
+  line-height: 1.22;
 
-  margin-top: 0.22rem;
-  margin-bottom: 0.1rem;
+  margin-top: 0.35rem;
+  margin-bottom: 0.2rem;
 }
 
-/*──────────────────────────────────────────────
-  Mobile Scaling (Option A)
-──────────────────────────────────────────────*/
-
+/* Mobile scaling */
 @media (max-width: 480px) {
   .rv-blog-header h1.rv-blog-title {
-    font-size: 1.82rem !important; /* scaled down */
-    line-height: 1.16 !important;
+    font-size: 2.05rem !important;
+    line-height: 1.18 !important;
   }
 
   .rv-header-image {
