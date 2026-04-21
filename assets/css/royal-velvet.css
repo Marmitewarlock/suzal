@@ -509,3 +509,66 @@ blockquote {
     font-size: 0.98rem !important;
   }
 }
+
+/*──────────────────────────────────────────────
+  Nuclear spacing reset for header
+──────────────────────────────────────────────*/
+
+body.theme-dark header.rv-blog-header.royal-crest,
+body.theme-dark header.rv-blog-header.royal-crest * {
+  margin: 0 !important;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Header block spacing */
+body.theme-dark header.rv-blog-header.royal-crest {
+  text-align: center;
+  padding: 1.85rem 1rem 1.45rem !important;
+  margin-bottom: 1.35rem !important;
+}
+
+/* Crest lines */
+body.theme-dark header.rv-blog-header.royal-crest .rv-crest-line {
+  height: 1px !important;
+  width: 100% !important;
+  background: linear-gradient(
+    90deg,
+    #ff6ec7,
+    #ffa95f,
+    #fff56e,
+    #6effa3,
+    #6ebaff,
+    #c86eff
+  ) !important;
+  opacity: 0.6 !important;
+  margin: 0.9rem 0 !important;
+}
+
+/* Title */
+body.theme-dark header.rv-blog-header.royal-crest h1.rv-blog-title {
+  font-weight: 100 !important;
+  letter-spacing: -0.32px !important;
+  font-size: 2.42rem !important;
+  line-height: 1.12 !important;
+  margin: 0.18rem 0 0.30rem !important;
+}
+
+/* Pfp */
+body.theme-dark header.rv-blog-header.royal-crest .rv-header-image {
+  width: 26px !important;
+  height: 26px !important;
+  margin: 0.28rem auto 0.32rem !important;
+}
+
+/* Subtitle */
+body.theme-dark header.rv-blog-header.royal-crest h2.rv-blog-subtitle {
+  font-size: 1.02rem !important;
+  font-weight: 400 !important;
+  color: var(--lavender) !important;
+  opacity: 0.95 !important;
+  letter-spacing: -0.12px !important;
+  line-height: 1.20 !important;
+  margin-top: 0.28rem !important;
+  margin-bottom: 0.15rem !important;
+}
