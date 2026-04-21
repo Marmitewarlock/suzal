@@ -302,3 +302,25 @@ footer.rv-blog-footer .rv-crest-line {
   display: block;
   margin: 0.35rem 0;
 }
+
+/* Center-align Markdown content */
+.center-md {
+  text-align: center;
+}
+
+.center-md p,
+.center-md h1,
+.center-md h2,
+.center-md h3,
+.center-md h4,
+.center-md h5,
+.center-md h6,
+.center-md ul,
+.center-md ol,
+.center-md li,
+.center-md a {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
