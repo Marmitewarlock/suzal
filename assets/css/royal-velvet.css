@@ -458,3 +458,143 @@ html.theme-dark .rv-theme-toggle {
   margin-right: auto;
 }
 
+/*──────────────────────────────────────────────
+  Royal Velvet — Gallery (Captions + Gradient + Lightbox)
+──────────────────────────────────────────────*/
+
+/* Grid layout */
+.rv-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.4rem;
+  margin: 2.4rem auto;
+  max-width: 1100px;
+}
+
+/* Each item */
+.rv-gallery-item {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Gradient border frame */
+.rv-gallery-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 14px;
+  background: linear-gradient(
+    90deg,
+    #ff6ec7,
+    #ffa95f,
+    #fff56e,
+    #6effa3,
+    #6ebaff,
+    #c86eff
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Cropped image */
+.rv-gallery-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1.4;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  z-index: 1;
+}
+
+/* Hover zoom */
+.rv-gallery-item:hover img {
+  transform: scale(1.04);
+}
+
+/* Caption */
+.rv-gallery-caption {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 200;
+  opacity: 0.85;
+}
+
+/*──────────────────────────────────────────────
+  Lightbox
+──────────────────────────────────────────────*/
+
+.rv-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.rv-lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.rv-lightbox.active {
+  display: flex;
+}
+
+/* Close on click */
+.rv-lightbox:after {
+  content: "×";
+  position: absolute;
+  top: 1.2rem;
+  right: 1.6rem;
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+  font-weight: 300;
+}
+
+/*──────────────────────────────────────────────
+  Royal Velvet — Gallery Download Button
+──────────────────────────────────────────────*/
+
+.rv-gallery-download {
+  display: inline-block;
+  margin-top: 0.4rem;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.95rem;
+  font-weight: 300;
+  border-radius: 8px;
+  text-decoration: none;
+
+  background: var(--background-secondary);
+  color: var(--text-normal);
+
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover glow */
+.rv-gallery-download:hover {
+  background: var(--background-tertiary);
+  box-shadow: 0 0 10px rgba(255,255,255,0.25);
+}
+
+/* Dark mode tweaks */
+html.theme-dark .rv-gallery-download {
+  border-color: rgba(255,255,255,0.25);
+}
+
+html.theme-dark .rv-gallery-download:hover {
+  box-shadow: 0 0 12px rgba(255,255,255,0.35);
+}
