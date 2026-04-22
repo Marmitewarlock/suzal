@@ -101,7 +101,9 @@ document.querySelectorAll("blockquote").forEach(b => {
   b.replaceWith(wrapper);
 });
 </script>
-
+<div class="rv-lightbox">
+  <img src="" alt="">
+</div>
 <footer class="rv-blog-footer royal-crest">
 
   <div class="rv-crest-line"></div>
@@ -143,6 +145,19 @@ toggle.addEventListener("click", () => {
   }
 });
 </script>
+<script>
+document.querySelectorAll(".rv-gallery-item img").forEach(img => {
+  img.addEventListener("click", () => {
+    const lightbox = document.querySelector(".rv-lightbox");
+    const lightboxImg = lightbox.querySelector("img");
+    lightboxImg.src = img.src;
+    lightbox.classList.add("active");
+  });
+});
 
+document.querySelector(".rv-lightbox").addEventListener("click", () => {
+  document.querySelector(".rv-lightbox").classList.remove("active");
+});
+</script>
 </body>
 </html>
