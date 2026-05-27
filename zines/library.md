@@ -7,8 +7,8 @@ Subtitle: feel free to download and print
 <div class="rv-gallery">
 
   <div class="rv-gallery-item">
-    <img src="/images/gallery/1.jpg" alt="">
-    <div class="rv-gallery-caption">First caption</div>
+    <img src="/images/pigeonwithcheese.jpg" alt="">
+    <div class="rv-gallery-caption">Pigeon With Cheese On It's Back (2020)</div>
   </div>
 
   <div class="rv-gallery-item">
