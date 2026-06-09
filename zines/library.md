@@ -23,3 +23,9 @@ Subtitle: feel free to download and print
     <div class="rv-gallery-caption">Traffic Cops - The Unofficial Roleplaying Game (2023)
     <a href="https://ko-fi.com/s/df5da9bfff">download</a></div>
   </div>
+
+  <div class="rv-gallery-item">
+    <img src="/images/gallery/poetryslam.jpg" alt="">
+    <div class="rv-gallery-caption">How Not To Judge A Poetry Slam (2026)
+    <a href="https://ko-fi.com/s/5e36b97afd">download</a></div>
+  </div>
