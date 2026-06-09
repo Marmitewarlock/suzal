@@ -8,7 +8,7 @@ subtitle: but she does not know how to code
 
 ## Ongoing Projects
 
-[zines](https://ko-fi.com/ssuuzzaall/shop)
+[zines](https://suz.al/zines)
 
 [blogging about my cancer hole](https://blog.suz.al)
 
