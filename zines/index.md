@@ -1,7 +1,8 @@
 ---
 Layout: default
-Title: library
+Title: suzy makes zines
 Subtitle: feel free to download and print
+Permalink: /zines
 ---
 <div class="rv-page-card">
   <h2 class="gradient-text">Home printer whisperer</h2>
