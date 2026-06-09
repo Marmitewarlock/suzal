@@ -459,6 +459,12 @@ html.theme-dark .rv-theme-toggle {
   Royal Velvet — Gallery (Updated: 3 Columns)
 ──────────────────────────────────────────────*/
 
+.rv-link-center {
+  display: block;
+  text-align: center;
+  padding: 0.6rem 0;
+}
+
 .rv-gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* fixed 3 columns */
