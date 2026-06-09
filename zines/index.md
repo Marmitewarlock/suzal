@@ -2,8 +2,8 @@
 Layout: default
 Title: suzy makes zines
 Subtitle: feel free to download and print
-Permalink: /zines
 ---
+
 <div class="rv-page-card">
   <h2 class="gradient-text">Home printer whisperer</h2>
   From fannying about with QuarkExpress in uni to going mildly insane and baking a zine from salt dough in lockdown I've loved the idea of publishing on a tiny and inconsequential scale. I've shoved my poetry into zines and many pictures of pigeons and then 2020 fully took the wind out of my sails. Writing went again, zines went away and it wasn't until the last couple of years I've been writing again.
