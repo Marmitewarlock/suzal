@@ -1,7 +1,7 @@
 ---
-Layout: default
-Title: suzy makes zines
-Subtitle: feel free to download and print
+layout: default
+tile: suzy makes zines
+subtitle: feel free to download and print
 ---
 
 <div class="rv-page-card">
