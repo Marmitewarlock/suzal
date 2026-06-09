@@ -561,24 +561,6 @@ html.theme-dark .rv-theme-toggle {
   font-weight: 300;
 }
 
-/*──────────────────────────────────────────────
-  Royal Velvet — Gallery Download Button
-──────────────────────────────────────────────*/
-
-/* Make download link look like a normal link but centered */
-.rv-gallery-download {
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
-
-  padding: 0.4rem 0; /* optional: small vertical breathing room */
-  background: none;
-  border: none;
-  box-shadow: none;
-  color: var(--text-accent);
-  text-decoration: underline;
-}
-
 
 /* Dark mode tweaks */
 html.theme-dark .rv-gallery-download {
