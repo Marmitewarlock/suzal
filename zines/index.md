@@ -1,6 +1,6 @@
 ---
 layout: default
-tile: suzy makes zines
+title: suzy makes zines
 subtitle: feel free to download and print
 ---
 
