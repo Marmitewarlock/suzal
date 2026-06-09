@@ -523,6 +523,17 @@ html.theme-dark .rv-theme-toggle {
   opacity: 0.85;
 }
 
+/* Centered + padded + no border */
+.rv-gallery-download {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 0.55rem 1.1rem;
+  border-radius: 10px;
+}
+
+
 /*──────────────────────────────────────────────
   Lightbox
 ──────────────────────────────────────────────*/
