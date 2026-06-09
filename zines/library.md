@@ -18,7 +18,7 @@ Subtitle: feel free to download and print
   </div>
 
   <div class="rv-gallery-item">
-    <img src="/images/oneyear.jpg" alt="">
+    <img src="/images/oneyearon.jpg" alt="">
     <div class="rv-gallery-caption">One Year On From A Cancer Diagnosis (2025)
     <a href="https://ko-fi.com/s/1c622a34dd">download</a></div>
   </div>
