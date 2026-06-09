@@ -580,12 +580,6 @@ html.theme-dark .rv-theme-toggle {
 }
 
 
-/* Hover glow */
-.rv-gallery-download:hover {
-  background: var(--background-tertiary);
-  box-shadow: 0 0 10px rgba(255,255,255,0.25);
-}
-
 /* Dark mode tweaks */
 html.theme-dark .rv-gallery-download {
   border-color: rgba(255,255,255,0.25);
