@@ -1,12 +1,9 @@
 /*──────────────────────────────────────────────
-  Royal Velvet CSS — v2.7
+  Royal Velvet CSS — v2.8
   Changes:
-  - Header restored + fixed
-  - Crest lines visible again
-  - Favicon sized correctly
-  - Unified typography
-  - Link weight 200
-  - Centered Markdown utility added
+  - Gallery updated to fixed 3 columns
+  - Images reduced in size
+  - Aspect ratio tightened
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -459,16 +456,15 @@ html.theme-dark .rv-theme-toggle {
 }
 
 /*──────────────────────────────────────────────
-  Royal Velvet — Gallery (Captions + Gradient + Lightbox)
+  Royal Velvet — Gallery (Updated: 3 Columns)
 ──────────────────────────────────────────────*/
 
-/* Grid layout */
 .rv-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1.4rem;
+  grid-template-columns: repeat(3, 1fr); /* fixed 3 columns */
+  gap: 1.2rem;
   margin: 2.4rem auto;
-  max-width: 1100px;
+  max-width: 900px; /* narrower for smaller images */
 }
 
 /* Each item */
@@ -502,10 +498,10 @@ html.theme-dark .rv-theme-toggle {
   z-index: 2;
 }
 
-/* Cropped image */
+/* Cropped image — smaller */
 .rv-gallery-item img {
   width: 100%;
-  aspect-ratio: 1 / 1.4;
+  aspect-ratio: 1 / 1.3; /* shorter images */
   object-fit: cover;
   border-radius: 12px;
   display: block;
@@ -522,7 +518,7 @@ html.theme-dark .rv-theme-toggle {
 .rv-gallery-caption {
   text-align: center;
   margin-top: 0.5rem;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 200;
   opacity: 0.85;
 }
