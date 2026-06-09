@@ -8,6 +8,8 @@ subtitle: but she does not know how to code
 
 ## Ongoing Projects
 
+[zines](https://ko-fi.com/ssuuzzaall/shop)
+
 [blogging about my cancer hole](https://blog.suz.al)
 
 [youtube](https://youtube.com/@suzetube)
@@ -15,5 +17,7 @@ subtitle: but she does not know how to code
 [bad poets club - lincoln](https://linktr.ee/badpoetsclub)
 
 [poetry](https://linumcatharticum.wordpress.com/)
+
+[3D printing with my housemates](https://instagram.com/tedwardspawprints)
 
 </div>
