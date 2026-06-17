@@ -1,81 +1,68 @@
 ---
 layout: default
+title: suzy’s web log
 ---
 
-<div class="markdown-preview-view">
-  <div class="markdown-preview-sizer markdown-preview-section">
+<header class="rv-blog-header royal-crest">
+  <div class="rv-crest-line"></div>
 
-    {{ content }}
+  <img class="rv-header-image" src="/assets/img/avatar.png" alt="avatar">
 
-  </div>
-</div>
+  <h1 class="rv-blog-title">hobbies and holes</h1>
+  <h2 class="rv-blog-subtitle">everyone should have a blog again</h2>
+
+  <div class="rv-crest-line"></div>
+</header>
 
 <div class="post-grid">
   {% for post in site.posts %}
-    {% assign words = post.content | number_of_words %}
-    {% assign reading_time = words | divided_by: 200 | ceil %}
+  <article class="post-card">
+    <a class="post-card-link" href="{{ post.url | relative_url }}">
 
-    <article class="post-card">
-
-      {% if post.thumbnail %}
-        <div class="post-card-thumb" style="background-image: url('{{ post.thumbnail | relative_url }}');"></div>
+      {% if post.image %}
+        <div class="post-card-thumb" style="background-image: url('{{ post.image | relative_url }}');"></div>
       {% else %}
         <div class="post-card-thumb placeholder"></div>
       {% endif %}
 
-      <a href="{{ post.url | relative_url }}" class="post-card-link">
-        <h2 class="post-card-title">{{ post.title }}</h2>
+      <h2 class="post-card-title">{{ post.title }}</h2>
 
-        <div class="post-card-meta">
-       {% assign day = post.date | date: "%-d" %}
-{% case day %}
-  {% when '1' or '21' or '31' %}
-    {% assign suffix = 'st' %}
-  {% when '2' or '22' %}
-    {% assign suffix = 'nd' %}
-  {% when '3' or '23' %}
-    {% assign suffix = 'rd' %}
-  {% else %}
-    {% assign suffix = 'th' %}
-{% endcase %}
+      {% assign day = post.date | date: "%-d" %}
+      {% case day %}
+        {% when '1' or '21' or '31' %}
+          {% assign suffix = 'st' %}
+        {% when '2' or '22' %}
+          {% assign suffix = 'nd' %}
+        {% when '3' or '23' %}
+          {% assign suffix = 'rd' %}
+        {% else %}
+          {% assign suffix = 'th' %}
+      {% endcase %}
 
-<time>
-  {{ day }}{{ suffix }} {{ post.date | date: "%B %Y" }}
-</time>
-          <span class="reading-time">{{ reading_time }} min read</span>
-        </div>
+      {% assign words = post.content | number_of_words %}
+      {% assign minutes = words | divided_by:200 %}
+      {% if minutes < 1 %}
+        {% assign minutes = 1 %}
+      {% endif %}
 
-        <p class="post-card-excerpt">
-          {{ post.excerpt | strip_html | truncate: 160 }}
-        </p>
-      </a>
+      <div class="post-card-meta">
+        <time datetime="{{ post.date | date_to_xmlschema }}">
+          {{ day }}{{ suffix }} {{ post.date | date: "%B %Y" }}
+        </time>
+        <span>·</span>
+        <span>{{ minutes }} min read</span>
+      </div>
 
-    </article>
+      <p class="post-card-excerpt">
+        {{ post.excerpt | strip_html | truncate: 160 }}
+      </p>
+
+    </a>
+  </article>
   {% endfor %}
-</div></div>
+</div>
 
-<!-- ⭐ Theme Toggle Button -->
-<button id="theme-toggle" class="rv-theme-toggle" aria-label="Toggle theme">
-  <span class="rv-toggle-icon">🌙</span>
-</button>
-
-<script>
-const toggleBtn = document.querySelector("#theme-toggle");
-const icon = toggleBtn.querySelector(".rv-toggle-icon");
-
-function updateIcon() {
-  if (document.body.classList.contains("theme-dark")) {
-    icon.textContent = "🌙";
-  } else {
-    icon.textContent = "☀️";
-  }
-}
-
-toggleBtn.addEventListener("click", () => {
-  document.body.classList.toggle("theme-dark");
-  updateIcon();
-});
-
-updateIcon();
-</script>
-
+<footer class="rv-blog-footer royal-crest">
+  <div class="rv-crest-line"></div>
+  <p class="rv-footer-text">© {{ site.time | date: "%Y" }} suzy< /p>
+</footer>
