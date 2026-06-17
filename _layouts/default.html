@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/png" href="/assets/images/favicon.png">
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
   <title>{{ page.title }} — {{ site.title }}</title>
 
   <!-- Roboto Thin (100) -->
@@ -49,17 +49,27 @@
         <div class="workspace-leaf-content">
           <div class="view-content">
 
-            {% capture raw %}{{ content }}{% endcapture %}
-            {% assign cleaned = raw 
-              | replace: 'class="markdown-body"', '' 
-              | replace: "markdown-body", "" 
-            %}
+            {% if page.layout == "blog" %}
 
-            <div class="markdown-preview-view">
-              <div class="markdown-preview-sizer markdown-preview-section">
-                {{ cleaned }}
+              <!-- ⭐ BLOG INDEX: render raw HTML so thumbnails work -->
+              {{ content }}
+
+            {% else %}
+
+              <!-- ⭐ NORMAL POSTS/PAGES: Obsidian-style Markdown preview -->
+              {% capture raw %}{{ content }}{% endcapture %}
+              {% assign cleaned = raw 
+                | replace: 'class="markdown-body"', '' 
+                | replace: "markdown-body", "" 
+              %}
+
+              <div class="markdown-preview-view">
+                <div class="markdown-preview-sizer markdown-preview-section">
+                  {{ cleaned }}
+                </div>
               </div>
-            </div>
+
+            {% endif %}
 
           </div>
         </div>
@@ -74,11 +84,7 @@ document.querySelectorAll("blockquote").forEach(b => {
   const first = b.firstElementChild;
   if (!first) return;
 
-  const match = first.textContent.match(/^
-
-\[!(\w+)\]
-
-\s*(.*)/);
+  const match = first.textContent.match(/^\[!(\w+)\]\s*(.*)/);
   if (!match) return;
 
   const type = match[1].toLowerCase();
@@ -101,11 +107,12 @@ document.querySelectorAll("blockquote").forEach(b => {
   b.replaceWith(wrapper);
 });
 </script>
+
 <div class="rv-lightbox">
   <img src="" alt="">
 </div>
-<footer class="rv-blog-footer royal-crest">
 
+<footer class="rv-blog-footer royal-crest">
   <div class="rv-crest-line"></div>
 
   <p class="rv-footer-text">
@@ -114,9 +121,10 @@ document.querySelectorAll("blockquote").forEach(b => {
     <a href="http://suz.al/zines">zines</a> —
     <a href="http://suz.al/links">links</a>
   </p>
-<p><span class="tiny">© 2026 suz.al</span></P>
-  <div class="rv-crest-line"></div>
 
+  <p>© suz.al {{ site.time | date: "%Y" }}</p>
+
+  <div class="rv-crest-line"></div>
 </footer>
 
 <!-- ⭐ Theme Toggle Script -->
@@ -145,6 +153,7 @@ toggle.addEventListener("click", () => {
   }
 });
 </script>
+
 <script>
 document.querySelectorAll(".rv-gallery-item img").forEach(img => {
   img.addEventListener("click", () => {
@@ -159,5 +168,6 @@ document.querySelector(".rv-lightbox").addEventListener("click", () => {
   document.querySelector(".rv-lightbox").classList.remove("active");
 });
 </script>
+
 </body>
-</html>
+</html> 
