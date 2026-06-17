@@ -620,3 +620,45 @@ html.theme-dark .post-card-meta {
 }
 
 /* 
+
+/* Pull Quotes */
+.pull-quote {
+  font-size: 1.8rem;
+  line-height: 1.45;
+  font-weight: 300;
+  text-align: center;
+  max-width: 720px;
+  margin: 3rem auto;
+  padding: 1.6rem 1.2rem;
+  color: var(--text-normal);
+  position: relative;
+  font-style: italic;
+}
+
+.pull-quote::before,
+.pull-quote::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 80px;
+  margin: 0.8rem auto;
+  background: linear-gradient(
+    90deg,
+    #ff6ec7,
+    #ffa95f,
+    #fff56e,
+    #6effa3,
+    #6ebaff,
+    #c86eff
+  );
+  border-radius: 3px;
+  opacity: 0.8;
+}
+
+.pull-quote cite {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1rem;
+  opacity: 0.7;
+  font-style: normal;
+}
