@@ -544,7 +544,16 @@ html.theme-dark .rv-theme-toggle {
   letter-spacing: -0.22px;
   color: var(--lavender) !important;
 }
-
+.post-card-thumb.placeholder {
+  background: linear-gradient(135deg,
+    #ff6ec7,
+    #ffa95f,
+    #fff56e,
+    #6effa3,
+    #6ebaff,
+    #c86eff
+  );
+}
 /* Meta (refined) */
 .post-card-meta {
   display: flex;
