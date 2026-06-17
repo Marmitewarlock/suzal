@@ -526,14 +526,10 @@ html.theme-dark .rv-theme-toggle {
   opacity: 0.35;
 }
 
-/* Reset gradient links inside cards */
-.post-card-link,
 .post-card-link * {
-  background: none !important;
-  -webkit-background-clip: initial !important;
-  -webkit-text-fill-color: var(--text-normal) !important;
   color: var(--text-normal) !important;
-  text-decoration: none;
+} 
+    
 }
 
 /* Title (refined) */
