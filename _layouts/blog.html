@@ -27,7 +27,21 @@ layout: default
         <h2 class="post-card-title">{{ post.title }}</h2>
 
         <div class="post-card-meta">
-          <time>{{ post.date | date: "%B %d, %Y" }}</time>
+       {% assign day = post.date | date: "%-d" %}
+{% case day %}
+  {% when '1' or '21' or '31' %}
+    {% assign suffix = 'st' %}
+  {% when '2' or '22' %}
+    {% assign suffix = 'nd' %}
+  {% when '3' or '23' %}
+    {% assign suffix = 'rd' %}
+  {% else %}
+    {% assign suffix = 'th' %}
+{% endcase %}
+
+<time>
+  {{ day }}{{ suffix }} {{ post.date | date: "%B %Y" }}
+</time>
           <span class="reading-time">{{ reading_time }} min read</span>
         </div>
 
