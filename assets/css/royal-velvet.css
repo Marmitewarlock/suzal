@@ -3,6 +3,7 @@
   Changes:
   - Fixed theme toggle compatibility (html.theme-dark)
   - Added full Post Card system for blog index
+  - Added refined title/meta/excerpt sizing + alignment
   - Fixed gallery aspect-ratio syntax
   - Improved dark-mode consistency
 ──────────────────────────────────────────────*/
@@ -249,7 +250,6 @@ blockquote {
   z-index: -1;
 }
 
-/* CARD TEXT — readable */
 .rv-page-card p,
 .rv-page-card a,
 .rv-page-card li {
@@ -292,7 +292,6 @@ header.rv-blog-header.royal-crest {
   margin-bottom: 0.6rem;
 }
 
-/* Crest lines */
 header.rv-blog-header.royal-crest .rv-crest-line {
   height: 1px;
   width: 100%;
@@ -309,7 +308,6 @@ header.rv-blog-header.royal-crest .rv-crest-line {
   margin: 1.2rem 0;
 }
 
-/* Title */
 header.rv-blog-header.royal-crest h1.rv-blog-title {
   font-weight: 100;
   letter-spacing: -0.32px;
@@ -318,7 +316,6 @@ header.rv-blog-header.royal-crest h1.rv-blog-title {
   margin: 0.35rem 0 0.55rem;
 }
 
-/* Header image */
 header.rv-blog-header.royal-crest .rv-header-image {
   display: block;
   margin: 0.6rem auto 0.6rem;
@@ -326,7 +323,6 @@ header.rv-blog-header.royal-crest .rv-header-image {
   height: 48px;
 }
 
-/* Subtitle */
 header.rv-blog-header.royal-crest h2.rv-blog-subtitle {
   font-size: 1.08rem;
   font-weight: 400;
@@ -567,7 +563,7 @@ html.theme-dark .rv-gallery-download:hover {
 }
 
 /*──────────────────────────────────────────────
-  Royal Velvet — Blog Post Grid + Cards (NEW)
+  Royal Velvet — Blog Post Grid + Cards
 ──────────────────────────────────────────────*/
 
 .post-grid {
@@ -621,41 +617,9 @@ html.theme-dark .rv-gallery-download:hover {
   text-decoration: none;
 }
 
-.post-card-title {
-  font-size: 1.45rem;
-  font-weight: 400;
-  margin: 1rem 1.2rem 0.4rem;
-  color: var
-
-/*──────────────────────────────────────────────
-  Royal Velvet v2.9 — Post Card Refinements
-  (Excerpt smaller, aligned; date aligned; cleaner meta)
-──────────────────────────────────────────────*/
-
 /* Title refinement */
 .post-card-title {
   font-size: 1.35rem;
   font-weight: 400;
   margin: 1rem 1.2rem 0.3rem;
-  letter-spacing: -0.22px;
-  color: var(--lavender) !important;
-}
-
-/* Meta row — aligned with title, softer, cleaner */
-.post-card-meta {
-  display: flex;
-  gap: 0.6rem;
-  font-size: 0.9rem;
-  font-weight: 200;
-  opacity: 0.75;
-  margin: 0 1.2rem 0.6rem; /* aligns with title */
-  letter-spacing: -0.2px;
-}
-
-/* Excerpt — smaller, aligned, more elegant */
-.post-card-excerpt {
-  font-size: 1rem;            /* smaller */
-  line-height: 1.55;          /* tighter */
-  margin: 0 1.2rem 1.4rem;    /* aligns with title */
-  opacity: 0.85;
-}
+  letter-spacing: -0.22px; 
