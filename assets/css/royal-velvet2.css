@@ -687,3 +687,12 @@ html.theme-dark .view-content {
   background-color: var(--background-primary);
   color: var(--text-normal);
 }
+
+/* Align card title, meta, and excerpt perfectly */
+.post-card-title,
+.post-card-meta,
+.post-card-excerpt {
+  margin-left: 1.2rem;
+  margin-right: 1.2rem;
+  text-align: left;
+}
