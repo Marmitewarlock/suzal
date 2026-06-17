@@ -626,3 +626,36 @@ html.theme-dark .rv-gallery-download:hover {
   font-weight: 400;
   margin: 1rem 1.2rem 0.4rem;
   color: var
+
+/*──────────────────────────────────────────────
+  Royal Velvet v2.9 — Post Card Refinements
+  (Excerpt smaller, aligned; date aligned; cleaner meta)
+──────────────────────────────────────────────*/
+
+/* Title refinement */
+.post-card-title {
+  font-size: 1.35rem;
+  font-weight: 400;
+  margin: 1rem 1.2rem 0.3rem;
+  letter-spacing: -0.22px;
+  color: var(--lavender) !important;
+}
+
+/* Meta row — aligned with title, softer, cleaner */
+.post-card-meta {
+  display: flex;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: 200;
+  opacity: 0.75;
+  margin: 0 1.2rem 0.6rem; /* aligns with title */
+  letter-spacing: -0.2px;
+}
+
+/* Excerpt — smaller, aligned, more elegant */
+.post-card-excerpt {
+  font-size: 1rem;            /* smaller */
+  line-height: 1.55;          /* tighter */
+  margin: 0 1.2rem 1.4rem;    /* aligns with title */
+  opacity: 0.85;
+}
