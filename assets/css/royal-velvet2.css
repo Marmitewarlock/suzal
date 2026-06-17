@@ -527,8 +527,10 @@ html.theme-dark .rv-theme-toggle {
 }
 
 .post-card-link * {
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: var(--text-normal) !important;
   color: var(--text-normal) !important;
-} 
+}
     
 }
 
