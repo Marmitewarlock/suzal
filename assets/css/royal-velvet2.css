@@ -541,6 +541,8 @@ html.theme-dark .rv-theme-toggle {
   margin: 1rem 1.2rem 0.3rem;
   letter-spacing: -0.22px;
   color: var(--lavender) !important;
+  padding-left: 0;     
+  text-align: left;
 }
 .post-card-thumb.placeholder {
   background: linear-gradient(135deg,
