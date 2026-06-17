@@ -1,5 +1,5 @@
 /*──────────────────────────────────────────────
-  Royal Velvet CSS — v2.9 (Unified)
+  Royal Velvet CSS — v2.9 (Unified + Final)
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -113,7 +113,7 @@ p {
   color: var(--text-normal);
   font-size: 1.35rem;
   line-height: 2;
-  margin: 0.6em 0;
+  margin: 1.2rem 0;
   font-weight: 100;
 }
 
@@ -574,4 +574,49 @@ html.theme-dark .post-card:hover {
 
 html.theme-dark .post-card-meta {
   opacity: 0.85;
-} 
+}
+
+/*──────────────────────────────────────────────
+  Single Post Layout (Unified)
+──────────────────────────────────────────────*/
+
+.post-content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.6rem;
+}
+
+.post-title {
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.3px;
+}
+
+.post-meta {
+  font-size: 1rem;
+  opacity: 0.75;
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+/* Responsive images */
+.post-content img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  margin: 1.6rem 0;
+}
+
+/* Responsive embeds */
+.post-content iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  border-radius: 12px;
+  margin: 1.6rem 0;
+}
+
+/* 
