@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: Suzy's web log
+title: suzy's web log
 subtitle: hobbies and holes
 description: everyone should have a blog again
 ---
