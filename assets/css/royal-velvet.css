@@ -1,9 +1,10 @@
 /*──────────────────────────────────────────────
-  Royal Velvet CSS — v2.8
+  Royal Velvet CSS — v2.9
   Changes:
-  - Gallery updated to fixed 3 columns
-  - Images reduced in size
-  - Aspect ratio tightened
+  - Fixed theme toggle compatibility (html.theme-dark)
+  - Added full Post Card system for blog index
+  - Fixed gallery aspect-ratio syntax
+  - Improved dark-mode consistency
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -317,7 +318,7 @@ header.rv-blog-header.royal-crest h1.rv-blog-title {
   margin: 0.35rem 0 0.55rem;
 }
 
-/* Header image (favicon fix) */
+/* Header image */
 header.rv-blog-header.royal-crest .rv-header-image {
   display: block;
   margin: 0.6rem auto 0.6rem;
@@ -373,7 +374,7 @@ footer.rv-blog-footer .rv-crest-line {
 }
 
 /*──────────────────────────────────────────────
-  Royal Velvet — Minimal Floating Theme Toggle
+  Royal Velvet — Floating Theme Toggle
 ──────────────────────────────────────────────*/
 
 .rv-theme-toggle {
@@ -406,7 +407,6 @@ footer.rv-blog-footer .rv-crest-line {
     transform 0.15s ease;
 }
 
-/* Gradient ring */
 .rv-theme-toggle:hover {
   box-shadow:
     0 0 0 2px rgba(255,255,255,0.25),
@@ -415,14 +415,12 @@ footer.rv-blog-footer .rv-crest-line {
   transform: scale(1.06);
 }
 
-/* Icon */
 .rv-toggle-icon {
   font-size: 1.25rem;
   pointer-events: none;
   transition: opacity 0.25s ease;
 }
 
-/* Dark mode icon colour */
 html.theme-dark .rv-theme-toggle {
   background: var(--background-secondary);
   color: var(--text-normal);
@@ -467,19 +465,17 @@ html.theme-dark .rv-theme-toggle {
 
 .rv-gallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* fixed 3 columns */
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.2rem;
   margin: 2.4rem auto;
-  max-width: 900px; /* narrower for smaller images */
+  max-width: 900px;
 }
 
-/* Each item */
 .rv-gallery-item {
   position: relative;
   cursor: pointer;
 }
 
-/* Gradient border frame */
 .rv-gallery-item::before {
   content: "";
   position: absolute;
@@ -504,10 +500,9 @@ html.theme-dark .rv-theme-toggle {
   z-index: 2;
 }
 
-/* Cropped image — smaller */
 .rv-gallery-item img {
   width: 100%;
-  aspect-ratio: 1 / 1.414
+  aspect-ratio: 1 / 1.414;
   object-fit: cover;
   border-radius: 12px;
   display: block;
@@ -515,12 +510,10 @@ html.theme-dark .rv-theme-toggle {
   z-index: 1;
 }
 
-/* Hover zoom */
 .rv-gallery-item:hover img {
   transform: scale(1.04);
 }
 
-/* Caption */
 .rv-gallery-caption {
   text-align: center;
   margin-top: 0.5rem;
@@ -528,7 +521,6 @@ html.theme-dark .rv-theme-toggle {
   font-weight: 200;
   opacity: 0.85;
 }
-
 
 /*──────────────────────────────────────────────
   Lightbox
@@ -555,7 +547,6 @@ html.theme-dark .rv-theme-toggle {
   display: flex;
 }
 
-/* Close on click */
 .rv-lightbox:after {
   content: "×";
   position: absolute;
@@ -567,8 +558,6 @@ html.theme-dark .rv-theme-toggle {
   font-weight: 300;
 }
 
-
-/* Dark mode tweaks */
 html.theme-dark .rv-gallery-download {
   border-color: rgba(255,255,255,0.25);
 }
@@ -576,3 +565,64 @@ html.theme-dark .rv-gallery-download {
 html.theme-dark .rv-gallery-download:hover {
   box-shadow: 0 0 12px rgba(255,255,255,0.35);
 }
+
+/*──────────────────────────────────────────────
+  Royal Velvet — Blog Post Grid + Cards (NEW)
+──────────────────────────────────────────────*/
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 2.4rem auto;
+  max-width: 1100px;
+  padding: 0 1rem;
+}
+
+.post-card {
+  background: var(--background-secondary);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+}
+
+.post-card-thumb {
+  width: 100%;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--background-tertiary);
+}
+
+.post-card-thumb.placeholder {
+  background: linear-gradient(
+    135deg,
+    var(--lavender),
+    var(--sapphire),
+    var(--teal)
+  );
+  opacity: 0.35;
+}
+
+/* Reset gradient link styles inside cards */
+.post-card-link,
+.post-card-link * {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: var(--text-normal) !important;
+  color: var(--text-normal) !important;
+  text-decoration: none;
+}
+
+.post-card-title {
+  font-size: 1.45rem;
+  font-weight: 400;
+  margin: 1rem 1.2rem 0.4rem;
+  color: var
