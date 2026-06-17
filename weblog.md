@@ -1,8 +1,8 @@
 ---
 layout: blog
-title: Sarcoming Out Of My Cage
-subtitle: and I've been doing just fine
-description: blogging about my cancer hole
+title: Hobbyist Lobbyist
+subtitle: hobbies and holes
+description: everyone should have a blog again
 ---
 
 <!-- Theme Toggle Button -->
