@@ -9,7 +9,7 @@ title: suzy’s web log
     <a class="post-card-link" href="{{ post.url | relative_url }}">
 
       {%- comment -%}
-      Thumbnail logic:
+      Thumbnail logic (regex‑free):
       1. Use front‑matter `image:` if present
       2. Else extract first Markdown image from post content
       3. Else show placeholder
@@ -18,10 +18,16 @@ title: suzy’s web log
       {% assign thumb = post.image %}
 
       {% if thumb == nil or thumb == "" %}
-        {% assign first_image = post.content | regex_find: '(?<=\\!\\[.*?\\]\\().*?(?=\\))' %}
-        {% if first_image %}
-          {% assign thumb = first_image %}
-        {% endif %}
+        {% assign parts = post.content | split: '!' %}
+        {% for part in parts %}
+          {% if part contains '](' %}
+            {% assign candidate = part | split: '](' | last | split: ')' | first %}
+            {% if candidate contains '/' %}
+              {% assign thumb = candidate %}
+              {% break %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
       {% endif %}
 
       {% if thumb %}
@@ -71,5 +77,5 @@ title: suzy’s web log
 
 <footer class="rv-blog-footer royal-crest">
   <div class="rv-crest-line"></div>
-  <p class="rv-footer-text">© {{ site.time | date: "%Y" }}</p>
+  <p class="rv-footer-text">© {{ site.time | date: "%Y" }} </p>
 </footer>
