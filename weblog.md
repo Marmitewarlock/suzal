@@ -9,7 +9,6 @@ description: everyone should have a blog again
 <button class="rv-theme-toggle" id="themeToggle">
   <span class="rv-toggle-icon">🌓</span>
 </button>
-
 <script>
   // Load saved theme
   const savedTheme = localStorage.getItem("theme");
@@ -29,7 +28,20 @@ description: everyone should have a blog again
     }
   });
 </script>
+<footer class="rv-blog-footer royal-crest">
 
+  <div class="rv-crest-line"></div>
+
+  <p class="rv-footer-text">
+    <a href="/">suz.al</a> —
+    <a href="http://blog.suz.al">blog</a> —
+    <a href="http://suz.al/zines">zines</a> —
+    <a href="http://suz.al/links">links</a>
+  </p>
+
+  <div class="rv-crest-line"></div>
+
+</footer>
 <div class="post-grid">
   {% for post in site.posts %}
     <article class="post-card">
