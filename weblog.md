@@ -14,15 +14,15 @@ description: everyone should have a blog again
   // Load saved theme
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
-    document.body.classList.add("theme-dark");
+    document.documentElement.classList.add("theme-dark");
   }
 
   // Toggle theme
   document.getElementById("themeToggle").addEventListener("click", () => {
-    document.body.classList.toggle("theme-dark");
+    document.documentElement.classList.toggle("theme-dark");
 
     // Save preference
-    if (document.body.classList.contains("theme-dark")) {
+    if (document.documentElement.classList.contains("theme-dark")) {
       localStorage.setItem("theme", "dark");
     } else {
       localStorage.setItem("theme", "light");
@@ -54,5 +54,5 @@ description: everyone should have a blog again
       </a>
 
     </article>
-  {% endfor %}
+  {% endfor  %}
 </div>
