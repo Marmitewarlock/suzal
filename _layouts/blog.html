@@ -3,6 +3,17 @@ layout: default
 title: suzy’s web log
 ---
 
+<header class="rv-blog-header royal-crest">
+  <div class="rv-crest-line"></div>
+
+  <img class="rv-header-image" src="/assets/img/avatar.png" alt="avatar">
+
+  <h1 class="rv-blog-title">hobbies and holes</h1>
+  <h2 class="rv-blog-subtitle">everyone should have a blog again</h2>
+
+  <div class="rv-crest-line"></div>
+</header>
+
 <div class="post-grid">
   {% for post in site.posts %}
   <article class="post-card">
@@ -74,3 +85,8 @@ title: suzy’s web log
   </article>
   {% endfor %}
 </div>
+
+<footer class="rv-blog-footer royal-crest">
+  <div class="rv-crest-line"></div>
+  <p class="rv-footer-text">© {{ site.time | date: "%Y" }} su zy</p>
+</footer>
