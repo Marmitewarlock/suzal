@@ -1,7 +1,6 @@
 ---
 layout: blog
 title: Sarcoming Out Of My Cage
-permalink: /blog/
 subtitle: and I've been doing just fine
 description: blogging about my cancer hole
 ---
