@@ -466,7 +466,27 @@ html.theme-dark .rv-theme-toggle {
 .rv-zine-download:hover {
   opacity: 0.7;
 }
+/* Fix: ensure download link appears above gradient mask */
+.rv-zine-download {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0.75rem 0;
+  font-weight: 200;
+  color: var(--lavender);
+  text-decoration: none;
 
+  /* Critical fixes */
+  z-index: 5;                 /* above gradient mask */
+  pointer-events: auto;       /* clickable */
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(4px);
+}
+
+.rv-gallery-item::before {
+  z-index: 2; /* ensure mask stays below link */
+}
 /*──────────────────────────────────────────────
   Lightbox
 ──────────────────────────────────────────────*/
