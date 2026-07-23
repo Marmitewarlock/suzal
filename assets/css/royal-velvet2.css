@@ -1,5 +1,5 @@
 /*──────────────────────────────────────────────
-  Royal Velvet CSS — v2.9 (Unified + Final)
+  Royal Velvet CSS — v3.0 (Gradient A4 Merge)
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -389,7 +389,7 @@ html.theme-dark .rv-theme-toggle {
 }
 
 /*──────────────────────────────────────────────
-  Gallery
+  Gallery (Merged Gradient A4)
 ──────────────────────────────────────────────*/
 
 .rv-gallery {
@@ -402,15 +402,18 @@ html.theme-dark .rv-theme-toggle {
 
 .rv-gallery-item {
   position: relative;
-  cursor: pointer;
+  aspect-ratio: 1 / 1.414; /* A4 */
+  border-radius: 14px;
+  overflow: hidden;
 }
 
+/* Gradient frame now wraps the A4 container */
 .rv-gallery-item::before {
   content: "";
   position: absolute;
   inset: 0;
   padding: 2px;
-  border-radius: 14px;
+  border-radius: inherit;
   background: linear-gradient(
     90deg,
     #ff6ec7,
@@ -429,18 +432,39 @@ html.theme-dark .rv-theme-toggle {
   z-index: 2;
 }
 
+/* Image fills the A4 frame perfectly */
 .rv-gallery-item img {
   width: 100%;
-  aspect-ratio: 1 / 1.414;
+  height: 100%;
   object-fit: cover;
-  border-radius: 12px;
+  aspect-ratio: inherit;
+  border-radius: inherit;
   display: block;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease;
   z-index: 1;
 }
 
 .rv-gallery-item:hover img {
   transform: scale(1.04);
+}
+
+/* Download link inside the A4 frame */
+.rv-zine-download {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0.75rem 0;
+  font-weight: 200;
+  color: var(--lavender);
+  text-decoration: none;
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(4px);
+  z-index: 3;
+}
+
+.rv-zine-download:hover {
+  opacity: 0.7;
 }
 
 /*──────────────────────────────────────────────
@@ -505,6 +529,7 @@ html.theme-dark .rv-theme-toggle {
   transform: translateY(-4px);
   box-shadow: 0 6px 20px rgba(0,0,0,0.18);
 }
+
 .post-card-thumb {
   height: 180px;
   width: 100%;
@@ -514,7 +539,6 @@ html.theme-dark .rv-theme-toggle {
   border-radius: 0px;
   display: block;
 }
-
 
 .post-card-thumb.placeholder {
   background: linear-gradient(
@@ -531,30 +555,17 @@ html.theme-dark .rv-theme-toggle {
   -webkit-text-fill-color: var(--text-normal) !important;
   color: var(--text-normal) !important;
 }
-    
-}
 
-/* Title (refined) */
 .post-card-title {
   font-size: 1.35rem;
   font-weight: 400;
   margin: 1rem 1.2rem 0.3rem;
   letter-spacing: -0.22px;
   color: var(--lavender) !important;
-  padding-left: 0;     
+  padding-left: 0;
   text-align: left;
 }
-.post-card-thumb.placeholder {
-  background: linear-gradient(135deg,
-    #ff6ec7,
-    #ffa95f,
-    #fff56e,
-    #6effa3,
-    #6ebaff,
-    #c86eff
-  );
-}
-/* Meta (refined) */
+
 .post-card-meta {
   display: flex;
   gap: 0.6rem;
@@ -565,7 +576,6 @@ html.theme-dark .rv-theme-toggle {
   letter-spacing: -0.2px;
 }
 
-/* Excerpt (refined) */
 .post-card-excerpt {
   font-size: 1rem;
   line-height: 1.55;
@@ -573,7 +583,6 @@ html.theme-dark .rv-theme-toggle {
   opacity: 0.85;
 }
 
-/* Dark mode tweaks */
 html.theme-dark .post-card {
   background: var(--background-tertiary);
   box-shadow: 0 4px 14px rgba(0,0,0,0.45);
@@ -609,90 +618,4 @@ html.theme-dark .post-card-meta {
   opacity: 0.75;
   display: flex;
   gap: 0.6rem;
-  margin-bottom: 2rem;
-}
-
-/* Responsive images */
-.post-content img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 12px;
-  margin: 1.6rem 0;
-}
-
-/* Responsive embeds */
-.post-content iframe {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: none;
-  border-radius: 12px;
-  margin: 1.6rem 0;
-}
-
-/* 
-
-/* Pull Quotes */
-.pull-quote {
-  font-size: 1.8rem;
-  line-height: 1.45;
-  font-weight: 300;
-  text-align: center;
-  max-width: 720px;
-  margin: 3rem auto;
-  padding: 1.6rem 1.2rem;
-  color: var(--text-normal);
-  position: relative;
-  font-style: italic;
-}
-
-.pull-quote::before,
-.pull-quote::after {
-  content: "";
-  display: block;
-  height: 3px;
-  width: 80px;
-  margin: 0.8rem auto;
-  background: linear-gradient(
-    90deg,
-    #ff6ec7,
-    #ffa95f,
-    #fff56e,
-    #6effa3,
-    #6ebaff,
-    #c86eff
-  );
-  border-radius: 3px;
-  opacity: 0.8;
-}
-
-.pull-quote cite {
-  display: block;
-  margin-top: 1rem;
-  font-size: 1rem;
-  opacity: 0.7;
-  font-style: normal;
-}
-
-.tiny {
-  font-size: 0.7em;   /* 70% of parent size */
-  line-height: 1.3;
-}
-html.theme-dark body,
-html.theme-dark .app-container,
-html.theme-dark .workspace,
-html.theme-dark .workspace-leaf,
-html.theme-dark .workspace-leaf-content,
-html.theme-dark .view-content {
-  background-color: var(--background-primary);
-  color: var(--text-normal);
-}
-
-/* Align card title, meta, and excerpt perfectly */
-.post-card-title,
-.post-card-meta,
-.post-card-excerpt {
-  margin-left: 1.2rem;
-  margin-right: 1.2rem;
-  text-align: left;
-}
+  margin-bottom: 
