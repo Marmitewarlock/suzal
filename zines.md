@@ -41,4 +41,10 @@ subtitle: feel free to download and print
     </a>
   </div>
 
+   <div class="rv-gallery-item">
+    <a href="https://ko-fi.com/s/8fd3ccdb24">
+      <img src="/assets/images/tindinner.png" alt="Tin DInner (2026)">
+    </a>
+  </div>
+
 </div>
