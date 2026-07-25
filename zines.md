@@ -35,4 +35,10 @@ subtitle: feel free to download and print
     </a>
   </div>
 
+   <div class="rv-gallery-item">
+    <a href="https://ko-fi.com/s/5e36b97afd">
+      <img src="/assets/images/poetrycancer.png" alt="Poetry I Wrote At Nottingham City Hospital (2026)">
+    </a>
+  </div>
+
 </div>
