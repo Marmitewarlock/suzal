@@ -435,9 +435,8 @@ html.theme-dark .rv-theme-toggle {
 /* Image fills the A4 frame perfectly */
 .rv-gallery-item img {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1 / 1.414;
   object-fit: cover;
-  aspect-ratio: inherit;
   border-radius: inherit;
   display: block;
   transition: transform 0.25s ease;
