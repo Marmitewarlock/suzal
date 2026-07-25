@@ -12,17 +12,31 @@ subtitle: feel free to download and print
 <div class="rv-gallery">
 
   <div class="rv-gallery-item">
-    <a href="https://ko-fi.com/s/4251fb848f"><img src="/assets/images/pigeonwithcheese.jpg" alt="Pigeon With Cheese On It's Back"></a></div>
+    <a href="https://ko-fi.com/s/4251fb848f">
+      <img src="/assets/images/pigeonwithcheese.jpg" alt="Pigeon With Cheese On It's Back">
+    </a>
+    <a href="https://ko-fi.com/s/4251fb848f" class="rv-link-center">download</a>
   </div>
 
   <div class="rv-gallery-item">
-    <a href="https://ko-fi.com/s/1c622a34dd"><img src="/assets/images/oneyearon.jpg" alt="One Year On From A Cancer Diagnosis (2025)"></a></div>
+    <a href="https://ko-fi.com/s/1c622a34dd">
+      <img src="/assets/images/oneyearon.jpg" alt="One Year On From A Cancer Diagnosis (2025)">
+    </a>
+    <a href="https://ko-fi.com/s/1c622a34dd" class="rv-link-center">download</a>
   </div>
 
   <div class="rv-gallery-item">
-    <a href="https://ko-fi.com/s/df5da9bfff"><img src="/assets/images/trafficcops.jpg" alt="Traffic Cops - The Unofficial Roleplaying Game (2023)"></a></div>
+    <a href="https://ko-fi.com/s/df5da9bfff">
+      <img src="/assets/images/trafficcops.jpg" alt="Traffic Cops - The Unofficial Roleplaying Game (2023)">
+    </a>
+    <a href="https://ko-fi.com/s/df5da9bfff" class="rv-link-center">download</a>
   </div>
 
   <div class="rv-gallery-item">
-    <a href="https://ko-fi.com/s/5e36b97afd"><img src="/assets/images/poetryslam.jpg" alt="How Not To Judge A Poetry Slam (2026)"></a></div>
+    <a href="https://ko-fi.com/s/5e36b97afd">
+      <img src="/assets/images/poetryslam.jpg" alt="How Not To Judge A Poetry Slam (2026)">
+    </a>
+    <a href="https://ko-fi.com/s/5e36b97afd" class="rv-link-center">download</a>
   </div>
+
+</div>
