@@ -261,6 +261,15 @@ footer.rv-blog-footer.royal-crest {
   opacity: 0.95;
 }
 
+header.rv-blog-header.royal-crest .rv-header-image {
+  display: block;
+  margin: 0.6rem auto 0.6rem;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+
 /*──────────────────────────────────────────────
   Theme Toggle
 ──────────────────────────────────────────────*/
