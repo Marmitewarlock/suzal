@@ -1,19 +1,11 @@
 ---
 layout: default
-title: suzy’s web log
 ---
 
 <div class="post-grid">
   {% for post in site.posts %}
   <article class="post-card">
     <a class="post-card-link" href="{{ post.url | relative_url }}">
-
-      {%- comment -%}
-      Thumbnail logic (regex‑free):
-      1. Use front‑matter `image:` if present
-      2. Else extract first Markdown image from post content
-      3. Else show placeholder
-      {%- endcomment -%}
 
       {% assign thumb = post.image %}
 
@@ -38,7 +30,6 @@ title: suzy’s web log
 
       <h2 class="post-card-title">{{ post.title }}</h2>
 
-      {%- comment -%} British long date with ordinal suffix {%- endcomment -%}
       {% assign day = post.date | date: "%-d" %}
       {% case day %}
         {% when '1' or '21' or '31' %}
@@ -51,7 +42,6 @@ title: suzy’s web log
           {% assign suffix = 'th' %}
       {% endcase %}
 
-      {%- comment -%} Auto min‑read {%- endcomment -%}
       {% assign words = post.content | number_of_words %}
       {% assign minutes = words | divided_by:200 %}
       {% if minutes < 1 %}
