@@ -401,3 +401,44 @@ header.rv-blog-header.royal-crest .rv-header-image {
   font-size: 0.9rem;
   opacity: 0.6;
 }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.card {
+  display: block;
+  background: var(--rv-surface, #fff);
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.card-title {
+  margin: 0 0 0.4rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.card-date {
+  font-size: 0.9rem;
+  opacity: 0.6;
+  margin-bottom: 0.6rem;
+}
+
+.card-excerpt {
+  font-size: 1rem;
+  opacity: 0.85;
+  line-height: 1.4;
+}
