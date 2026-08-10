@@ -1,15 +1,20 @@
 ---
 layout: default
-title: "web log"
-permalink: /weblog/
+title: "Blog"
+permalink: /blog/
 ---
 <h1>Blog</h1>
 
-<ul class="post-list">
+<div class="card-grid">
   {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
-    </li>
+  <a class="card" href="{{ post.url | relative_url }}">
+    <div class="card-content">
+      <h2 class="card-title">{{ post.title }}</h2>
+      <p class="card-date">{{ post.date | date: "%Y-%m-%d" }}</p>
+      {% if post.excerpt %}
+        <p class="card-excerpt">{{ post.excerpt | strip_html | truncate: 140 }}</p>
+      {% endif %}
+    </div>
+  </a>
   {% endfor %}
-</ul>
+</div>
