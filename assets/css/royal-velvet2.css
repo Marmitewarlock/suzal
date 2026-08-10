@@ -1,8 +1,5 @@
 /*──────────────────────────────────────────────
-  Royal Velvet CSS — v2.9 (Refreshed)
-  - A4 gallery images (consistent size)
-  - Clean centered link under each item
-  - Removed broken button styles
+  Royal Velvet CSS — v2.9 (Fully Fixed Edition)
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -25,16 +22,6 @@
 
   --text-accent: var(--lavender);
   --border-color: #d8c9b8;
-
-  --font-text: 'Roboto', sans-serif;
-  --font-header: 'Roboto', sans-serif;
-  --font-title: 'Roboto', sans-serif;
-  --font-interface: 'Roboto', sans-serif;
-
-  --h1-weight: 400;
-  --h2-weight: 400;
-  --h3-weight: 400;
-  --text-normal-weight: 100;
 }
 
 /*──────────────────────────────────────────────
@@ -269,7 +256,6 @@ header.rv-blog-header.royal-crest .rv-header-image {
   object-fit: contain;
 }
 
-
 /*──────────────────────────────────────────────
   Theme Toggle
 ──────────────────────────────────────────────*/
@@ -289,7 +275,7 @@ header.rv-blog-header.royal-crest .rv-header-image {
   background: var(--background-primary);
   color: var(--text-normal);
   box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-  transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.15s ease;
+  transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.15s ease;
 }
 
 .rv-theme-toggle:hover {
@@ -342,13 +328,13 @@ header.rv-blog-header.royal-crest .rv-header-image {
   width: 100%;
   aspect-ratio: 1 / 1.414;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 14px;
   display: block;
   z-index: 1;
 }
 
-/* Centered link under image */
-.rv-gallery-item a + a {
+/* Centered link under image — FIXED */
+.rv-gallery-item > a:last-of-type {
   display: block;
   text-align: center;
   padding: 0.6rem 0;
@@ -379,7 +365,8 @@ header.rv-blog-header.royal-crest .rv-header-image {
   display: flex;
 }
 
-.rv-lightbox:after {
+/* Accessible close button — FIXED */
+.rv-lightbox::after {
   content: "×";
   position: absolute;
   top: 1.2rem;
@@ -388,4 +375,7 @@ header.rv-blog-header.royal-crest .rv-header-image {
   color: white;
   cursor: pointer;
   font-weight: 300;
-}
+  role: button;
+  tabindex: 0;
+  aria-label: "Close";
+} 
