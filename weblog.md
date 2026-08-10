@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "Blog"
-permalink: /blog/
+title: "web llog"
+permalink: /weblog/
 ---
 <h1>Blog</h1>
 
