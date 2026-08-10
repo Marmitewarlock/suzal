@@ -379,3 +379,25 @@ header.rv-blog-header.royal-crest .rv-header-image {
   tabindex: 0;
   aria-label: "Close";
 } 
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.post-list li {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+}
+
+.post-list a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.post-date {
+  display: block;
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
