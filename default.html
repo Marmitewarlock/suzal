@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+  <title>{{ page.title }} — {{ site.title }}</title>
+
+  {% seo %}
+
+  <!-- Roboto Thin (100–400) -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400&display=swap" rel="stylesheet">
+
+  <!-- Royal Velvet CSS -->
+  <link rel="stylesheet" href="{{ '/assets/css/royal-velvet2.css' | relative_url }}">
+</head>
+
+<body>
+
+<!-- ⭐ Theme Toggle -->
+<button id="theme-toggle" class="rv-theme-toggle" aria-label="Toggle theme">
+  <span class="rv-toggle-icon">🌙</span>
+</button>
+
+<!-- ⭐ Header (fixed, no nesting) -->
+<header class="rv-blog-header royal-crest">
+  <h1>{{ page.title }}</h1>
+  <img class="rv-header-image" src="/assets/images/favicon.png" alt="Site logo">
+  {% if page.subtitle %}
+    <h3>{{ page.subtitle }}</h3>
+  {% endif %}
+  <div class="rv-crest-line"></div>
+</header>
+
+<!-- ⭐ Main content -->
+<main class="rv-content">
+  {{ content }}
+</main>
+
+<!-- ⭐ Callout Conversion Script -->
+<script>
+document.querySelectorAll("blockquote").forEach(b => {
+  const first = b.firstElementChild;
+  if (!first) return;
+
+  const match = first.textContent.match(/^\[!(\w+)\]\s*(.*)/);
+  if (!match) return;
+
+  const type = match[1].toLowerCase();
+  const title = match[2] || type;
+
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("callout", `callout-${type}`);
+
+  const titleEl = document.createElement("div");
+  titleEl.classList.add("callout-title");
+  titleEl.textContent = title;
+  wrapper.appendChild(titleEl);
+
+  const contentEl = document.createElement("div");
+  contentEl.classList.add("callout-content");
+
+  [...b.children].slice(1).forEach(child => contentEl.appendChild(child));
+  wrapper.appendChild(contentEl);
+
+  b.replaceWith(wrapper);
+});
+</script>
+
+<!-- ⭐ Lightbox -->
+<div class="rv-lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+  <button class="rv-lightbox-close" aria-label="Close">&times;</button>
+  <img src="" alt="">
+</div>
+
+<!-- ⭐ Lightbox Script -->
+<script>
+(function () {
+  const lightbox = document.querySelector(".rv-lightbox");
+  const lightboxImg = lightbox.querySelector("img");
+  const closeBtn = lightbox.querySelector(".rv-lightbox-close");
+
+  function openLightbox(src, alt) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || "";
+    lightbox.classList.add("active");
+    lightbox.setAttribute("aria-hidden", "false");
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("active");
+    lightbox.setAttribute("aria-hidden", "true");
+    lightboxImg.src = "";
+  }
+
+  // Open when a gallery image is clicked
+  document.querySelectorAll(".rv-gallery-item img").forEach(img => {
+    img.style.cursor = "zoom-in";
+    img.addEventListener("click", (e) => {
+      e.preventDefault();
+      openLightbox(img.src, img.alt);
+    });
+  });
+
+  // Close on × button, backdrop click, or Escape key
+  closeBtn.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && lightbox.classList.contains("active")) closeLightbox();
+  });
+})();
+</script>
+
+<!-- ⭐ Footer -->
+<footer class="rv-blog-footer royal-crest">
+  <div class="rv-crest-line"></div>
+
+  <p class="rv-footer-text">
+    <a href="/">suz.al</a> —
+    <a href="/weblog">blog</a> —
+    <a href="/zines">zines</a> —
+    <a href="/links">links</a>
+  </p>
+
+  <p class="tiny">© suz.al {{ site.time | date: "%Y" }}</p>
+
+  <div class="rv-crest-line"></div>
+</footer>
+
+<!-- ⭐ Theme Toggle Script -->
+<script>
+  const root = document.documentElement;
+  const toggle = document.getElementById("theme-toggle");
+  const icon = toggle.querySelector(".rv-toggle-icon");
+
+  const saved = localStorage.getItem("theme");
+  if (saved === "dark") {
+    root.classList.add("theme-dark");
+    icon.textContent = "☀️";
+  }
+
+  toggle.addEventListener("click", () => {
+    const isDark = root.classList.toggle("theme-dark");
+    icon.textContent = isDark ? "☀️" : "🌙";
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
+</script>
+
+</body>
+</html>
