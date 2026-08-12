@@ -1,8 +1,6 @@
 title: suz.al
 description: Styled with Royal Velvet
 
-# Tell Jekyll that the actual site lives inside /suzal
-source: suzal
 
 markdown: kramdown
 highlighter: rouge
