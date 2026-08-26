@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Leaflet Blog</title>
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <div class="rv-layout">
+    <aside class="rv-sidebar">
+      <header class="rv-blog-header royal-crest">
+        <h1 id="pub-name">My Blog</h1>
+        <div class="rv-crest-line"></div>
+      </header>
+
+      <nav class="rv-sidebar-nav">
+        <a href="https://suz.al">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="links.html">Links</a>
+      </nav>
+    </aside>
+
+    <main class="rv-content">
+      <div id="posts" class="card-grid">Loading posts…</div>
+      <footer class="rv-blog-footer royal-crest">
+        <div class="rv-crest-line"></div>
+      </footer>
+    </main>
+  </div>
+
+  <button class="rv-theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+
+  <script>
+    // ---- Theme toggle (persists choice, respects system preference by default) ----
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const savedTheme = localStorage.getItem("rv-theme"); // "dark" | "light" | null
+
+    function applyTheme(isDark) {
+      document.documentElement.classList.toggle("theme-dark", isDark);
+      themeToggleBtn.textContent = isDark ? "☀️" : "🌙";
+    }
+
+    applyTheme(savedTheme ? savedTheme === "dark" : prefersDark);
+
+    themeToggleBtn.addEventListener("click", () => {
+      const isDark = !document.documentElement.classList.contains("theme-dark");
+      applyTheme(isDark);
+      localStorage.setItem("rv-theme", isDark ? "dark" : "light");
+    });
+
+    // ---- CONFIG: fill these in for your account ----
+    const HANDLE = "suz.al"; // your atproto handle
+    // Leaflet migrated to the "standard.site" lexicon in April 2026.
+    // If your publication predates that, try the pub.leaflet.* collections instead.
+    const DOC_COLLECTION = "site.standard.document";
+    const PUB_COLLECTION = "site.standard.publication";
+    // const DOC_COLLECTION = "pub.leaflet.document";
+    // const PUB_COLLECTION = "pub.leaflet.publication";
+
+    // Only show posts from this publication (exact name match). Set to null to show all.
+    const PUBLICATION_FILTER = "Suzy Writes";
+
+    async function resolveHandleToDidAndPds(handle) {
+      const res = await fetch(`https://public.api.bsky.app/xrpc/com.atproto.identity.resolveHandle?handle=${handle}`);
+      const { did } = await res.json();
+      const didDoc = await fetch(`https://plc.directory/${did}`).then(r => r.json());
+      const pds = didDoc.service.find(s => s.id === "#atproto_pds").serviceEndpoint;
+      return { did, pds };
+    }
+
+    function recordsUrl(pds, did, collection) {
+      return `${pds}/xrpc/com.atproto.repo.listRecords?repo=${did}&collection=${collection}&limit=50`;
+    }
+
+    async function loadPosts() {
+      const { did, pds } = await resolveHandleToDidAndPds(HANDLE);
+
+      const [pubsRes, docsRes] = await Promise.all([
+        fetch(recordsUrl(pds, did, PUB_COLLECTION)).then(r => r.json()),
+        fetch(recordsUrl(pds, did, DOC_COLLECTION)).then(r => r.json())
+      ]);
+
+      const publications = pubsRes.records || [];
+      const documents = docsRes.records || [];
+
+      if (publications[0]) {
+        const shown = PUBLICATION_FILTER
+          ? publications.find(p => p.value.name === PUBLICATION_FILTER)
+          : publications[0];
+        if (shown) document.getElementById("pub-name").textContent = shown.value.name;
+      }
+
+      const pubMap = new Map(publications.map(p => [
+        p.uri,
+        { ...p.value, base_path: (p.value.url || "").replace(/^https?:\/\//, "").replace(/\/$/, "") }
+      ]));
+
+      const posts = documents
+        .map(d => ({
+          title: d.value.title,
+          description: d.value.description || "",
+          publishedAt: d.value.publishedAt,
+          path: d.value.path,
+          publication: pubMap.get(d.value.site),
+          uri: d.uri
+        }))
+        .filter(p => p.publication)
+        .filter(p => !PUBLICATION_FILTER || p.publication.name === PUBLICATION_FILTER)
+        .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+
+      const container = document.getElementById("posts");
+      container.innerHTML = "";
+
+      const debug = document.createElement("div");
+      debug.style.cssText = "color:#888; font-size:0.85rem; margin-bottom:1rem; white-space:pre-wrap;";
+      debug.textContent =
+        `DEBUG — publications found: ${publications.length}, documents found: ${documents.length}, ` +
+        `documents matched to a publication: ${posts.length}` +
+        (documents[0] ? `\nfirst document's "publication" field: ${documents[0].value.publication}` : "") +
+        (publications[0] ? `\nfirst publication's uri: ${publications[0].uri}` : "");
+      container.appendChild(debug);
+
+      posts.forEach(p => {
+        const el = document.createElement("a");
+        el.className = "card";
+        el.href = `https://${p.publication.base_path}${p.path || ""}`;
+        const debugLine = document.createElement("div");
+        debugLine.style.cssText = "font-size:0.7rem; color:#888; word-break:break-all;";
+        debugLine.textContent = `link: ${el.href} (pub url: ${p.publication.url}, path: ${p.path})`;
+        el.innerHTML = `
+          <div class="card-title">${p.title}</div>
+          <div class="card-date">${new Date(p.publishedAt).toLocaleDateString()}</div>
+          <div class="card-excerpt">${p.description}</div>
+        `;
+        el.appendChild(debugLine);
+        container.appendChild(el);
+      });
+    }
+
+    loadPosts().catch(err => {
+      document.getElementById("posts").innerHTML =
+        `<div style="color:red; white-space:pre-wrap;">Error: ${err.message}\n\n${err.stack || ""}</div>`;
+    });
+  </script>
+</body>
+</html>
