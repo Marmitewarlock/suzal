@@ -1,5 +1,5 @@
 /*──────────────────────────────────────────────
-  Royal Velvet CSS — v3.1
+  Royal Velvet CSS — v3.2
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -9,6 +9,9 @@
           page-card, center-md, gallery, lightbox,
           old post-list); re-added theme toggle
           button styling for light/dark switch
+  v3.2 — Two-column layout (sidebar + main content),
+          Obsidian-Publish style; stacks to a single
+          column under 800px
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -71,13 +74,45 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* FIXED: this used to target .markdown-preview-view (an Obsidian class
-   that doesn't exist in the rendered Jekyll HTML), so content had no
-   max-width/centering/padding at all. The real wrapper is .rv-content. */
-.rv-content {
-  max-width: 720px;
+/* v3.2: two-column layout (sidebar + main), Obsidian-Publish style.
+   Sidebar sticks alongside content on wide screens, stacks on top
+   of it on narrow ones. */
+.rv-layout {
+  display: flex;
+  align-items: flex-start;
+  max-width: 1100px;
   margin: 0 auto;
+}
+
+.rv-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 1px solid var(--border-color);
+  box-sizing: border-box;
+}
+
+.rv-content {
+  flex: 1;
+  min-width: 0;
   padding: 0.3rem 1.6rem;
+}
+
+@media (max-width: 800px) {
+  .rv-layout {
+    flex-direction: column;
+  }
+
+  .rv-sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
 }
 
 /*──────────────────────────────────────────────
