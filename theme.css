@@ -234,7 +234,8 @@ header.rv-blog-header.royal-crest {
 }
 
 header.rv-blog-header.royal-crest .rv-crest-line,
-footer.rv-blog-footer .rv-crest-line {
+footer.rv-blog-footer .rv-crest-line, 
+body.rv-blog-body .rv-crest-line{
   height: 1px;
   width: 100%;
   background: linear-gradient(
@@ -256,6 +257,14 @@ footer.rv-blog-footer.royal-crest {
   margin-top: 2.2rem;
   opacity: 0.95;
 }
+
+body.rv-blog-body.royal-crest {
+  text-align: center;
+  padding: 1.6rem 1rem 1.8rem;
+  margin-top: 2.2rem;
+  opacity: 0.95;
+}
+
 
 .card-grid {
   display: grid;
