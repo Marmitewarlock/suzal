@@ -1,5 +1,14 @@
 /*──────────────────────────────────────────────
-  Royal Velvet CSS — v3.0 (Actually Fixed Edition)
+  Royal Velvet CSS — v3.1
+──────────────────────────────────────────────*/
+
+/*──────────────────────────────────────────────
+  Version History
+  v3.0 — Actually Fixed Edition
+  v3.1 — Removed unused component styles (gradient
+          page-card, center-md, gallery, lightbox,
+          old post-list); re-added theme toggle
+          button styling for light/dark switch
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -170,56 +179,6 @@ blockquote {
 }
 
 /*──────────────────────────────────────────────
-  Gradient Border Card
-──────────────────────────────────────────────*/
-
-.rv-page-card {
-  position: relative;
-  padding: 1.35rem;
-  margin: 1.5rem 0;
-  border-radius: 14px;
-  background: var(--background-primary);
-  z-index: 1;
-}
-
-.rv-page-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 2px;
-  border-radius: inherit;
-  background: linear-gradient(
-    90deg,
-    #4ade80 0%,
-    #7ed957 25%,
-    #c8b53b 50%,
-    #f59e2a 75%,
-    #f97316 100%
-  );
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-  pointer-events: none;
-  z-index: -1;
-}
-
-/*──────────────────────────────────────────────
-  Centered Markdown Utility
-──────────────────────────────────────────────*/
-
-.center-md {
-  text-align: center;
-}
-
-.center-md * {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-/*──────────────────────────────────────────────
   Header + Footer
 ──────────────────────────────────────────────*/
 
@@ -253,12 +212,11 @@ footer.rv-blog-footer.royal-crest {
   opacity: 0.95;
 }
 
-header.rv-blog-header.royal-crest .rv-header-image {
-  display: block;
-  margin: 0.6rem auto 0.6rem;
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
 }
 
 /*──────────────────────────────────────────────
@@ -285,149 +243,6 @@ header.rv-blog-header.royal-crest .rv-header-image {
 
 .rv-theme-toggle:hover {
   transform: scale(1.06);
-}
-
-/*──────────────────────────────────────────────
-  Gallery — Refreshed (A4 size)
-──────────────────────────────────────────────*/
-
-.rv-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.2rem;
-  margin: 2.4rem auto;
-  max-width: 900px;
-}
-
-/* FIXED: no breakpoint existed before — 3 fixed columns on a phone
-   squeezed thumbnails down to unreadable sizes. */
-@media (max-width: 640px) {
-  .rv-gallery {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (min-width: 641px) and (max-width: 900px) {
-  .rv-gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.rv-gallery-item {
-  position: relative;
-}
-
-/* Gradient frame */
-.rv-gallery-item::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 2px;
-  border-radius: 14px;
-  background: linear-gradient(
-    90deg,
-    #ff6ec7,
-    #ffa95f,
-    #fff56e,
-    #6effa3,
-    #6ebaff,
-    #c86eff
-  );
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* A4 image size */
-.rv-gallery-item img {
-  width: 100%;
-  aspect-ratio: 1 / 1.414;
-  object-fit: cover;
-  border-radius: 14px;
-  display: block;
-  z-index: 1;
-}
-
-/* Centered link under image — FIXED */
-.rv-gallery-item > a:last-of-type {
-  display: block;
-  text-align: center;
-  padding: 0.6rem 0;
-}
-
-/*──────────────────────────────────────────────
-  Lightbox
-──────────────────────────────────────────────*/
-
-.rv-lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.rv-lightbox img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 12px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.5);
-}
-
-.rv-lightbox.active {
-  display: flex;
-}
-
-/* FIXED: close button is now a real <button> in the HTML (with working
-   click handler), not a ::after pseudo-element carrying invalid CSS
-   properties like role/tabindex/aria-label. */
-.rv-lightbox-close {
-  position: absolute;
-  top: 1.2rem;
-  right: 1.6rem;
-  font-size: 3rem;
-  line-height: 1;
-  color: white;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-weight: 300;
-  padding: 0;
-}
-
-.post-list {
-  list-style: none;
-  padding: 0;
-  margin: 2rem 0;
-}
-
-.post-list li {
-  margin: 0 0 1rem 0;
-  font-size: 1.1rem;
-}
-
-.post-list a {
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.post-date {
-  display: block;
-  font-size: 0.9rem;
-  opacity: 0.6;
-}
-
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
 }
 
 /* FIXED: was `background: var(--rv-surface, #fff)` — --rv-surface was
