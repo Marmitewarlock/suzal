@@ -92,9 +92,9 @@ async function savePostedLog(rkeys) {
   await writeFile(POSTED_LOG, JSON.stringify(rkeys, null, 2) + "\n", "utf-8");
 }
 
-async function postToBluesky(handle, appPassword, post) {
+async function postToBluesky(pds, handle, appPassword, post) {
   const sessionRes = await fetch(
-    "https://bsky.social/xrpc/com.atproto.server.createSession",
+    `${pds}/xrpc/com.atproto.server.createSession`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -124,7 +124,7 @@ async function postToBluesky(handle, appPassword, post) {
   };
 
   const postRes = await fetch(
-    "https://bsky.social/xrpc/com.atproto.repo.createRecord",
+    `${pds}/xrpc/com.atproto.repo.createRecord`,
     {
       method: "POST",
       headers: {
@@ -201,7 +201,7 @@ async function main() {
   }
 
   for (const post of newPosts) {
-    await postToBluesky(handle, appPassword, post);
+    await postToBluesky(pds, handle, appPassword, post);
     postedSet.add(post.rkey);
   }
 
