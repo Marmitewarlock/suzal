@@ -1,0 +1,292 @@
+/*──────────────────────────────────────────────
+  Royal Velvet CSS — v4.0
+──────────────────────────────────────────────*/
+
+/*──────────────────────────────────────────────
+  Version History
+  v3.0 — Actually Fixed Edition
+  v3.1 — Removed unused component styles (gradient
+          page-card, center-md, gallery, lightbox,
+          old post-list); re-added theme toggle
+          button styling for light/dark switch
+  v3.2 — Two-column layout (sidebar + main content),
+          Obsidian-Publish style; stacks to a single
+          column under 800px
+  v3.3 — Added sidebar navigation styling (Home,
+          Blog, Links)
+  v4.0 — Rebuilt for the SootyOwl standard-site
+          viewer engine (different class names:
+          .post-item, .post-title, .site-header,
+          etc. instead of .card/.rv-*). Re-added a
+          manual light/dark toggle button since
+          this engine only follows system
+          preference by default.
+──────────────────────────────────────────────*/
+
+/*──────────────────────────────────────────────
+  Light Theme (Warm Velvet Daylight)
+──────────────────────────────────────────────*/
+
+:root {
+  --bg: #f8f3ea;
+  --text: #000000;
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --border: #d8c9b8;
+  --link: #a78bd9;
+  --link-hover: #4a7be0;
+  --code-bg: #f2e9dd;
+  --blockquote-border: #a78bd9;
+  --tag-bg: #e9dfd2;
+  --tag-text: #000000;
+  --error-bg: #fbeaea;
+  --error-border: #d97a8c;
+  --error-text: #7a2e3d;
+  --setup-bg: #eaf1fb;
+  --setup-border: #4a7be0;
+
+  --lavender: #a78bd9;
+  --sapphire: #4a7be0;
+  --teal: #4fbfa8;
+  --gold: #d6a85a;
+  --rose: #d97a8c;
+}
+
+/*──────────────────────────────────────────────
+  Dark Theme
+──────────────────────────────────────────────*/
+
+html.theme-dark {
+  --bg: #111111;
+  --text: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --border: #2a2a2a;
+  --link: #cba6f7;
+  --link-hover: #89b4fa;
+  --code-bg: #1a1a1a;
+  --blockquote-border: #cba6f7;
+  --tag-bg: #222222;
+  --tag-text: #ffffff;
+  --error-bg: #2a1a1a;
+  --error-border: #f38ba8;
+  --error-text: #f38ba8;
+  --setup-bg: #1a2230;
+  --setup-border: #89b4fa;
+
+  --lavender: #cba6f7;
+  --sapphire: #89b4fa;
+  --teal: #94e2d5;
+  --gold: #f9e2af;
+  --rose: #f38ba8;
+}
+
+/*──────────────────────────────────────────────
+  Base Layout
+──────────────────────────────────────────────*/
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Roboto", system-ui, sans-serif !important;
+  font-weight: 100;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0.3rem 1.6rem;
+}
+
+/*──────────────────────────────────────────────
+  Typography
+──────────────────────────────────────────────*/
+
+h1 {
+  background: linear-gradient(
+    90deg,
+    #ff6ec7,
+    #ffa95f,
+    #fff56e,
+    #6effa3,
+    #6ebaff,
+    #c86eff
+  );
+  background-size: 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+
+  font-weight: 400 !important;
+  letter-spacing: -0.35px;
+  line-height: 1.14;
+
+  font-size: 1.906rem;
+  margin: 0.5em 0 0.35em;
+}
+
+h2 { margin: 0.45em 0 0.3em; line-height: 1.22; color: var(--teal) !important; }
+h3 { margin: 0.4em 0 0.28em; line-height: 1.24; color: var(--sapphire) !important; }
+h4 { margin: 0.35em 0 0.25em; line-height: 1.26; color: var(--lavender) !important; }
+h5 { color: var(--gold) !important; }
+h6 { color: var(--rose) !important; }
+
+p {
+  color: var(--text);
+  font-size: 1.35rem;
+  line-height: 2;
+  margin: 0.6em 0;
+  font-weight: 100;
+}
+
+/*──────────────────────────────────────────────
+  Gradient Links
+──────────────────────────────────────────────*/
+
+a {
+  background: linear-gradient(
+    90deg,
+    #c86eff,
+    #6ebaff,
+    #6effa3,
+    #fff56e,
+    #ffa95f,
+    #ff6ec7
+  );
+  background-size: 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  transition: background-position 0.4s ease;
+  font-weight: 200 !important;
+}
+
+a:hover {
+  background-position: 100% 0;
+}
+
+/*──────────────────────────────────────────────
+  Code
+──────────────────────────────────────────────*/
+
+pre,
+code {
+  background: var(--code-bg);
+  color: var(--text);
+  padding: 0.45em 0.65em;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 100;
+  margin: 0.8em 0;
+}
+
+/*──────────────────────────────────────────────
+  Blockquotes
+──────────────────────────────────────────────*/
+
+blockquote {
+  border-left: 3px solid var(--lavender);
+  padding-left: 0.9em;
+  color: var(--text-secondary);
+  margin: 1em 0;
+  font-weight: 100;
+  font-size: 1.3rem;
+  line-height: 1.62;
+}
+
+/*──────────────────────────────────────────────
+  Site Header / Footer
+──────────────────────────────────────────────*/
+
+.site-header {
+  text-align: center;
+  padding: 2.4rem 1rem 2rem;
+  margin-bottom: 0.6rem;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(
+    90deg, #ff6ec7, #ffa95f, #fff56e, #6effa3, #6ebaff, #c86eff
+  ) 1;
+  opacity: 0.95;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 1.6rem 1rem 1.8rem;
+  margin-top: 2.2rem;
+  opacity: 0.85;
+}
+
+/*──────────────────────────────────────────────
+  Post List (cards)
+──────────────────────────────────────────────*/
+
+.post-list {
+  padding: 0;
+}
+
+.post-item {
+  background: var(--code-bg);
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 0.9rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.post-item:last-child {
+  margin-bottom: 0;
+}
+
+.post-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* The whole card is an <a>, which would otherwise inherit the
+   global gradient/transparent link style above and go blank.
+   Force solid, readable text inside cards instead. */
+.post-item a,
+.post-item a * {
+  color: var(--text) !important;
+  -webkit-text-fill-color: var(--text) !important;
+  background-image: none !important;
+  background-clip: initial !important;
+  -webkit-background-clip: initial !important;
+}
+
+.post-item .post-title {
+  color: var(--link) !important;
+  -webkit-text-fill-color: var(--link) !important;
+}
+
+.tag {
+  background: var(--tag-bg);
+  color: var(--tag-text);
+}
+
+/*──────────────────────────────────────────────
+  Theme Toggle
+──────────────────────────────────────────────*/
+
+.rv-theme-toggle {
+  position: fixed;
+  bottom: 1.2rem;
+  right: 1.2rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  color: var(--text);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.15s ease;
+}
+
+.rv-theme-toggle:hover {
+  transform: scale(1.06);
+}
