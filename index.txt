@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suzy</title>
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <div class="rv-layout">
+    <aside class="rv-sidebar">
+      <header class="rv-blog-header">
+        <h1>Suzy Writes</h1>
+      </header>
+      <nav class="rv-sidebar-nav">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="links.html">Links</a>
+      </nav>
+    </aside>
+
+    <main class="rv-content">
+      <div class="rv-crest-line"></div>
+
+      <!-- Replace this with a short intro/bio, whatever you'd like people to see first. -->
+      <h1>hello! </h1>
+<h2>I'm Suzy</h2>
+<p>
+I'm a collector of hobbies and as part of that I wanted a place onine that was away from meta and the like. 
+I'm working on getting my blog up and running through at protocol (bluesky's technology) and good old rss. For now I'm using templates, tools from github and my scant html and css skills from livejournal/MySpace.</p>
+      <footer class="site-footer"></footer>
+    </main>
+  </div>
+
+  <button class="rv-theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+
+  <script>
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const savedTheme = localStorage.getItem("rv-theme");
+
+    function applyTheme(isDark) {
+      document.documentElement.classList.toggle("theme-dark", isDark);
+      themeToggleBtn.textContent = isDark ? "☀️" : "🌙";
+    }
+
+    applyTheme(savedTheme ? savedTheme === "dark" : prefersDark);
+
+    themeToggleBtn.addEventListener("click", () => {
+      const isDark = !document.documentElement.classList.contains("theme-dark");
+      applyTheme(isDark);
+      localStorage.setItem("rv-theme", isDark ? "dark" : "light");
+    });
+  </script>
+</body>
+ </html>
