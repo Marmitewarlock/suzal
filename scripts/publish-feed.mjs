@@ -92,6 +92,34 @@ async function savePostedLog(rkeys) {
   await writeFile(POSTED_LOG, JSON.stringify(rkeys, null, 2) + "\n", "utf-8");
 }
 
+async function uploadCoverImageAsThumb(pds, did, accessJwt, coverImageCid, mimeType) {
+  // Fetch the actual image bytes from wherever the post's PDS stores them
+  const blobRes = await fetch(
+    `${pds}/xrpc/com.atproto.sync.getBlob?did=${encodeURIComponent(did)}&cid=${encodeURIComponent(coverImageCid)}`
+  );
+  if (!blobRes.ok) {
+    console.warn(`Could not fetch cover image (${coverImageCid}), posting without a thumbnail.`);
+    return null;
+  }
+  const bytes = new Uint8Array(await blobRes.arrayBuffer());
+
+  // Re-upload it to Bluesky's own blob storage so it can be referenced in the embed
+  const uploadRes = await fetch(`${pds}/xrpc/com.atproto.repo.uploadBlob`, {
+    method: "POST",
+    headers: {
+      "Content-Type": mimeType,
+      Authorization: `Bearer ${accessJwt}`,
+    },
+    body: bytes,
+  });
+  const uploadData = await uploadRes.json();
+  if (!uploadRes.ok || !uploadData.blob) {
+    console.warn("Blob upload failed, posting without a thumbnail:", JSON.stringify(uploadData));
+    return null;
+  }
+  return uploadData.blob;
+}
+
 async function postToBluesky(pds, handle, appPassword, post) {
   const sessionRes = await fetch(
     `${pds}/xrpc/com.atproto.server.createSession`,
@@ -109,6 +137,17 @@ async function postToBluesky(pds, handle, appPassword, post) {
   const link = `${SITE_ORIGIN}${BLOG_BASE_PATH}${post.path}`;
   const text = `${post.title}\n\n${link}`;
 
+  let thumb = null;
+  if (post.coverImageCid) {
+    thumb = await uploadCoverImageAsThumb(
+      pds,
+      session.did,
+      session.accessJwt,
+      post.coverImageCid,
+      post.coverImageMimeType
+    );
+  }
+
   const record = {
     $type: "app.bsky.feed.post",
     text,
@@ -119,6 +158,7 @@ async function postToBluesky(pds, handle, appPassword, post) {
         uri: link,
         title: post.title,
         description: post.description || "",
+        ...(thumb ? { thumb } : {}),
       },
     },
   };
@@ -167,6 +207,8 @@ async function main() {
       description: d.value.description || "",
       path: d.value.path || `/${d.uri.split("/").pop()}`,
       publishedAt: d.value.publishedAt || new Date().toISOString(),
+      coverImageCid: d.value.coverImage?.ref?.$link || null,
+      coverImageMimeType: d.value.coverImage?.mimeType || "image/jpeg",
     }))
     .sort((a, b) => new Date(a.publishedAt) - new Date(b.publishedAt)); // oldest first
 
