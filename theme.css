@@ -1,5 +1,5 @@
 /*──────────────────────────────────────────────
-  Royal Velvet CSS — v4.0
+  Obsidian Rainbow CSS — v4.1
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -21,6 +21,11 @@
           manual light/dark toggle button since
           this engine only follows system
           preference by default.
+  v4.1 — Renamed theme (Royal Velvet → Obsidian
+          Rainbow). Re-added the two-column sidebar
+          layout on top of the new viewer engine,
+          plus a crest line at the top of the main
+          column matching the one above the footer.
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -92,9 +97,80 @@ body {
 }
 
 #app {
-  max-width: 720px;
+  max-width: 100%;
+}
+
+/*──────────────────────────────────────────────
+  Two-Column Layout (sidebar + main content)
+──────────────────────────────────────────────*/
+
+.rv-layout {
+  display: flex;
+  align-items: flex-start;
+  max-width: 1100px;
   margin: 0 auto;
+}
+
+.rv-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 1px solid var(--border);
+  box-sizing: border-box;
+  padding: 2.4rem 1.5rem 1.5rem;
+}
+
+.rv-blog-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.rv-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 1.05rem;
+}
+
+.rv-content {
+  flex: 1;
+  min-width: 0;
   padding: 0.3rem 1.6rem;
+  box-sizing: border-box;
+}
+
+/* Decorative gradient bar — mirrors the one above the footer. */
+.rv-crest-line {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    #ff6ec7,
+    #ffa95f,
+    #fff56e,
+    #6effa3,
+    #6ebaff,
+    #c86eff
+  );
+  opacity: 0.6;
+  margin: 1.6rem 0 1.2rem;
+}
+
+@media (max-width: 800px) {
+  .rv-layout {
+    flex-direction: column;
+  }
+
+  .rv-sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
 }
 
 /*──────────────────────────────────────────────
@@ -196,25 +272,28 @@ blockquote {
 }
 
 /*──────────────────────────────────────────────
-  Site Header / Footer
+  Site Header
 ──────────────────────────────────────────────*/
 
 .site-header {
   text-align: center;
-  padding: 2.4rem 1rem 2rem;
+  padding: 0.5rem 1rem 2rem;
   margin-bottom: 0.6rem;
-  border-bottom: 2px solid transparent;
-  border-image: linear-gradient(
-    90deg, #ff6ec7, #ffa95f, #fff56e, #6effa3, #6ebaff, #c86eff
-  ) 1;
-  opacity: 0.95;
 }
+
+/*──────────────────────────────────────────────
+  Site Footer
+──────────────────────────────────────────────*/
 
 .site-footer {
   text-align: center;
   padding: 1.6rem 1rem 1.8rem;
   margin-top: 2.2rem;
   opacity: 0.85;
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(
+    90deg, #ff6ec7, #ffa95f, #fff56e, #6effa3, #6ebaff, #c86eff
+  ) 1;
 }
 
 /*──────────────────────────────────────────────
@@ -290,3 +369,4 @@ blockquote {
 .rv-theme-toggle:hover {
   transform: scale(1.06);
 }
+ 
