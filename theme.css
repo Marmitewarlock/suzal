@@ -1,5 +1,5 @@
 /*──────────────────────────────────────────────
-  Obsidian Rainbow CSS — v4.3
+  Obsidian Rainbow CSS — v4.4
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -35,6 +35,7 @@
   v4.3 — Matched the top crest-line thickness (1px)
           to the footer's border (2px) so both lines
           look the same weight.
+  v4.4 — Added a styled "Subscribe via RSS" button.
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -168,6 +169,36 @@ body {
   margin: 1.6rem 0 1.2rem;
 }
 
+/*──────────────────────────────────────────────
+  Subscribe (RSS) Button
+──────────────────────────────────────────────*/
+
+.rv-subscribe-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  background: #f26522;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background-image: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  font-size: 0.95rem;
+  font-weight: 400 !important;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.rv-subscribe-btn svg { color: #ffffff !important; }
+
+.rv-subscribe-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
 @media (max-width: 800px) {
   .rv-layout {
     flex-direction: column;
@@ -228,7 +259,7 @@ h6 { color: var(--rose) !important; }
 
 p {
   color: var(--text);
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   line-height: 2;
   margin: 0.6em 0;
   font-weight: 100;
@@ -396,4 +427,3 @@ blockquote {
 .rv-theme-toggle:hover {
   transform: scale(1.06);
 }
- 
