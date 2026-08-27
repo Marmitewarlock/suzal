@@ -1,5 +1,5 @@
 /*──────────────────────────────────────────────
-  Obsidian Rainbow CSS — v4.1
+  Obsidian Rainbow CSS — v4.3
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -26,6 +26,15 @@
           layout on top of the new viewer engine,
           plus a crest line at the top of the main
           column matching the one above the footer.
+  v4.2 — Fixed mobile layout: align-items:flex-start
+          was shrink-wrapping the stacked sidebar/
+          content columns to half width once the
+          layout switched to flex-direction:column
+          under 800px; also tightened the leftover
+          desktop sidebar spacing on mobile.
+  v4.3 — Matched the top crest-line thickness (1px)
+          to the footer's border (2px) so both lines
+          look the same weight.
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -144,7 +153,7 @@ body {
 
 /* Decorative gradient bar — mirrors the one above the footer. */
 .rv-crest-line {
-  height: 1px;
+  height: 2px;
   width: 100%;
   background: linear-gradient(
     90deg,
@@ -162,6 +171,7 @@ body {
 @media (max-width: 800px) {
   .rv-layout {
     flex-direction: column;
+    align-items: stretch; /* was flex-start, which shrink-wrapped columns to half width once stacked */
   }
 
   .rv-sidebar {
@@ -170,6 +180,15 @@ body {
     position: static;
     border-right: none;
     border-bottom: 1px solid var(--border);
+    padding-bottom: 1rem;
+  }
+
+  .rv-content {
+    padding-top: 0.6rem;
+  }
+
+  .rv-crest-line {
+    margin-top: 0.8rem;
   }
 }
 
@@ -279,6 +298,14 @@ blockquote {
   text-align: center;
   padding: 0.5rem 1rem 2rem;
   margin-bottom: 0.6rem;
+}
+
+.refresh-btn {
+  color: var(--text-secondary) !important;
+  -webkit-text-fill-color: var(--text-secondary) !important;
+  background: none !important;
+  background-image: none !important;
+  font-weight: 400 !important;
 }
 
 /*──────────────────────────────────────────────
