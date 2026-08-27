@@ -3,11 +3,11 @@
 <head><meta charset="UTF-8"></head>
 <body>
 <script>
-const BASE_PATH = "";
+const BASE_PATH = "/blog.html";
 const fullPath = window.location.pathname;
 const routePath = fullPath.slice(BASE_PATH.length) || "/";
 sessionStorage.setItem("redirectPath", routePath);
-window.location.replace(BASE_PATH + "/");
+window.location.replace(BASE_PATH);
 </script>
 <noscript><p>JavaScript is required to view this site.</p></noscript>
 </body>
