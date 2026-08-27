@@ -277,8 +277,24 @@ body {
 <link rel="stylesheet" href="theme.css">
 </head>
 <body>
-<div id="app">
-  <div class="loading">Loading...</div>
+<div class="rv-layout">
+  <aside class="rv-sidebar">
+    <header class="rv-blog-header">
+      <h1 id="sidebar-title">Suzy Writes</h1>
+    </header>
+    <nav class="rv-sidebar-nav">
+      <a href="https://suz.al">Home</a>
+      <a href="index.html">Blog</a>
+      <a href="links.html">Links</a>
+    </nav>
+  </aside>
+
+  <main class="rv-content">
+    <div class="rv-crest-line"></div>
+    <div id="app">
+      <div class="loading">Loading...</div>
+    </div>
+  </main>
 </div>
 
 <button class="rv-theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
@@ -816,6 +832,9 @@ function render() {
 
   const { publication, documents, did } = appState;
 
+  const sidebarTitle = document.getElementById("sidebar-title");
+  if (sidebarTitle) sidebarTitle.textContent = publication?.name || HANDLE;
+
   if (route.type === "post") {
     const doc = findDocument(documents, route.path);
     if (doc) {
@@ -880,3 +899,4 @@ init();
 </script>
 </body>
 </html>
+ 
