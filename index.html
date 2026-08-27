@@ -223,19 +223,6 @@ body {
 .setup-instructions pre code { background: none; padding: 0; }
 .empty { color: var(--text-secondary); padding: 1rem 0; }
 
-/* Refresh */
-.refresh-btn {
-  background: none;
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  padding: 0.3rem 0.8rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.85rem;
-  float: right;
-}
-.refresh-btn:hover { border-color: var(--text-secondary); color: var(--text); }
-
 /* Footer */
 .site-footer {
   margin-top: 3rem;
@@ -643,15 +630,8 @@ function showHomepage(publication, documents, did) {
 
   document.title = siteName;
 
-  // Header
+  // Header (title lives in the sidebar now — just show description here, if any)
   const header = el("header", { className: "site-header" });
-  const h1 = el("h1", null, siteName);
-  const refreshBtn = el("button", {
-    className: "refresh-btn",
-    onclick: () => { clearCache(); init(); },
-  }, "Refresh");
-  h1.appendChild(refreshBtn);
-  header.appendChild(h1);
   if (siteDesc) header.appendChild(el("p", null, siteDesc));
   app.appendChild(header);
 
@@ -899,4 +879,3 @@ init();
 </script>
 </body>
 </html>
- 
