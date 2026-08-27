@@ -5,9 +5,21 @@
 <script>
 const BASE_PATH = "/blog";
 const fullPath = window.location.pathname;
-const routePath = fullPath.slice(BASE_PATH.length) || "/";
-sessionStorage.setItem("redirectPath", routePath);
-window.location.replace(BASE_PATH + "/");
+
+if (fullPath === BASE_PATH || fullPath.startsWith(BASE_PATH + "/")) {
+  // This looks like a blog post permalink that doesn't exist as a real
+  // file (expected — the app handles these client-side). Recover it
+  // into the blog app so it can resolve the route itself.
+  const routePath = fullPath.slice(BASE_PATH.length) || "/";
+  sessionStorage.setItem("redirectPath", routePath);
+  window.location.replace(BASE_PATH + "/");
+} else {
+  // A genuinely broken/missing link elsewhere on the site — show an
+  // actual 404 instead of mangling the path into the blog app.
+  document.write(
+    "<p>Page not found: " + fullPath.replace(/</g, "&lt;") + "</p>"
+  );
+}
 </script>
 <noscript><p>JavaScript is required to view this site.</p></noscript>
 </body>
