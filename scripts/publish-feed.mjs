@@ -15,7 +15,7 @@ import { existsSync } from "node:fs";
 const HANDLE = "suz.al";
 const PUBLICATION_RKEY = "3mty4vylnus2z";
 const SITE_ORIGIN = "https://suz.al";
-const BLOG_BASE_PATH = "/blog.html";
+const BLOG_BASE_PATH = "/blog";
 
 const POSTED_LOG = new URL("../posted.json", import.meta.url);
 const FEED_OUTPUT = new URL("../feed.xml", import.meta.url);
