@@ -61,18 +61,16 @@ body {
 .post-item a {
   color: var(--text);
   text-decoration: none;
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
+  display: flow-root; /* makes the card's height include the floated image, without preventing text from wrapping around it */
 }
 .post-item .post-thumb {
-  width: 64px;
-  height: 64px;
+  width: 96px;
+  height: 96px;
   object-fit: cover;
   border-radius: 4px;
-  flex-shrink: 0;
+  float: right;
+  margin: 0 0 0.6rem 1rem;
 }
-.post-item .post-body { flex: 1; min-width: 0; }
 .post-item a:hover .post-title { color: var(--link); }
 .post-title {
   font-size: 1.2rem;
@@ -88,8 +86,9 @@ body {
 .post-description {
   color: var(--text-secondary);
   font-size: 0.9rem;
+  clear: both;
 }
-.post-tags { margin-top: 0.3rem; }
+.post-tags { margin-top: 0.3rem; clear: both; }
 .tag {
   display: inline-block;
   background: var(--tag-bg);
@@ -654,6 +653,11 @@ function showHomepage(publication, documents, did) {
 
       const li = el("li", { className: "post-item" });
       const a = el("a", { href });
+      if (v.coverImage && v.coverImage.ref) {
+        const cid = v.coverImage.ref.$link;
+        const thumbUrl = `${appState.pdsUrl}/xrpc/com.atproto.sync.getBlob?did=${encodeURIComponent(did)}&cid=${encodeURIComponent(cid)}`;
+        a.appendChild(el("img", { src: thumbUrl, className: "post-thumb", alt: "" }));
+      }
       const body = el("div", { className: "post-body" });
       body.appendChild(el("div", { className: "post-title" }, title));
       if (v.publishedAt) body.appendChild(el("div", { className: "post-meta" }, formatDate(v.publishedAt)));
@@ -661,11 +665,6 @@ function showHomepage(publication, documents, did) {
       const tags = renderTags(v.tags);
       if (tags) body.appendChild(tags);
       a.appendChild(body);
-      if (v.coverImage && v.coverImage.ref) {
-        const cid = v.coverImage.ref.$link;
-        const thumbUrl = `${appState.pdsUrl}/xrpc/com.atproto.sync.getBlob?did=${encodeURIComponent(did)}&cid=${encodeURIComponent(cid)}`;
-        a.appendChild(el("img", { src: thumbUrl, className: "post-thumb", alt: "" }));
-      }
       li.appendChild(a);
       ul.appendChild(li);
     }
@@ -881,4 +880,3 @@ init();
 </script>
 </body>
 </html>
- 
