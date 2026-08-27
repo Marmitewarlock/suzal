@@ -1,0 +1,33 @@
+name: Update RSS feed and share new posts
+
+on:
+  workflow_dispatch: {}     # run manually from the Actions tab in GitHub
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate feed and post new content to Bluesky
+        env:
+          BSKY_HANDLE: ${{ secrets.BSKY_HANDLE }}
+          BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD }}
+        run: node scripts/publish-feed.mjs
+
+      - name: Commit updated feed.xml and posted.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add feed.xml posted.json
+          git diff --quiet --cached || git commit -m "Update feed and posted log"
+          git push
