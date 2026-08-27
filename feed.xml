@@ -5,6 +5,13 @@
     <link>https://suz.al/blog.html</link>
     <description></description>
     <item>
+      <title>test</title>
+      <link>https://suz.al/blog.html/test</link>
+      <guid isPermaLink="true">https://suz.al/blog.html/test</guid>
+      <description>this could be a blog post</description>
+      <pubDate>Thu, 27 Aug 2026 20:20:31 GMT</pubDate>
+    </item>
+    <item>
       <title>One Year Since A Cancer Diagnosis</title>
       <link>https://suz.al/blog.html/2025-11-06-one-year-since-a-cancer-diagnosis</link>
       <guid isPermaLink="true">https://suz.al/blog.html/2025-11-06-one-year-since-a-cancer-diagnosis</guid>
