@@ -180,15 +180,15 @@ body {
     position: static;
     border-right: none;
     border-bottom: 1px solid var(--border);
-    padding-bottom: 1rem;
+    padding-bottom: 0.8rem;
   }
 
   .rv-content {
-    padding-top: 0.6rem;
+    padding-top: 0;
   }
 
   .rv-crest-line {
-    margin-top: 0.8rem;
+    margin-top: 0.5rem;
   }
 }
 
