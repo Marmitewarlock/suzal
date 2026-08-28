@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Links — Suzy Writes</title>
+<link rel="stylesheet" href="../theme.css">
+</head>
+<body>
+  <div class="rv-layout">
+    <aside class="rv-sidebar">
+      <header class="rv-blog-header">
+        <h1>Suzy Writes</h1>
+      </header>
+      <nav class="rv-sidebar-nav">
+        <a href="../">Home</a>
+        <a href="../blog/">Blog</a>
+        <a href="../zines/">Zines</a>
+        <a href="./">Links</a>
+        <a href="../feed.xml">RSS</a>
+      </nav>
+    </aside>
+
+    <main class="rv-content">
+      <div class="rv-crest-line"></div>
+
+      <!-- ─── Add your links here ─── -->
+      <h1>Links</h1>
+      <p>Replace this with wherever else people can find you.</p>
+
+      <footer class="site-footer"></footer>
+    </main>
+  </div>
+
+  <button class="rv-theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+
+  <script>
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const savedTheme = localStorage.getItem("rv-theme");
+
+    function applyTheme(isDark) {
+      document.documentElement.classList.toggle("theme-dark", isDark);
+      themeToggleBtn.textContent = isDark ? "☀️" : "🌙";
+    }
+
+    applyTheme(savedTheme ? savedTheme === "dark" : prefersDark);
+
+    themeToggleBtn.addEventListener("click", () => {
+      const isDark = !document.documentElement.classList.contains("theme-dark");
+      applyTheme(isDark);
+      localStorage.setItem("rv-theme", isDark ? "dark" : "light");
+    });
+  </script>
+</body>
+</html>
