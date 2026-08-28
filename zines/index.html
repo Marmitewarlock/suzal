@@ -38,7 +38,6 @@
     const themeToggleBtn = document.getElementById("theme-toggle");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const savedTheme = localStorage.getItem("rv-theme");
-x
     function applyTheme(isDark) {
       document.documentElement.classList.toggle("theme-dark", isDark);
       themeToggleBtn.textContent = isDark ? "☀️" : "🌙";
