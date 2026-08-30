@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Suzy Makes Zines</title>
+<title>Gallery — Suzy Writes</title>
+<link rel="icon" sizes="32x32" href="../favicon.png">
 <link rel="stylesheet" href="../theme.css">
-<link rel="icon" sizes="32x32" href="favicon.png">
 </head>
 <body>
   <div class="rv-layout">
@@ -16,7 +16,7 @@
       <nav class="rv-sidebar-nav">
         <a href="../">Home</a>
         <a href="../blog/">Blog</a>
-        <a href="./">Zines</a>
+        <a href="../zines/">Zines</a>
         <a href="../links/">Links</a>
       </nav>
     </aside>
@@ -24,9 +24,72 @@
     <main class="rv-content">
       <div class="rv-crest-line"></div>
 
-      <!-- ─── Add your zines here ─── -->
-      <h1>(again) </h1><br></br>
-      <p>under construction but for now head to my <a href="https://www.ko-fi.com/ssuuzzaall">kofi</a> for my zines. </p>
+      <h1>Zines</h1>
+<p>From fannying about with QuarkExpress in uni to going mildly insane and baking a zine from salt dough in lockdown I've loved the idea of publishing on a tiny and inconsequential scale. I've shoved my poetry into zines and many pictures of pigeons and then 2020 fully took the wind out of my sails. Writing went again, zines went away and it wasn't until the last couple of years I've been writing again. My blog was not only therapeutic as fuck but a fabulous reentry into writing and now the zines... they're calling me back. And then I impulsively applied for a zine fest. So I'm taking off my big girl pants and I'm gonna go cozy up and do crafts again.</p>
+    
+      <div class="rv-gallery-list">
+
+<div class="rv-gallery-item">
+          <img src="/images/tindinner.png" alt="A collage featuring various food items around a blue label reading TIN DINNER in the style of the Spam logo">
+          <div class="rv-gallery-text">
+            <h2>Tin Dinner</h2>
+            <h3>2026</h3>
+            <p>A love letter to cheap dinners.</p>
+            <a class="rv-btn" href="https://ko-fi.com/s/8fd3ccdb24">download</a>
+          </div>
+        </div>
+        
+        <div class="rv-gallery-item">
+          <img src="/images/slam.jpg" alt="A collage made of colourful cut‑out magazine letters arranged on lined paper, spelling How Not To Judge A Poetry Slam.">
+          <div class="rv-gallery-text">
+            <h2>Pigeon With Cheese On Its Back</h2>
+            <h3>2026</h3>
+            <p>A silly zine I made after making a spreadsheet from the back row of a poetry slam.</p>
+       <a class="rv-btn" href="https://ko-fi.com/s/5e36b97afd">download</a>
+          </div>
+        </div>
+        
+        <div class="rv-gallery-item">
+          <img src="/images/nottspoetry.png" alt= "A blue zine frontncover with white text and an NHS logo in the top right in the style of an NHS sign. The text says Thank fuck for free healthcare – Welcome to Poetry I wrote at Nottingham City Hospital.>
+          <div class="rv-gallery-text">
+            <h2>Poetry I Wrote At Nottingham City Hospital</h2>
+            <h3>2025</h3>
+            <p>A collection of poetry I wrote during cancer treatment.</p>
+            <a class="rv-btn" href="https://ko-fi.com/s/ad3bdc50d6">download</a>
+          </div>
+        </div>
+        
+     <div class="rv-gallery-item">
+          <img src="/images/oneyear.jpg" alt= "A blue zine frontncover with white text and an NHS logo in the top right in the style of an NHS sign. The text says Thank fuck for free healthcare – Welcome to One year on from a cancer diagnosis.">
+          <div class="rv-gallery-text">
+            <h2>One Year On From A Cancer Diagnosis</h2>
+            <h3>2025</h3>
+            <p>A perzine written after a year of nonsense.</p>
+            <a class="rv-btn" href="https://ko-fi.com/s/1c622a34dd">download</a>
+          </div>
+        </div>
+        
+        <div class="rv-gallery-item">
+          <img src="/images/pigeon.jpg" alt="A black‑and‑white lino print of a pigeon with a jagged wedge of cheese resting on its back. Text below reads PIGEON WITH CHEESE ON IT’S BACK.">
+          <div class="rv-gallery-text">
+            <h2>Pigeon With Cheese On Its Back</h2>
+            <h3>2020</h3>
+            <p>I saw a pigeon with cheese on its back. I can confidently say it was the best thing to happen in 2020. Or just, since 2020.</p>
+                        <a class="rv-btn" href="https://ko-fi.com/s/4251fb848f">download</a>
+          </div>
+        </div>
+
+        <div class="rv-gallery-item">
+          <img src="/images/trafficcops.png" alt= "dramatic dusk highway‑interchange photo with streaking car lights. Overlaid text reads THE UNOFFICIAL ROLEPLAYING GAME TRAFFIC COPS">
+          <div class="rv-gallery-text">
+            <h2>Traffic Cops</h2>
+            <h3>2022</h3>
+            <p>I watch too much traffic cops and police interceptors. Drive safe, ACAB.</p>
+            <a class="rv-btn" href="https://ko-fi.com/s/df5da9bfff">download</a>
+          </div>
+        </div>
+
+      </div>
 
       <footer class="site-footer"></footer>
     </main>
@@ -38,6 +101,7 @@
     const themeToggleBtn = document.getElementById("theme-toggle");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const savedTheme = localStorage.getItem("rv-theme");
+
     function applyTheme(isDark) {
       document.documentElement.classList.toggle("theme-dark", isDark);
       themeToggleBtn.textContent = isDark ? "☀️" : "🌙";
