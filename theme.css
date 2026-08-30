@@ -522,3 +522,35 @@ figure:hover figcaption {
   opacity: 1;
   right: 0;
 }
+
+/*──────────────────────────────────────────────
+  Generic Button
+──────────────────────────────────────────────*/
+ 
+.rv-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  background: var(--link);
+  color: var(--bg) !important;
+  -webkit-text-fill-color: var(--bg) !important;
+  background-image: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  font-size: 0.95rem;
+  font-weight: 400 !important;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.2s ease;
+}
+ 
+.rv-btn svg { color: inherit !important; }
+ 
+.rv-btn:hover {
+  background: var(--link-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
