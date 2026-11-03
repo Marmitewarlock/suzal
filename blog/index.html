@@ -268,7 +268,66 @@ body {
       <a href="../zines/">Zines</a>
       <a href="../links/">Links</a>
     </nav>
- 
+ <style>
+  .sw-subscribe {
+    background: #1a1a1a;
+    border-radius: 20px;
+    padding: 24px;
+    max-width: 480px;
+    font-family: inherit;
+    color: #e6e6e6;
+  }
+  .sw-subscribe label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+    color: #b794f6;
+    font-weight: 600;
+  }
+  .sw-subscribe input[type="email"] {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px 18px;
+    margin-bottom: 12px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 999px;
+    color: #e6e6e6;
+    font: inherit;
+    outline: none;
+  }
+  .sw-subscribe input[type="email"]::placeholder { color: #888; }
+  .sw-subscribe input[type="email"]:focus { border-color: #b794f6; }
+  .sw-subscribe button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 26px;
+    background: #f26a1f;
+    color: #fff;
+    border: 0;
+    border-radius: 999px;
+    font: inherit;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .sw-subscribe button:hover { filter: brightness(1.1); }
+</style>
+
+<form class="sw-subscribe" action="https://api.follow.it/subscription-form/M2cwK0lUWmJnZldmTzFZSWVCQm5LNnpkbnRmMzIrY0srMmFxVVNEWEppQnF0Nk4zZFViamh3WldYQmZ2eTNsQUxlcVpBZXBQbHJqZHplNGRHN3J3bjc1QVZCbFZoWDk4SFNMWEtGVDlGTHprNjA5Y0FIcmxmc254RFNrdmFYLzZ8US9CZy9xMk5PUzd3bTZTeDZUVkYxQ2ZSdGw3blFHQ2RwRjVsSjJuRndCdz0=/8" method="post">
+  <label for="sw-email">Get new posts by email:</label>
+  <input type="email" id="sw-email" name="email" placeholder="Enter your email" required>
+  <button type="submit">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+      <circle cx="5.5" cy="18.5" r="2.5"/>
+      <path d="M4 10.5v3c5.8 0 10.5 4.7 10.5 10.5h3C17.5 16.7 11.3 10.5 4 10.5z" transform="translate(0,-4)"/>
+      <path d="M4 4v3c9.4 0 17 7.6 17 17h3C24 12.7 15.3 4 4 4z" transform="translate(0,-4)"/>
+    </svg>
+    Subscribe
+  </button>
+</form>
+
   </aside>
 
   <main class="rv-content">
