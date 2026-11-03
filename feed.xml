@@ -5,6 +5,20 @@
     <link>https://suz.al/blog</link>
     <description></description>
     <item>
+      <title>Untitled</title>
+      <link>https://suz.al/blog/untitled</link>
+      <guid isPermaLink="true">https://suz.al/blog/untitled</guid>
+      <description></description>
+      <pubDate>Tue, 03 Nov 2026 13:24:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>test</title>
+      <link>https://suz.al/blog/test</link>
+      <guid isPermaLink="true">https://suz.al/blog/test</guid>
+      <description>this could be a blog post</description>
+      <pubDate>Tue, 03 Nov 2026 13:23:17 GMT</pubDate>
+    </item>
+    <item>
       <title>Last February I gave you my lump but the very next day you gave me a hole</title>
       <link>https://suz.al/blog/2026-01-30-last-february-i-gave-you-my-lump</link>
       <guid isPermaLink="true">https://suz.al/blog/2026-01-30-last-february-i-gave-you-my-lump</guid>
