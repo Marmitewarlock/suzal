@@ -1,5 +1,5 @@
 /*──────────────────────────────────────────────
-  Obsidian Rainbow CSS — v4.7
+  Obsidian Rainbow CSS — v4.9
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -43,6 +43,14 @@
   v4.7 — Added gallery page styling: repeating rows
           of image (left) + text (right), stacking
           to one column under 640px.
+  v4.8 — Added email subscribe form (.rv-subscribe-form):
+          dark card with label, pill email field and
+          the existing .rv-subscribe-btn. Field and
+          button share a row; button goes full width
+          under 360px.
+  v4.9 — Mobile nav: under 800px the sidebar links
+          become a centred row of outlined pills
+          instead of a tall vertical list.
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -207,6 +215,68 @@ body {
 }
 
 /*──────────────────────────────────────────────
+  Subscribe Form (email)
+──────────────────────────────────────────────*/
+
+.rv-subscribe-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--code-bg);
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  margin: 1.2rem 0 1rem;
+}
+
+.rv-subscribe-form label {
+  flex: 0 0 100%;
+  color: var(--link);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.rv-subscribe-form input[type="email"] {
+  box-sizing: border-box;
+  flex: 1 1 150px;
+  min-width: 0;
+  padding: 0.55rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+  font: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.rv-subscribe-form input[type="email"]::placeholder {
+  color: var(--text-secondary);
+}
+
+.rv-subscribe-form input[type="email"]:focus {
+  border-color: var(--lavender);
+}
+
+/* Reuses .rv-subscribe-btn, adapted to a <button>. */
+.rv-subscribe-form .rv-subscribe-btn {
+  flex: 0 0 auto;
+  border: 0;
+  margin-bottom: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Very narrow phones: button drops below the field, full width. */
+@media (max-width: 360px) {
+  .rv-subscribe-form .rv-subscribe-btn {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+}
+
+/*──────────────────────────────────────────────
   Two-Column Content (used on the landing page)
 ──────────────────────────────────────────────*/
 
@@ -279,6 +349,36 @@ body {
 
   .rv-crest-line {
     margin-top: 0.5rem;
+  }
+}
+
+/*──────────────────────────────────────────────
+  Mobile Nav (pill row)
+──────────────────────────────────────────────*/
+
+@media (max-width: 800px) {
+  .rv-blog-header {
+    margin-bottom: 1rem;
+  }
+
+  .rv-sidebar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  /* Keeps the gradient link text; the pill is just an outline. */
+  .rv-sidebar-nav a {
+    padding: 0.35rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 1rem;
+    transition: background-position 0.4s ease, border-color 0.2s ease;
+  }
+
+  .rv-sidebar-nav a:hover {
+    border-color: var(--lavender);
   }
 }
 
