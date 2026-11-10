@@ -1,0 +1,594 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Obsidian Rainbow Specimen</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap">
+<style>
+/* Layout: one narrow reading column; each row pairs a selector label (left) with its live sample (right), stacking on phones.
+   Tokens and text rules below are copied from Obsidian Rainbow v5.0 so the samples match the real stylesheet. */
+
+:root {
+  --bg: #f8f3ea;
+  --text: #000000;
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --border: #d8c9b8;
+  --link: #a78bd9;
+  --link-hover: #4a7be0;
+  --code-bg: #f2e9dd;
+  --blockquote-border: #a78bd9;
+  --tag-bg: #e9dfd2;
+  --tag-text: #000000;
+  --lavender: #a78bd9;
+  --sapphire: #4a7be0;
+  --teal: #4fbfa8;
+  --gold: #d6a85a;
+  --rose: #d97a8c;
+  --bold-color: #d6559a;
+  --italic-color: #2f9c85;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111111;
+    --text: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.6);
+    --border: #2a2a2a;
+    --link: #cba6f7;
+    --link-hover: #89b4fa;
+    --code-bg: #1a1a1a;
+    --blockquote-border: #cba6f7;
+    --tag-bg: #222222;
+    --tag-text: #ffffff;
+    --lavender: #cba6f7;
+    --sapphire: #89b4fa;
+    --teal: #94e2d5;
+    --gold: #f9e2af;
+    --rose: #f38ba8;
+    --bold-color: #f78fc3;
+    --italic-color: #8ef0d8;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #111111;
+  --text: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --border: #2a2a2a;
+  --link: #cba6f7;
+  --link-hover: #89b4fa;
+  --code-bg: #1a1a1a;
+  --blockquote-border: #cba6f7;
+  --tag-bg: #222222;
+  --tag-text: #ffffff;
+  --lavender: #cba6f7;
+  --sapphire: #89b4fa;
+  --teal: #94e2d5;
+  --gold: #f9e2af;
+  --rose: #f38ba8;
+  --bold-color: #f78fc3;
+  --italic-color: #8ef0d8;
+  color-scheme: dark;
+}
+
+/*── Obsidian Rainbow v5.0 text rules (verbatim) ──*/
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Roboto", system-ui, sans-serif !important;
+  font-weight: 100;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1 {
+  background: linear-gradient(90deg, #ff6ec7, #ffa95f, #fff56e, #6effa3, #6ebaff, #c86eff);
+  background-size: 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.35px;
+  line-height: 1.14;
+  font-size: 1.906rem;
+  margin: 0.5em 0 0.35em;
+}
+
+h2 { margin: 0.45em 0 0.3em; line-height: 1.22; color: var(--teal) !important; }
+h3 { margin: 0.4em 0 0.28em; line-height: 1.24; color: var(--sapphire) !important; }
+h4 { margin: 0.35em 0 0.25em; line-height: 1.26; color: var(--lavender) !important; }
+h5 { color: var(--gold) !important; }
+h6 { color: var(--rose) !important; }
+
+p {
+  color: var(--text);
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin: 0.6em 0;
+  font-weight: 100;
+}
+
+strong, b { color: var(--bold-color); font-weight: 600; }
+em, i { color: var(--italic-color); font-style: italic; font-weight: 100; }
+
+h1 strong, h1 em, h1 b, h1 i,
+.post-item strong, .post-item em,
+.post-item b, .post-item i {
+  color: inherit;
+  -webkit-text-fill-color: inherit;
+}
+
+a {
+  background: linear-gradient(90deg, #c86eff, #6ebaff, #6effa3, #fff56e, #ffa95f, #ff6ec7);
+  background-size: 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  transition: background-position 0.4s ease;
+  font-weight: 200 !important;
+}
+a:hover { background-position: 100% 0; }
+
+pre, code {
+  background: var(--code-bg);
+  color: var(--text);
+  padding: 0.45em 0.65em;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 100;
+  margin: 0.8em 0;
+}
+
+blockquote {
+  border-left: 3px solid var(--lavender);
+  padding-left: 0.9em;
+  color: var(--text-secondary);
+  margin: 1em 0;
+  font-weight: 100;
+  font-size: 1.3rem;
+  line-height: 1.62;
+}
+
+.site-header { text-align: center; padding: 0.5rem 1rem 2rem; margin-bottom: 0.6rem; }
+
+.refresh-btn {
+  color: var(--text-secondary) !important;
+  -webkit-text-fill-color: var(--text-secondary) !important;
+  background: none !important;
+  background-image: none !important;
+  font-weight: 400 !important;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 1.6rem 1rem 1.8rem;
+  margin-top: 2.2rem;
+  opacity: 0.85;
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(90deg, #ff6ec7, #ffa95f, #fff56e, #6effa3, #6ebaff, #c86eff) 1;
+}
+
+.post-list { padding: 0; }
+.post-item {
+  background: var(--code-bg);
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 0.9rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.post-item:last-child { margin-bottom: 0; }
+.post-item:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12); }
+.post-item a,
+.post-item a * {
+  color: var(--text) !important;
+  -webkit-text-fill-color: var(--text) !important;
+  background-image: none !important;
+  background-clip: initial !important;
+  -webkit-background-clip: initial !important;
+}
+.post-item .post-title {
+  color: var(--link) !important;
+  -webkit-text-fill-color: var(--link) !important;
+}
+.tag { background: var(--tag-bg); color: var(--tag-text); }
+
+.rv-sidebar-nav { display: flex; flex-direction: column; gap: 0.6rem; font-size: 1.05rem; }
+
+.rv-subscribe-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  background: #f26522;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background-image: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  font-size: 0.95rem;
+  font-weight: 400 !important;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.rv-subscribe-btn svg { color: #ffffff !important; }
+.rv-subscribe-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); }
+
+.rv-subscribe-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--code-bg);
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  margin: 1.2rem 0 1rem;
+}
+.rv-subscribe-form label { flex: 0 0 100%; color: var(--link); font-size: 1rem; font-weight: 400; }
+.rv-subscribe-form input[type="email"] {
+  box-sizing: border-box;
+  flex: 1 1 150px;
+  min-width: 0;
+  padding: 0.55rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+  font: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.rv-subscribe-form input[type="email"]::placeholder { color: var(--text-secondary); }
+.rv-subscribe-form input[type="email"]:focus { border-color: var(--lavender); }
+.rv-subscribe-form .rv-subscribe-btn { flex: 0 0 auto; border: 0; margin-bottom: 0; cursor: pointer; font-family: inherit; }
+
+figure { display: block; position: relative; overflow: hidden; margin: 0; }
+figcaption {
+  position: absolute;
+  background: rgba(0,0,0,0.75);
+  color: white;
+  font-size: 80%;
+  padding: 10px 20px;
+  opacity: 0;
+  bottom: 0;
+  right: -30%;
+  transition: all 0.6s ease;
+}
+figure:hover figcaption { opacity: 1; right: 0; }
+
+.rv-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  background: var(--link);
+  color: var(--bg) !important;
+  -webkit-text-fill-color: var(--bg) !important;
+  background-image: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  font-size: 0.95rem;
+  font-weight: 400 !important;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.2s ease;
+}
+.rv-btn:hover { background: var(--link-hover); transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); }
+.rv-btn-pink { background: #ff6ec7; color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; }
+.rv-btn-pink:hover { background: #c86eff; }
+
+/* Mobile nav pills (the real rule only applies under 800px; this copy lets the preview show it at any width) */
+.demo-pills { flex-direction: row; flex-wrap: wrap; gap: 0.5rem; }
+.demo-pills a {
+  padding: 0.35rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 1rem;
+}
+
+/*── Preview chrome (not part of the stylesheet) ──*/
+
+.page {
+  max-width: 820px;
+  margin: 0 auto;
+  padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 1.5rem 3rem;
+}
+
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+.eyebrow {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.seg { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; padding: 2px; }
+.seg button {
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.3rem 0.85rem;
+  cursor: pointer;
+}
+.seg button[aria-pressed="true"] { background: var(--code-bg); color: var(--text); }
+.seg button:focus-visible { outline: 2px solid var(--lavender); outline-offset: 1px; }
+
+.sec-title {
+  margin-top: 2.4rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 1fr);
+  gap: 0.5rem 1.5rem;
+  padding-block: 1.1rem;
+  border-bottom: 1px solid var(--border);
+}
+.row > .sample { min-width: 0; }
+.sample > :first-child { margin-top: 0; }
+.sample > :last-child { margin-bottom: 0; }
+.meta { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
+.sel {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+.spec { font-size: 0.78rem; font-weight: 400; line-height: 1.4; color: var(--text-secondary); }
+.demo-wrap { max-width: 18rem; }
+.demo-wrap img { border-radius: 8px; }
+.hint { font-size: 0.82rem; font-weight: 400; color: var(--text-secondary); margin-top: 0.5rem; }
+.sample ul, .sample ol { margin: 0.4em 0; padding-left: 1.4rem; font-size: 1.2rem; line-height: 1.5; }
+
+@media (max-width: 640px) {
+  .row { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+</style>
+
+<div class="page">
+  <div class="topbar">
+    <span class="eyebrow">Obsidian Rainbow v5.0</span>
+    <div class="seg" role="group" aria-label="Preview theme">
+      <button type="button" id="t-auto" data-mode="auto" aria-pressed="true">Auto</button>
+      <button type="button" id="t-light" data-mode="light" aria-pressed="false">Light</button>
+      <button type="button" id="t-dark" data-mode="dark" aria-pressed="false">Dark</button>
+    </div>
+  </div>
+
+  <h1>Every text style</h1>
+  <p>Each row shows one rule from your stylesheet, live, with the selector on the left. Hover links, cards and buttons to see their hover states.</p>
+
+  <div class="sec-title">Headings</div>
+  <div class="row">
+    <div class="meta"><span class="sel">h1</span><span class="spec">rainbow gradient fill, 1.906rem, weight 400, −0.35px tracking</span></div>
+    <div class="sample"><h1>Notes from the workshop</h1></div>
+  </div>
+  <div class="row">
+    <div class="meta"><span class="sel">h2</span><span class="spec">--teal, default bold</span></div>
+    <div class="sample"><h2>Morning pages and loose ends</h2></div>
+  </div>
+  <div class="row">
+    <div class="meta"><span class="sel">h3</span><span class="spec">--sapphire, default bold</span></div>
+    <div class="sample"><h3>What I tried on Tuesday</h3></div>
+  </div>
+  <div class="row">
+    <div class="meta"><span class="sel">h4</span><span class="spec">--lavender, default bold</span></div>
+    <div class="sample"><h4>A smaller subheading</h4></div>
+  </div>
+  <div class="row">
+    <div class="meta"><span class="sel">h5</span><span class="spec">--gold, default bold</span></div>
+    <div class="sample"><h5>Fine print heading</h5></div>
+  </div>
+  <div class="row">
+    <div class="meta"><span class="sel">h6</span><span class="spec">--rose, default bold</span></div>
+    <div class="sample"><h6>Smallest heading</h6></div>
+  </div>
+
+  <div class="sec-title">Body text</div>
+  <div class="row">
+    <div class="meta"><span class="sel">p</span><span class="spec">--text, 1.2rem / 1.5, weight 100</span></div>
+    <div class="sample"><p>The kettle clicked off twice before I finished the first paragraph. Daily notes pile up quickly, and most of them only make sense once they sit next to each other in a single page.</p></div>
+  </div>
+  <div class="row">
+    <div class="meta"><span class="sel">p (second)</span><span class="spec">margin 0.6em between paragraphs</span></div>
+    <div class="sample"><p>Weight 100 is the thinnest Roboto face, so long passages read light. Short paragraphs keep it comfortable.</p><p>A second paragraph, to show the spacing between two blocks of body copy.</p></div>
+  </div>
+
+  <div class="sec-title">Bold and italic</div>
+  <div class="row">
+    <div class="meta"><span class="sel">strong, b</span><span class="spec">--bold-color, weight 600</span></div>
+    <div class="sample"><p>This sentence has <strong>bold with strong</strong> and <b>bold with b</b> inside it.</p></div>
+  </div>
+  <div class="row">
+    <div class="meta"><span class="sel">em, i</span><span class="spec">--italic-color, italic, weight 100</span></div>
+    <div class="sample"><p>This sentence has <em>italic with em</em> and <i>italic with i</i> inside it.</p></div>
+  </div>
+  <div class="row">
+    <div class="meta"><span class="sel">strong em</span><span class="spec">nested: inner colour wins on the inner text</span></div>
+    <div class="sample"><p><strong>Bold with <em>italic inside</em></strong> and <em>italic with <strong>bold inside</strong></em>.</p></div>
+  </div>
+  <div class="row">
+    <div class="meta"><span class="sel">h2 strong</span><span class="spec">bold inside a heading takes --bold-color</span></div>
+    <div class="sample"><h2>A heading with <strong>bold</strong> and <em>italic</em></h2></div>
+  </div>
+  <div class="row">
+    <div class="meta"><span class="sel">h1 strong</span><span class="spec">inherits the h1 gradient; weight 600</span></div>
+    <div class="sample"><h1>A title with <strong>bold</strong> and <em>italic</em></h1></div>
+  </div>
+  <div class="row">
+    <div class="meta"><span class="sel">blockquote strong</span><span class="spec">keeps pink and mint inside the grey quote</span></div>
+    <div class="sample"><blockquote>Write the <strong>boring version</strong> first, then make it <em>read well</em>.</blockquote></div>
+  </div>
+  <div class="row">
+    <div class="meta"><span class="sel">a strong</span><span class="spec">bold inside a link shows the gradient</span></div>
+    <div class="sample"><p>Read the <a href="#"><strong>bold link</strong></a> and the <a href="#"><em>italic link</em></a>.</p></div>
+  </div>
+
+  <div class="sec-title">Links</div>
+  <div class="row">
+    <div class="meta"><span class="sel">a</span><span class="spec">rainbow gradient text, weight 200; slides on hover</span></div>
+    <div class="sample"><p>Jump to <a href="#">the archive</a> or read <a href="#">last week's notes on tidying a vault</a>.</p></div>
+  </div>
+
+  <div class="sec-title">Code</div>
+  <div class="row">
+    <div class="meta"><span class="sel">code</span><span class="spec">--code-bg, 1rem, weight 100, 6px radius</span></div>
+    <div class="sample"><p>Press <code>Ctrl</code> + <code>P</code> and run <code>Daily notes: Open today</code>.</p></div>
+  </div>
+  <div class="row">
+    <div class="meta"><span class="sel">pre</span><span class="spec">same box as code; code inside pre gets its own box too</span></div>
+    <div class="sample"><pre>## Monday
+- [ ] Merge the weekly sections
+- [x] Rename the template</pre></div>
+  </div>
+
+  <div class="sec-title">Quotes and lists</div>
+  <div class="row">
+    <div class="meta"><span class="sel">blockquote</span><span class="spec">--text-secondary, 1.3rem / 1.62, lavender rule</span></div>
+    <div class="sample"><blockquote>A note you cannot find again is a note you never wrote. Give every idea a place to land.</blockquote></div>
+  </div>
+  <div class="row">
+    <div class="meta"><span class="sel">ul, ol</span><span class="spec">not styled in the stylesheet; browser defaults</span></div>
+    <div class="sample">
+      <ul><li>Collect the Monday sections</li><li>Paste them into one note</li><li>Add a link back to each day</li></ul>
+      <ol><li>Open the daily note</li><li>Copy the section</li><li>Paste and tidy</li></ol>
+    </div>
+  </div>
+
+  <div class="sec-title">Post cards</div>
+  <div class="row">
+    <div class="meta"><span class="sel">.post-item</span><span class="spec">card on --code-bg; link text forced to --text; title uses --link</span></div>
+    <div class="sample">
+      <div class="post-list">
+        <div class="post-item">
+          <a href="#">
+            <div class="post-title">Collecting a week of daily notes</div>
+            <div>10 Nov 2026</div>
+            <div>A short walk through <strong>merging sections</strong> into one note, with <em>no copy and paste</em> after the first run.</div>
+            <div style="margin-top:0.6rem"><span class="tag">obsidian</span> <span class="tag">workflow</span></div>
+          </a>
+        </div>
+      </div>
+      <div class="hint">Bold and italic inside a card take the card's text colour, because the card rule uses !important.</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="meta"><span class="sel">.tag</span><span class="spec">--tag-bg, --tag-text</span></div>
+    <div class="sample"><p><span class="tag">obsidian</span> <span class="tag">css</span> <span class="tag">notes</span></p></div>
+  </div>
+
+  <div class="sec-title">Buttons and form</div>
+  <div class="row">
+    <div class="meta"><span class="sel">.rv-subscribe-btn</span><span class="spec">orange pill, white text, weight 400</span></div>
+    <div class="sample">
+      <a class="rv-subscribe-btn" href="#">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><circle cx="3" cy="13" r="2"/><path d="M1 6.5a8.5 8.5 0 0 1 8.5 8.5H7A6 6 0 0 0 1 9z"/><path d="M1 1.5A13.5 13.5 0 0 1 14.5 15H12A11 11 0 0 0 1 4z"/></svg>
+        Subscribe via RSS
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="meta"><span class="sel">.rv-btn</span><span class="spec">--link fill, --bg text; hover --link-hover</span></div>
+    <div class="sample"><a class="rv-btn" href="#">Read the archive</a></div>
+  </div>
+  <div class="row">
+    <div class="meta"><span class="sel">.rv-btn-pink</span><span class="spec">pink fill, white text; hover purple</span></div>
+    <div class="sample"><a class="rv-btn rv-btn-pink" href="#">Say hello</a></div>
+  </div>
+  <div class="row">
+    <div class="meta"><span class="sel">.rv-subscribe-form</span><span class="spec">label in --link; pill email field</span></div>
+    <div class="sample">
+      <form class="rv-subscribe-form" id="demo-form">
+        <label for="demo-email">Get new posts by email</label>
+        <input type="email" id="demo-email" placeholder="you@example.com">
+        <button type="submit" class="rv-subscribe-btn">Subscribe</button>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="meta"><span class="sel">.refresh-btn</span><span class="spec">--text-secondary, weight 400, no gradient</span></div>
+    <div class="sample"><p><a class="refresh-btn" href="#">Refresh posts</a></p></div>
+  </div>
+
+  <div class="sec-title">Navigation, images and footer</div>
+  <div class="row">
+    <div class="meta"><span class="sel">.rv-sidebar-nav a</span><span class="spec">desktop: stacked gradient links, 1.05rem</span></div>
+    <div class="sample"><div class="rv-sidebar-nav"><a href="#">Home</a><a href="#">Blog</a><a href="#">Links</a></div></div>
+  </div>
+  <div class="row">
+    <div class="meta"><span class="sel">.rv-sidebar-nav a</span><span class="spec">under 800px: outlined pills, centred</span></div>
+    <div class="sample"><div class="rv-sidebar-nav demo-pills"><a href="#">Home</a><a href="#">Blog</a><a href="#">Links</a></div></div>
+  </div>
+  <div class="row">
+    <div class="meta"><span class="sel">figcaption</span><span class="spec">white 80% on dark panel; slides in on hover</span></div>
+    <div class="sample">
+      <div class="demo-wrap">
+        <figure>
+          <img alt="Soft pink to teal gradient" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 200'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff6ec7'/%3E%3Cstop offset='0.5' stop-color='%23c86eff'/%3E%3Cstop offset='1' stop-color='%236effa3'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='320' height='200' fill='url(%23g)'/%3E%3C/svg%3E">
+          <figcaption>Sample caption on hover</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="meta"><span class="sel">.site-footer</span><span class="spec">centred, 85% opacity, rainbow top rule</span></div>
+    <div class="sample"><div class="site-footer"><p style="margin:0;font-size:1rem">Made with Obsidian. Updated 10 Nov 2026.</p></div></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var buttons = document.querySelectorAll('.seg button');
+  function apply(mode) {
+    if (mode === 'light' || mode === 'dark') root.setAttribute('data-theme', mode);
+    else root.removeAttribute('data-theme');
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.mode === mode)); });
+  }
+  var saved = 'auto';
+  try { saved = localStorage.getItem('rv-preview-theme') || 'auto'; } catch (e) {}
+  apply(saved);
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      apply(b.dataset.mode);
+      try { localStorage.setItem('rv-preview-theme', b.dataset.mode); } catch (e) {}
+    });
+  });
+  document.getElementById('demo-form').addEventListener('submit', function (e) { e.preventDefault(); });
+  document.querySelectorAll('a[href="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); });
+  });
+})();
+</script>
+
+</body></html>
