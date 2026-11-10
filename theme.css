@@ -1,5 +1,5 @@
 /*──────────────────────────────────────────────
-  Obsidian Rainbow CSS — v5.0
+  Obsidian Rainbow CSS — v5.1
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -58,7 +58,12 @@
           weight 600 so it stands out against the
           100-weight body text. Headings and post
           cards keep their existing colours.
+  v5.1 — h1 now uses Questrial, loaded from Google
+          Fonts, with Roboto as fallback. h2–h6 are
+          unchanged (Roboto, default bold).
 ──────────────────────────────────────────────*/
+
+@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
 
 /*──────────────────────────────────────────────
   Light Theme (Warm Velvet Daylight)
@@ -428,6 +433,12 @@ h3 { margin: 0.4em 0 0.28em; line-height: 1.24; color: var(--sapphire) !importan
 h4 { margin: 0.35em 0 0.25em; line-height: 1.26; color: var(--lavender) !important; }
 h5 { color: var(--gold) !important; }
 h6 { color: var(--rose) !important; }
+
+/* h1 only; h2-h6 keep the body font. h1 is already weight 400,
+   which is the only weight Questrial has. */
+h1 {
+  font-family: "Questrial", "Roboto", system-ui, sans-serif;
+}
 
 p {
   color: var(--text);
