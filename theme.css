@@ -1,5 +1,5 @@
 /*──────────────────────────────────────────────
-  Obsidian Rainbow CSS — v4.9
+  Obsidian Rainbow CSS — v5.0
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -51,6 +51,13 @@
   v4.9 — Mobile nav: under 800px the sidebar links
           become a centred row of outlined pills
           instead of a tall vertical list.
+  v5.0 — Bold and italic text now have their own
+          colours (pink bold, mint italic) via new
+          --bold-color / --italic-color variables
+          for both light and dark themes. Bold uses
+          weight 600 so it stands out against the
+          100-weight body text. Headings and post
+          cards keep their existing colours.
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -79,6 +86,9 @@
   --teal: #4fbfa8;
   --gold: #d6a85a;
   --rose: #d97a8c;
+
+  --bold-color: #d6559a;
+  --italic-color: #2f9c85;
 }
 
 /*──────────────────────────────────────────────
@@ -107,6 +117,9 @@ html.theme-dark {
   --teal: #94e2d5;
   --gold: #f9e2af;
   --rose: #f38ba8;
+
+  --bold-color: #f78fc3;
+  --italic-color: #8ef0d8;
 }
 
 /*──────────────────────────────────────────────
@@ -422,6 +435,31 @@ p {
   line-height: 1.5;
   margin: 0.6em 0;
   font-weight: 100;
+}
+
+/*──────────────────────────────────────────────
+  Bold & Italic
+──────────────────────────────────────────────*/
+
+strong,
+b {
+  color: var(--bold-color);
+  font-weight: 600;
+}
+
+em,
+i {
+  color: var(--italic-color);
+  font-style: italic;
+  font-weight: 100;
+}
+
+/* Keep gradient headings and post cards intact. */
+h1 strong, h1 em, h1 b, h1 i,
+.post-item strong, .post-item em,
+.post-item b, .post-item i {
+  color: inherit;
+  -webkit-text-fill-color: inherit;
 }
 
 /*──────────────────────────────────────────────
