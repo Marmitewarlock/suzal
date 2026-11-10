@@ -1,5 +1,5 @@
 /*──────────────────────────────────────────────
-  Obsidian Rainbow CSS — v5.2
+  Obsidian Rainbow CSS — v5.3
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -63,6 +63,10 @@
           unchanged (Roboto, default bold).
   v5.2 — Sidebar heading (.rv-blog-header h1) made
           larger: 1.906rem → 2.4rem.
+  v5.3 — Sidebar heading larger again (2.4rem →
+          2.9rem). Post titles (.post-title) now match
+          the h1 style (Questrial, 1.906rem, weight
+          400) in solid --lavender instead of --link.
 ──────────────────────────────────────────────*/
 
 @import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
@@ -175,7 +179,7 @@ body {
 
 /* Sidebar heading, bumped up from the default h1 size (1.906rem). */
 .rv-blog-header h1 {
-  font-size: 2.4rem;
+  font-size: 2.9rem;
 }
 
 .rv-sidebar-nav {
@@ -607,9 +611,17 @@ blockquote {
   -webkit-background-clip: initial !important;
 }
 
+/* Post titles look like an h1 (Questrial, same size, weight and
+   tracking) but in solid lavender instead of the rainbow gradient. */
 .post-item .post-title {
-  color: var(--link) !important;
-  -webkit-text-fill-color: var(--link) !important;
+  font-family: "Questrial", "Roboto", system-ui, sans-serif;
+  font-size: 1.906rem;
+  font-weight: 400;
+  letter-spacing: -0.35px;
+  line-height: 1.14;
+  margin: 0 0 0.35em;
+  color: var(--lavender) !important;
+  -webkit-text-fill-color: var(--lavender) !important;
 }
 
 .tag {
