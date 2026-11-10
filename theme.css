@@ -1,5 +1,5 @@
 /*──────────────────────────────────────────────
-  Obsidian Rainbow CSS — v5.1
+  Obsidian Rainbow CSS — v5.2
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -61,6 +61,8 @@
   v5.1 — h1 now uses Questrial, loaded from Google
           Fonts, with Roboto as fallback. h2–h6 are
           unchanged (Roboto, default bold).
+  v5.2 — Sidebar heading (.rv-blog-header h1) made
+          larger: 1.906rem → 2.4rem.
 ──────────────────────────────────────────────*/
 
 @import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
@@ -169,6 +171,11 @@ body {
 .rv-blog-header {
   text-align: center;
   margin-bottom: 1.5rem;
+}
+
+/* Sidebar heading, bumped up from the default h1 size (1.906rem). */
+.rv-blog-header h1 {
+  font-size: 2.4rem;
 }
 
 .rv-sidebar-nav {
