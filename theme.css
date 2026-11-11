@@ -644,8 +644,8 @@ blockquote {
   order: 2;
   float: none !important;
   margin: 0 !important;
-  width: 140px !important;
-  height: 140px !important;
+  width: 200px !important;
+  height: 200px !important;
   flex-shrink: 0;
   object-fit: cover;
   border-radius: 8px;
