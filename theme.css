@@ -1,5 +1,5 @@
 /*──────────────────────────────────────────────
-  Obsidian Rainbow CSS — v5.4
+  Obsidian Rainbow CSS — v5.5
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -67,9 +67,16 @@
           2.9rem). Post titles (.post-title) now match
           the h1 style (Questrial, 1.906rem, weight
           400) in solid --lavender instead of --link.
-  v5.4 — Post thumbnails larger (140px square, 96px
-          under 480px). Post descriptions now wrap
-          fully instead of truncating.
+  v5.4 — Post cards are now a two-column flex row:
+          text column (.post-body) beside a larger
+          thumbnail (.post-thumb, 140px square, 96px
+          under 480px) on the right. Descriptions wrap
+          fully inside the text column instead of
+          truncating or dropping below the image.
+  v5.5 — The pill-style nav is now the default at
+          every width (previously mobile only, under
+          800px). Desktop sidebar links are no longer
+          a stacked list.
 ──────────────────────────────────────────────*/
 
 @import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
@@ -187,9 +194,25 @@ body {
 
 .rv-sidebar-nav {
   display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
   font-size: 1.05rem;
+}
+
+/* Nav links are outlined pills at every width. The gradient link
+   text is kept; the pill is just an outline. */
+.rv-sidebar-nav a {
+  padding: 0.35rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 1rem;
+  transition: background-position 0.4s ease, border-color 0.2s ease;
+}
+
+.rv-sidebar-nav a:hover {
+  border-color: var(--lavender);
 }
 
 .rv-content {
@@ -385,32 +408,12 @@ body {
 }
 
 /*──────────────────────────────────────────────
-  Mobile Nav (pill row)
+  Mobile Header Spacing
 ──────────────────────────────────────────────*/
 
 @media (max-width: 800px) {
   .rv-blog-header {
     margin-bottom: 1rem;
-  }
-
-  .rv-sidebar-nav {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-
-  /* Keeps the gradient link text; the pill is just an outline. */
-  .rv-sidebar-nav a {
-    padding: 0.35rem 1rem;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    font-size: 1rem;
-    transition: background-position 0.4s ease, border-color 0.2s ease;
-  }
-
-  .rv-sidebar-nav a:hover {
-    border-color: var(--lavender);
   }
 }
 
@@ -627,21 +630,35 @@ blockquote {
   -webkit-text-fill-color: var(--lavender) !important;
 }
 
-/* Post thumbnail: larger fixed square. The image is matched as
-   .post-item img because its own class name isn't known. */
-.post-item img {
-  width: 140px;
-  height: 140px;
-  object-fit: cover;
+/* Post card layout: thumbnail in a fixed column on the right,
+   text in a column beside it. Flex replaces the viewer's float,
+   so the description wraps inside its own column instead of
+   dropping below the image. */
+.post-item a {
+  display: flex !important;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.post-item .post-thumb {
+  order: 2;
+  float: none !important;
+  margin: 0 !important;
+  width: 140px !important;
+  height: 140px !important;
   flex-shrink: 0;
+  object-fit: cover;
   border-radius: 8px;
+}
+
+.post-item .post-body {
+  order: 1;
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 /* Post description: wrap onto as many lines as it needs instead
    of being cut off with an ellipsis. */
-.post-item .post-body {
-  min-width: 0;
-}
 
 .post-item .post-description {
   display: block !important;
@@ -654,9 +671,9 @@ blockquote {
 }
 
 @media (max-width: 480px) {
-  .post-item img {
-    width: 96px;
-    height: 96px;
+  .post-item .post-thumb {
+    width: 96px !important;
+    height: 96px !important;
   }
 }
 
