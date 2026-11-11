@@ -1,5 +1,5 @@
 /*──────────────────────────────────────────────
-  Obsidian Rainbow CSS — v5.5
+  Obsidian Rainbow CSS — v5.6
 ──────────────────────────────────────────────*/
 
 /*──────────────────────────────────────────────
@@ -77,6 +77,8 @@
           every width (previously mobile only, under
           800px). Desktop sidebar links are no longer
           a stacked list.
+  v5.6 — Added .rv-small, a smaller-text class
+          (0.9rem) for paragraphs, spans and wrappers.
 ──────────────────────────────────────────────*/
 
 @import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
@@ -465,6 +467,15 @@ p {
   font-weight: 100;
 }
 
+/* Smaller text: add class="rv-small" to a paragraph, span or div.
+   On a wrapper, it also shrinks the paragraphs and list items inside. */
+.rv-small,
+.rv-small p,
+.rv-small li {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
 /*──────────────────────────────────────────────
   Bold & Italic
 ──────────────────────────────────────────────*/
@@ -644,8 +655,8 @@ blockquote {
   order: 2;
   float: none !important;
   margin: 0 !important;
-  width: 200px !important;
-  height: 200px !important;
+  width: 140px !important;
+  height: 140px !important;
   flex-shrink: 0;
   object-fit: cover;
   border-radius: 8px;
