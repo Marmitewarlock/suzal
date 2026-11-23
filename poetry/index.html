@@ -8,6 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/theme.css">
+  <style>
+    a, a:hover, .post-item a, .post-item a * { text-decoration: none; }
+  </style>
   <script>
     // Apply saved/system theme before paint to avoid a flash
     (function () {
@@ -70,6 +73,16 @@
   const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
     ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
+  // Turn a post's full HTML into plain-text paragraphs (drops images, buttons, widgets)
+  function toParagraphs(html) {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    doc.querySelectorAll("figure, picture, .button-wrapper, .subscription-widget-wrap, script, style")
+       .forEach(el => el.remove());
+    return [...doc.body.querySelectorAll("p, h1, h2, h3, h4, h5, h6, li")]
+      .map(el => el.textContent.trim())
+      .filter(Boolean);
+  }
+
   document.getElementById("year").textContent = new Date().getFullYear();
 
   // Theme toggle
@@ -86,7 +99,7 @@
       if (!d.items || !d.items.length) throw new Error("No posts");
       document.getElementById("posts").innerHTML = d.items.map(p => {
         const thumb = p.thumbnail || (p.enclosure && p.enclosure.link) || "";
-        const desc = (p.description || "").replace(/<[^>]+>/g, "").trim();
+        const paras = toParagraphs(p.content || p.description || "");
         const date = new Date(p.pubDate.replace(" ", "T") + "Z")
           .toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
         return `
@@ -95,7 +108,7 @@
               <div class="post-body">
                 <div class="post-title">${esc(p.title)}</div>
                 <div class="rv-small">${esc(date)}</div>
-                <p class="post-description">${esc(desc)}</p>
+                ${paras.map(t => `<p class="post-description">${esc(t)}</p>`).join("")}
               </div>
               ${thumb ? `<img class="post-thumb" src="${esc(thumb)}" alt="">` : ""}
             </a>
@@ -107,5 +120,5 @@
         `<p>Couldn't load posts. <a href="${SUBSTACK}">Read on Substack</a>.</p>`;
     });
 </script>
-</body>
+</b ody>
 </html>
