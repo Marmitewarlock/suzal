@@ -19,6 +19,19 @@
     .post-item.open .post-text { max-height: none; }
     .post-toggle { margin-top: 0.8rem; }
     .post-toggle[hidden] { display: none; }
+
+    /* Two-column post grid; one column on narrow screens.
+       align-items: start so expanding one card doesn't stretch its neighbour. */
+    .post-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+      align-items: start;
+    }
+    .post-list .post-item { margin-bottom: 0; }
+    @media (max-width: 800px) {
+      .post-list { grid-template-columns: 1fr; }
+    }
   </style>
   <script>
     // Apply saved/system theme before paint to avoid a flash
