@@ -1,14 +1,112 @@
-<div id="posts"></div>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Blog</title>
+  <link rel="alternate" type="application/rss+xml" href="https://YOURNAME.substack.com/feed">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;400;600&display=swap" rel="stylesheet">
+  <!-- Save your Obsidian Rainbow CSS as style.css next to this file -->
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Apply saved/system theme before paint to avoid a flash
+    (function () {
+      try {
+        var saved = localStorage.getItem("theme");
+        var dark = saved ? saved === "dark"
+                         : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (dark) document.documentElement.classList.add("theme-dark");
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+<div id="app">
+  <div class="rv-layout">
+
+    <aside class="rv-sidebar">
+      <div class="rv-blog-header">
+        <h1>My Blog</h1>
+      </div>
+      <nav class="rv-sidebar-nav">
+        <a href="index.html">Home</a>
+        <a href="https://YOURNAME.substack.com/archive">Archive</a>
+        <a href="links.html">Links</a>
+      </nav>
+    </aside>
+
+    <main class="rv-content">
+      <div class="rv-crest-line"></div>
+
+      <a class="rv-subscribe-btn" href="https://YOURNAME.substack.com/feed">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <circle cx="5" cy="19" r="2.5"/>
+          <path d="M3 10v3.5a7.5 7.5 0 0 1 7.5 7.5H14A11 11 0 0 0 3 10z"/>
+          <path d="M3 3v3.5A14.5 14.5 0 0 1 17.5 21H21A18 18 0 0 0 3 3z"/>
+        </svg>
+        Subscribe via RSS
+      </a>
+
+      <form class="rv-subscribe-form" action="https://YOURNAME.substack.com/subscribe" method="get" target="_blank">
+        <label for="email">Get new posts by email</label>
+        <input id="email" type="email" name="email" placeholder="you@example.com" required>
+        <button class="rv-subscribe-btn" type="submit">Subscribe</button>
+      </form>
+
+      <div id="posts" class="post-list">Loading posts…</div>
+    </main>
+
+  </div>
+
+  <footer class="site-footer">
+    <p class="rv-small">© <span id="year"></span> My Blog</p>
+  </footer>
+</div>
+
+<button class="rv-theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme">◐</button>
+
 <script>
-fetch("https://api.rss2json.com/v1/api.json?rss_url=" +
-      encodeURIComponent("https://linumcatharticum.substack.com/feed"))
-  .then(r => r.json())
-  .then(d => {
-    document.getElementById("posts").innerHTML = d.items.map(p =>
-      `<article>
-         <h2><a href="${p.link}">${p.title}</a></h2>
-         <time>${new Date(p.pubDate).toLocaleDateString()}</time>
-         <p>${p.description.replace(/<[^>]+>/g, "").slice(0, 200)}…</p>
-       </article>`).join("");
+  const SUBSTACK = "https://linumcatharticum.substack.com";
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Theme toggle
+  document.getElementById("theme-toggle").addEventListener("click", () => {
+    const dark = document.documentElement.classList.toggle("theme-dark");
+    try { localStorage.setItem("theme", dark ? "dark" : "light"); } catch (e) {}
   });
+
+  // Posts from the Substack RSS feed
+  fetch("https://api.rss2json.com/v1/api.json?rss_url=" +
+        encodeURIComponent(SUBSTACK + "/feed"))
+    .then(r => r.json())
+    .then(d => {
+      if (!d.items || !d.items.length) throw new Error("No posts");
+      document.getElementById("posts").innerHTML = d.items.map(p => {
+        const thumb = p.thumbnail || (p.enclosure && p.enclosure.link) || "";
+        const desc = (p.description || "").replace(/<[^>]+>/g, "").trim();
+        const date = new Date(p.pubDate.replace(" ", "T") + "Z")
+          .toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
+        return `
+          <article class="post-item">
+            <a href="${esc(p.link)}">
+              <div class="post-body">
+                <div class="post-title">${esc(p.title)}</div>
+                <div class="rv-small">${esc(date)}</div>
+                <p class="post-description">${esc(desc)}</p>
+              </div>
+              ${thumb ? `<img class="post-thumb" src="${esc(thumb)}" alt="">` : ""}
+            </a>
+          </article>`;
+      }).join("");
+    })
+    .catch(() => {
+      document.getElementById("posts").innerHTML =
+        `<p>Couldn't load posts. <a href="${SUBSTACK}">Read on Substack</a>.</p>`;
+    });
 </script>
+</body>
+</html>
