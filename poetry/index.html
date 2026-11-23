@@ -1,0 +1,14 @@
+<div id="posts"></div>
+<script>
+fetch("https://api.rss2json.com/v1/api.json?rss_url=" +
+      encodeURIComponent("https://linumcatharticum.substack.com/feed"))
+  .then(r => r.json())
+  .then(d => {
+    document.getElementById("posts").innerHTML = d.items.map(p =>
+      `<article>
+         <h2><a href="${p.link}">${p.title}</a></h2>
+         <time>${new Date(p.pubDate).toLocaleDateString()}</time>
+         <p>${p.description.replace(/<[^>]+>/g, "").slice(0, 200)}…</p>
+       </article>`).join("");
+  });
+</script>
