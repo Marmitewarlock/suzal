@@ -10,6 +10,15 @@
   <link rel="stylesheet" href="/theme.css">
   <style>
     a, a:hover, .post-item a, .post-item a * { text-decoration: none; }
+
+    /* Keep line breaks inside paragraphs (poems etc.) */
+    .post-item .post-description { white-space: pre-line !important; }
+
+    /* Collapse long posts at ~24 lines (1.2rem font x 1.5 line-height) */
+    .post-text { max-height: 43.2rem; overflow: hidden; }
+    .post-item.open .post-text { max-height: none; }
+    .post-toggle { margin-top: 0.8rem; }
+    .post-toggle[hidden] { display: none; }
   </style>
   <script>
     // Apply saved/system theme before paint to avoid a flash
@@ -76,6 +85,7 @@
   // Turn a post's full HTML into plain-text paragraphs (drops images, buttons, widgets)
   function toParagraphs(html) {
     const doc = new DOMParser().parseFromString(html, "text/html");
+    doc.querySelectorAll("br").forEach(br => br.replaceWith("\n"));
     doc.querySelectorAll("figure, picture, .button-wrapper, .subscription-widget-wrap, script, style")
        .forEach(el => el.remove());
     return [...doc.body.querySelectorAll("p, h1, h2, h3, h4, h5, h6, li")]
@@ -108,17 +118,36 @@
               <div class="post-body">
                 <div class="post-title">${esc(p.title)}</div>
                 <div class="rv-small">${esc(date)}</div>
-                ${paras.map(t => `<p class="post-description">${esc(t)}</p>`).join("")}
+                <div class="post-text">${paras.map(t => `<p class="post-description">${esc(t)}</p>`).join("")}</div>
               </div>
               ${thumb ? `<img class="post-thumb" src="${esc(thumb)}" alt="">` : ""}
             </a>
+            <button class="rv-btn post-toggle" type="button" hidden>Read more</button>
           </article>`;
       }).join("");
+
+      const postsEl = document.getElementById("posts");
+      const checkOverflow = () => postsEl.querySelectorAll(".post-item").forEach(card => {
+        const text = card.querySelector(".post-text");
+        const btn = card.querySelector(".post-toggle");
+        if (card.classList.contains("open")) { btn.hidden = false; return; }
+        btn.hidden = text.scrollHeight <= text.clientHeight + 2;
+      });
+      postsEl.addEventListener("click", e => {
+        const btn = e.target.closest(".post-toggle");
+        if (!btn) return;
+        const open = btn.closest(".post-item").classList.toggle("open");
+        btn.textContent = open ? "Show less" : "Read more";
+      });
+      checkOverflow();
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(checkOverflow);
+      window.addEventListener("resize", checkOverflow);
     })
     .catch(() => {
       document.getElementById("posts").innerHTML =
         `<p>Couldn't load posts. <a href="${SUBSTACK}">Read on Substack</a>.</p>`;
     });
 </script>
-</b ody>
+</body>
 </html>
+ 
